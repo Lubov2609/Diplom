@@ -1,0 +1,22 @@
+{
+  "name": "diplom",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lubov2609/Diplom.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lubov2609/Diplom/issues"
+  },
+  "homepage": "https://github.com/Lubov2609/Diplom#readme",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
