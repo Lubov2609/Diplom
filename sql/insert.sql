@@ -1,5 +1,5 @@
 Connect database
-\connect stroysnab_development;
+\connect my_db;
 
 Open terminal psql
 \i sql/insert.sql
