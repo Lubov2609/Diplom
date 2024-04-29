@@ -2,7 +2,7 @@ exports.up = (knex, Promise) => {
     return knex.schema
         .createTable("roles", table => {
             table.increments().primary();
-            table.integer("role_name",4).notNullable();
+            table.string("role_name",255).notNullable();
             table.timestamps(true, true);
         });
 };
