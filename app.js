@@ -5,18 +5,19 @@
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
-var bodyParser =require('body-parser');
+var parser =require('body-parser');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+require('dotenv').config()
 // Регистрация роутов для сайта
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
 var contactRouter = require('./routes/contact');
-var yearsRouter = require('./routes/years');
+// var yearsRouter = require('./routes/years');
 var docsRouter = require('./routes/docs');
-const engine = require("express/lib/application");
+const userRouter = require("./routes/userRouter.js");
+
 var app = express();
 
 
@@ -25,11 +26,15 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
 
+
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+// app.use(parser.urlencoded({extended: true}))
+// app.use(parser.json())
+
 
 
 
@@ -37,14 +42,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 // Подключение роутов для проекта
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/users', userRouter);
 app.use('/contact', contactRouter);
 app.use('/docs',docsRouter);
-app.use('/years', yearsRouter);
+// app.use('/years', yearsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
-  next(createError(404));
+  next(createError(404).send("Not Found"));
 });
 
 // error handler
@@ -57,6 +62,23 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+//вывод select app.js
+//
+// const {Pool,Client} = require('pg')
+// const pool = new Pool({
+//   user:"postgres",
+//   host:"localhost",
+//   database:"my_db",
+//   password:"admin",
+//   port:5432
+// })
+//
+// pool.query("SELECT * FROM years",(err,res)=>{
+//
+// console.log(err,res)
+// pool.end()
+// })
+
 
 
 
