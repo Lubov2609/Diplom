@@ -21,9 +21,13 @@
     <title></title>
 </head>
 <body>
-
+{{#if years}}
+{{# each years}}
+    {{year_name}}
+    {{/each}}
+{{/if}}
 <div class="container">
-    <h1 class="mt-4 mb-4 text-center text-primary"><b><%= title%></b></h1>
+    <h1 class="mt-4 mb-4 text-center text-primary">{{title}}</h1>
 
     <span id="message"></span>
     <div class="card">
@@ -77,7 +81,7 @@
                         {
                             html += `
                         <tr>
-                            <td>`+data.data[count].years+`</td>
+                            <td>`+data.data[count].year_name+`</td>
                             <td></td>
                         </tr>
                         `;
