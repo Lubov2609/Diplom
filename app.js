@@ -10,11 +10,11 @@ var logger = require('morgan');
 require('dotenv').config()
 
 // Регистрация роутов для сайта
-var indexRouter = require('./routes/index');
-var contactRouter = require('./routes/contact');
+var mainRoute = require('./routes/main');
+// var contactRouter = require('./routes/contact');
 // var yearsRouter = require('./routes/years');
-var docsRouter = require('./routes/docs');
-const userRouter = require("./routes/userRouter.js");
+// var docsRouter = require('./routes/docs');
+// const userRouter = require("./routes/userRouter.js");
 
 var app = express();
 
@@ -34,10 +34,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 // app.use(parser.json())
 
 // Подключение роутов для проекта
-app.use('/', indexRouter);
-app.use('/users', userRouter);
-app.use('/contact', contactRouter);
-app.use('/docs',docsRouter);
+app.use("/", mainRoute);
+// app.use('/users', userRouter);
+// app.use('/contact', contactRouter);
+// app.use('/docs',docsRouter);
 // app.use('/years', yearsRouter);
 
 // catch 404 and forward to error handler
@@ -55,21 +55,5 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
-//вывод select app.js
-//
-// const {Pool,Client} = require('pg')
-// const pool = new Pool({
-//   user:"postgres",
-//   host:"localhost",
-//   database:"my_db",
-//   password:"admin",
-//   port:5432
-// })
-//
-// pool.query("SELECT * FROM years",(err,res)=>{
-//
-// console.log(err,res)
-// pool.end()
-// })
 
 module.exports = app;
