@@ -7,7 +7,7 @@ module.exports = {
         client: "pg",
         connection: {
             host: "localhost",
-            user: "postgres",
+            user: "luba",
             password: "admin",
             database: "my_db"
         }
@@ -16,7 +16,7 @@ module.exports = {
         client: "pg",
         connection: {
             host: "localhost",
-            user: "postgres",
+            user: "luba",
             password: "admin",
             database: "my_db"
         }
