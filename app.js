@@ -1,7 +1,5 @@
 
 // Подключение библиотек для сайта
-
-
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -10,8 +8,8 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 require('dotenv').config()
-// Регистрация роутов для сайта
 
+// Регистрация роутов для сайта
 var indexRouter = require('./routes/index');
 var contactRouter = require('./routes/contact');
 // var yearsRouter = require('./routes/years');
@@ -20,12 +18,12 @@ const userRouter = require("./routes/userRouter.js");
 
 var app = express();
 
-
 // Насстройка шаблонов view
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
-
+// 
+// app.set("trust proxy", true);
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -35,12 +33,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // app.use(parser.urlencoded({extended: true}))
 // app.use(parser.json())
 
-
-
-
-
 // Подключение роутов для проекта
-
 app.use('/', indexRouter);
 app.use('/users', userRouter);
 app.use('/contact', contactRouter);
@@ -78,8 +71,5 @@ app.use(function(err, req, res, next) {
 // console.log(err,res)
 // pool.end()
 // })
-
-
-
 
 module.exports = app;

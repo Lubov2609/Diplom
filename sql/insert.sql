@@ -2,7 +2,7 @@
 -- \connect my_db;
 --
 -- Open terminal psql
--- \i sql/insert.sqlE
+-- \i sql/insert.sql
 -- SQL Insert in Years
 INSERT INTO years VALUES (1,2020);
 INSERT INTO years VALUES (3,2022);
