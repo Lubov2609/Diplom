@@ -3,7 +3,8 @@
 
 -- Open terminal psql
 -- \i sql/select.sql
-
+-- SQL Select roles
+SELECT * FROM roles ORDER BY id ASC;
 -- SQL Select group
 SELECT * FROM groups ORDER BY id ASC;
 

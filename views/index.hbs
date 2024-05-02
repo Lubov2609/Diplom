@@ -2,4 +2,8 @@
 <h1>{{title}}</h1>
 <p>Welcome to {{title}} Toom</p>
 <!-- ROLES -->
-{{{ roles }}}
+{{roles}}
+
+{{#each roles}}
+{{role_name}}
+{{/each}}

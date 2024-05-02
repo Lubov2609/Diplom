@@ -4,7 +4,7 @@ pg.defaults.ssl = false
 
 module.exports = {
     development: {
-        client: "pg",
+        client: "postgresql",
         connection: {
             host: "localhost",
             user: "luba",
@@ -13,7 +13,7 @@ module.exports = {
         }
     },
     production: {
-        client: "pg",
+        client: "postgresql",
         connection: {
             host: "localhost",
             user: "luba",
