@@ -2,8 +2,10 @@ var express = require('express');
 var router = express.Router();
 
 var MainController = require("../controllers/main");
-const {getGroup} = require("../controllers/main");
+
+
+router.route("/").get(MainController.getRoles)
 // var Services = require("../services/checkAuth");
 
-router.get("/", MainController.getRoles);
+// router.get("/", MainController.getRoles);
 module.exports = router;

@@ -1,39 +1,54 @@
-// import config from 'config';
 var knex = require('../db/db');
+const config = require('../db/db');
+module.exports = knex(config.development);
+const rolesService = require("../service/rolesService");
 const slugify = require('slug');
 /*
  * GET getRoles
  */
-exports.getRoles= function(req, res, next){
-    let roles;
 
-  try {
-    roles = knex('roles').orderBy('id', 'ASC');
-  } catch ({ message }) {
-    return next({
-      status: 500,
-      message,
-    });
+module.exports = rolesController = {
+  getRoles: async (req, res, next) => {
+    try {
+      const roles = await roleService.getRoles();
+      res.json(roles);
+    } catch (error) {
+      next(error);
+    }
   }
-  //удалить эти 2 абзаца
-  if (!roles[0]) {
-    return res.status(404).json({ message: 'Roles not found' });
-  }
+};
 
-  // [0] - удаляет квадратные скобки в выводе
-  return res.json(roles);
-}
-
-
-
-// вернуться к прошлой версии- раскомитить это
+// exports.getRoles= function(req, res, next){
+//     let roles;
+//
+//   try {
+//     roles = knex('roles').orderBy('id', 'ASC');
+//   } catch ({ message }) {
+//     return next({
+//       status: 500,
+//       message,
+//     });
+//    }
+// //   // удалить эти 2 абзаца
+// //   if (!roles[0]) {
+// //     return res.status(404).json({ message: 'Roles not found' });
+// //   }
+// //
+// //   // [0] - удаляет квадратные скобки в выводе
+// //   return res.json(roles);
+// // }
+//
+//
+//
+// // вернуться к прошлой версии- раскомитить это
 //   res.render('index', {
 //     title: 'Главная страница',
 //     roles,
 //   });
-//
 //   global.console.log(roles);
 // }
+
+
 
 // exports.getRoles = function(request, response){
 //     response.render("index", {
