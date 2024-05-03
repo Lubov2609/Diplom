@@ -10,7 +10,7 @@ var logger = require('morgan');
 require('dotenv').config()
 
 // Регистрация роутов для сайта
-var mainRoute = require('./routes/main');
+const mainRoute = require('./routes/main');
 // var contactRouter = require('./routes/contact');
 // var yearsRouter = require('./routes/years');
 // var docsRouter = require('./routes/docs');

@@ -2,8 +2,7 @@ const db = require('../db/db');
 
 module.exports = roleService = {
     getRoles: async () => {
-        const roles = await db("roles")
-        return roles;
+        return db("roles");
     },
 };
 

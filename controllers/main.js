@@ -1,17 +1,29 @@
-var knex = require('../db/db');
-const config = require('../db/db');
-module.exports = knex(config.development);
+// var knex = require('../db/db');
+// const config = require('../db/db');
+// module.exports = knex(config.development);
 const rolesService = require("../service/rolesService");
-const slugify = require('slug');
+// const slugify = require('slug');
 /*
  * GET getRoles
  */
 
-module.exports = rolesController = {
+module.exports = roleController = {
   getRoles: async (req, res, next) => {
     try {
-      const roles = await roleService.getRoles();
-      res.json(roles);
+      const roles = await rolesService.getRoles();
+
+     //сточка вывода всего селекта
+     //  res.json(roles);
+
+
+
+      //вывод объектов
+      res.render('index', {
+    title: 'Главная страница',
+    roles,
+  });
+  global.console.log(roles);
+
     } catch (error) {
       next(error);
     }
