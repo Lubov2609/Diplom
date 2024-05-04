@@ -10,10 +10,11 @@ var logger = require('morgan');
 require('dotenv').config()
 
 // Регистрация роутов для сайта
+const aboutRouter = require('./routes/about')
 const mainRoute = require('./routes/main');
-// var contactRouter = require('./routes/contact');
+var contactRouter = require('./routes/contact');
 // var yearsRouter = require('./routes/years');
-// var docsRouter = require('./routes/docs');
+var docsRouter = require('./routes/docs');
 // const userRouter = require("./routes/userRouter.js");
 
 var app = express();
@@ -22,8 +23,12 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
+
+
+
 // 
 // app.set("trust proxy", true);
+
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -33,12 +38,28 @@ app.use(express.static(path.join(__dirname, 'public')));
 // app.use(parser.urlencoded({extended: true}))
 // app.use(parser.json())
 
+
+
+
+
+
+//создание пути тестирования
+
+app.use(function(req, res, next){
+  res.locals.showTests = app.get('env') !== 'production' &&
+      req.query.test === '1';
+  next();
+});
 // Подключение роутов для проекта
 app.use("/", mainRoute);
 // app.use('/users', userRouter);
 // app.use('/contact', contactRouter);
-// app.use('/docs',docsRouter);
+app.use('/docs',docsRouter);
 // app.use('/years', yearsRouter);
+app.use('/about',aboutRouter);
+
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
