@@ -1,4 +1,4 @@
-// var knex = require('../db/db');
+// const knex = require('../db/db');
 // const config = require('../db/db');
 // module.exports = knex(config.development);
 const rolesService = require("../service/rolesService");
@@ -30,17 +30,18 @@ module.exports = roleController = {
   }
 };
 
-// exports.getRoles= function(req, res, next){
-//     let roles;
+// exports.getRoles= function(req, res, next) {
+//   let roles;
 //
 //   try {
 //     roles = knex('roles').orderBy('id', 'ASC');
-//   } catch ({ message }) {
+//   } catch ({message}) {
 //     return next({
 //       status: 500,
 //       message,
 //     });
-//    }
+//   }
+// };
 // //   // удалить эти 2 абзаца
 // //   if (!roles[0]) {
 // //     return res.status(404).json({ message: 'Roles not found' });

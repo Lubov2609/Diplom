@@ -7,13 +7,13 @@ var parser =require('body-parser');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-require('dotenv').config()
+// require('dotenv').config()
 
 // Регистрация роутов для сайта
-const aboutRouter = require('./routes/about')
-const mainRoute = require('./routes/main');
+const aboutRouter = require('./routes/about');
+var mainRoute = require('./routes/main');
 var contactRouter = require('./routes/contact');
-// var yearsRouter = require('./routes/years');
+var yearsRouter = require('./routes/years');
 var docsRouter = require('./routes/docs');
 // const userRouter = require("./routes/userRouter.js");
 
@@ -26,11 +26,14 @@ app.set('view engine', 'hbs');
 
 
 
+
 // 
 // app.set("trust proxy", true);
+// предотвращает отображение сообщений журнала приложений в стандартном выводе при выполнении тестов
+if (process.env.NODE_ENV !== 'test') {
+  app.use(logger('dev'));
+}
 
-
-app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -45,17 +48,17 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //создание пути тестирования
 
-app.use(function(req, res, next){
-  res.locals.showTests = app.get('env') !== 'production' &&
-      req.query.test === '1';
-  next();
-});
+// app.use(function(req, res, next){
+//   res.locals.showTests = app.get('env') !== 'production' &&
+//       req.query.test === '1';
+//   next();
+// });
 // Подключение роутов для проекта
 app.use("/", mainRoute);
 // app.use('/users', userRouter);
 // app.use('/contact', contactRouter);
 app.use('/docs',docsRouter);
-// app.use('/years', yearsRouter);
+app.use('/api/v1',yearsRouter);
 app.use('/about',aboutRouter);
 
 
@@ -74,7 +77,10 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.json({
+    message: err.message,
+    error: err
+  });
 });
 
 module.exports = app;

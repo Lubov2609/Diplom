@@ -23,6 +23,15 @@ module.exports = {
             password: "admin",
             database: "my_db"
         }
+    },
+    test: {
+        client: 'postgresql',
+        connection:{
+            host: "localhost",
+            user:"luba",
+            password:"admin",
+            database:"my_db"
+     }
     }
-  };
+};
 

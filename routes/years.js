@@ -1,46 +1,43 @@
+var express = require('express');
+var router = express.Router();
+
+var queries = require('../db/queries');
+
+
+// *** GET all shows *** //
+router.get('/years', function(req, res, next) {
+    queries.getAll()
+        .then(function(years) {
+            res.status(200).json(years);
+        })
+        .catch(function(error) {
+            next(error);
+        });
+});
+// *** GET year show *** //
+// router.get('/years/:id', function(req, res, next) {
+//     queries.getYears(req.params.id)
+//         .then(function(year) {
+//             res.status(200).json(year);
+//         })
+//         .catch(function(error) {
+//             next(error);
+//             console.log()
+//         });
+// });
 //
 //
-//
-// const express = "express";
-//
-// const YearController = "../controllers/years";
-//
-// const router = express.Router();
-//
-// router.get("/years", YearController.getAll);
-// router.post("/years", YearController.create);
-// router.get("/years/:year", YearController.getYear);
-// router.put("/years/:year", YearController.editYear);
-// router.delete("/years/:year", YearController.deleteYear);
-//
-// export default router;
-//
-//
-//
-//
-//
-// // var express = require('express');
-// // var router =express.Router();
-// // var database = require('../knexfile');
-// //
-// // router.get("/",function (request,response,next) {
-// //     response.render('years',{title:'CRUD'});
-// //
-// // });
-// // router.post("/action",function(request,response,next){
-// //
-// //     var action = request.body.action;
-// //
-// //     if (action =='fetch')
-// //     {
-// //         var query ="SELECT * FROM years ORDER BY id DESC";
-// //
-// //         database.query(query,function(error,data){
-// //             response.json({
-// //                 data:data
-// //             });
-// //         });
-// //     }
-// // });
-// //
-// // module.exports = router;
+// // *** add show *** //
+// router.post('/years', function(req, res, next) {
+//     queries.add(req.body)
+//         .then(function(showID) {
+//             return queries.getYears(showID);
+//         })
+//         .then(function(show) {
+//             res.status(200).json(show);
+//         })
+//         .catch(function(error) {
+//             next(error);
+//         });
+// });
+module.exports = router;
