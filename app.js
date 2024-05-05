@@ -11,11 +11,10 @@ require('dotenv').config()
 
 // Регистрация роутов для сайта
 const aboutRouter = require('./routes/about')
-const mainRoute = require('./routes/main');
+const mainRoute = require('./routes/mainRoute');
 var contactRouter = require('./routes/contact');
 // var yearsRouter = require('./routes/years');
 var docsRouter = require('./routes/docs');
-// const userRouter = require("./routes/userRouter.js");
 
 var app = express();
 

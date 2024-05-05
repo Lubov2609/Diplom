@@ -1,7 +1,7 @@
-
 <h1>{{title}}</h1>
 <p>Welcome to {{title}} Toom</p>
 <!-- ROLES -->
 
-{{roles}}
-
+{{# each roles}}
+    <div>{{this.id}} {{this.role_name}}</div>
+{{/each}}
