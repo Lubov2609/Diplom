@@ -2,7 +2,8 @@ const knex = require('../db/db');
 
 module.exports = mainRoles = {
     getAll: async () => {
-        const roles = await knex('roles');
-        return roles;
+        const years = await knex('years');
+
+        return years;
     }
 };

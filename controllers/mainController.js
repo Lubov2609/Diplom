@@ -3,10 +3,10 @@ const mainRoles = require('../models/mainModel');
 module.exports = mainController = {
   getAll: async (req, res, next) => {
     try {
-      const roles = await mainRoles.getAll();
+      const years = await mainRoles.getAll();
       res.render('index', {
-        title: 'Roles',
-        roles
+        title: 'Years',
+        years
       })
     } catch (error){
       next(error);

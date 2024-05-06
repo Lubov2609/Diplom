@@ -1,4 +1,18 @@
 <h1>Hello Luba</h1>
 
+{{# each docs}}
+    <div><h3> <a href="">{{this.doc_name}}</a> </h3></div>
+{{/each}}
 
-
+<form>
+    <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">Название</label>
+        <input type="name" class="form-control" id="exampleInputName1" aria-describedby="emailHelp">
+        <div id="emailHelp" class="form-text">Введите название документа</div>
+    </div>
+    <div class="mb-3">
+        <label for="exampleInputPassword1" class="form-label">Файл</label>
+        <input type="file" class="form-control" id="exampleInputFile1">
+    </div>
+    <button type="submit" class="btn btn-primary">Добавить</button>
+</form>

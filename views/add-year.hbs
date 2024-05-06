@@ -1,0 +1,12 @@
+<h1>Cоздание года</h1>
+
+<form class="form" action="/years" method="post">
+    <div class="form-group">
+        <label for="name">Год</label>
+        <input type="text" value="{{ this.year_name }}" name="name" class="form-control" id="name" placeholder="Введите название новости">
+    </div>
+
+
+    <a class="btn btn-danger btn-sm" href="/years">Назад</a>
+    <button type="submit" class="btn btn-primary btn-sm">Обновить</button>
+</form>

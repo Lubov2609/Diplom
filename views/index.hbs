@@ -1,7 +1,54 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}} Toom</p>
-<!-- ROLES -->
+<!--<h1>{{title}}</h1>-->
+<!--<p>Welcome to {{title}} Toom</p>-->
+<!--&lt;!&ndash; ROLES &ndash;&gt;-->
 
-{{# each roles}}
-    <div>{{this.id}} {{this.role_name}}</div>
-{{/each}}
+<!--{{# each roles}}-->
+<!--    <div>{{this.id}} {{this.role_name}}</div>-->
+<!--{{/each}}-->
+
+
+
+
+<!--{% block content %}-->
+<h1> Уважаемые студенты и члены ГЭК ИТИС! </h1>
+
+<div class="container mt-4">
+
+
+<!--    {% if request.user.is_authenticated %}-->
+    {{# each years}}
+        <div><h3> <a href="/{{this.year_name}}/docs">{{this.year_name}}</a></h3></div>
+    {{/each}}
+<!--    {% else %}-->
+<!--    <div class="col-4">-->
+<!--        <div align="left"><p>Мы рады приветствовать вас на входе в систему автоматизации работы членов ГЭК ИТИС.-->
+<!--            Это виртуальная  среда, которая позволяет нашим студентам-->
+<!--            Перед началом работы в системе рекомендуем ознакомиться с инструкцией.</p>></div>-->
+<!--    </div>-->
+
+    <main role="main" class="container">
+        <div class="row">
+            <div class="col-md-8">
+
+            </div>
+            <div class="col-md-4">
+                <div class="content-section">
+                    <h3>Авторизация</h3>
+                    <form id="add_form" method="post">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="name">Логин</label>
+                            <input type="text" value="" name="name" class="form-control" id="name" placeholder="Введите логин">
+                        </div>
+                        <div class="form-group">
+                        <label for="name">Пароль</label>
+                        <input type="text" value="" name="name" class="form-control" id="name" placeholder="Введите пароль">
+                    </div>
+                      <button form="add_form" type="submit" class="btn btn-primary mt-4">Зайти</button>
+                 </form>
+                </div>
+            </div>
+</div>
+
+</main>
+

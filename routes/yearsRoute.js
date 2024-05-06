@@ -1,46 +1,11 @@
-//
-//
-//
-// const express = "express";
-//
-// const YearController = "../controllers/years";
-//
-// const router = express.Router();
-//
-// router.get("/years", YearController.getAll);
-// router.post("/years", YearController.create);
-// router.get("/years/:year", YearController.getYear);
-// router.put("/years/:year", YearController.editYear);
-// router.delete("/years/:year", YearController.deleteYear);
-//
-// export default router;
-//
-//
-//
-//
-//
-// // var express = require('express');
-// // var router =express.Router();
-// // var database = require('../knexfile');
-// //
-// // router.get("/",function (request,response,next) {
-// //     response.render('years',{title:'CRUD'});
-// //
-// // });
-// // router.post("/action",function(request,response,next){
-// //
-// //     var action = request.body.action;
-// //
-// //     if (action =='fetch')
-// //     {
-// //         var query ="SELECT * FROM years ORDER BY id DESC";
-// //
-// //         database.query(query,function(error,data){
-// //             response.json({
-// //                 data:data
-// //             });
-// //         });
-// //     }
-// // });
-// //
-// // module.exports = router;
+const express = require('express');
+const router = express.Router();
+const yearsController = require("../controllers/yearsController");
+
+router.route("/years/").get(yearsController.getAll);
+router.route("/years/:id").post(yearsController.create);
+router.route("/years/:id/year").get(yearsController.getById);
+router.route("/years/:id/edit").put(yearsController.update);
+router.route("/years/:id").delete(yearsController.delete);
+
+module.exports = router;

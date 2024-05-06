@@ -1,14 +1,8 @@
+const express = require('express');
+const router = express.Router();
+const docsController = require("../controllers/docsController");
 
-var express = require('express');
-var router = express.Router();
-
-/* GET home page. */
-router.get('/', function(req, res, next) {
-    res.render('docs', { title: 'Documents' });
-});
-
-
-
+router.route("/docs/").get(docsController.getAll)
 
 module.exports = router;
 

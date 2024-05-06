@@ -1,20 +1,24 @@
 
 // Подключение библиотек для сайта
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var parser =require('body-parser');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const parser =require('body-parser');
+const methodOverride = require('method-override');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
 
 require('dotenv').config()
 
 // Регистрация роутов для сайта
 const aboutRouter = require('./routes/about')
 const mainRoute = require('./routes/mainRoute');
-var contactRouter = require('./routes/contact');
-// var yearsRouter = require('./routes/years');
-var docsRouter = require('./routes/docs');
+const contactRouter = require('./routes/contact');
+const yearsRouter = require('./routes/yearsRoute');
+const docsRouter = require('./routes/docsRoute');
+const usersRouter = require('./routes/usersRoute');
+const studentsRouter = require('./routes/studentsRoute');
+const groupsRouter = require('./routes/groupsRoute');
 
 var app = express();
 
@@ -34,6 +38,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(methodOverride('_method'));
 // app.use(parser.urlencoded({extended: true}))
 // app.use(parser.json())
 
@@ -51,14 +56,13 @@ app.use(function(req, res, next){
 });
 // Подключение роутов для проекта
 app.use("/", mainRoute);
-// app.use('/users', userRouter);
+app.use('/', usersRouter);
 // app.use('/contact', contactRouter);
-app.use('/docs',docsRouter);
-// app.use('/years', yearsRouter);
-app.use('/about',aboutRouter);
-
-
-
+app.use('/',docsRouter);
+app.use('/', yearsRouter);
+app.use('/',aboutRouter);
+app.use('/', groupsRouter);
+app.use('/',studentsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

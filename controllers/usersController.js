@@ -1,17 +1,15 @@
-const User = require("../models/usersModel");
+const usersModel = require('../models/usersModel');
 
-exports.addUser = function (request, response){
-    response.render("create.hbs");
-};
-exports.getUsers = function(request, response){
-    response.render("users.hbs", {
-        users: User.getAll()
-    });
-};
-exports.postUser= function(request, response){
-    const username = request.body.name;
-    const userage = request.body.age;
-    const user = new User(username, userage);
-    user.save();
-    response.redirect("/users");
+module.exports = usersController = {
+    getAll: async (req, res, next) => {
+        try {
+            const users = await usersModel.getAll();
+            res.render('users', {
+                title: 'Users',
+                users
+            })
+        } catch (error){
+            next(error);
+        }
+    }
 };
