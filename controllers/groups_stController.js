@@ -4,7 +4,7 @@ module.exports = groupsController = {
     getAll: async (req, res, next) => {
         try {
             const groups = await groupsModel.getAll();
-            res.render('groups', {
+            res.render('st_group', {
                 title: 'groups',
                 layout: 'layout2',
                 groups

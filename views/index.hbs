@@ -1,11 +1,3 @@
-<!--<h1>{{title}}</h1>-->
-<!--<p>Welcome to {{title}} Toom</p>-->
-<!--&lt;!&ndash; ROLES &ndash;&gt;-->
-
-<!--{{# each roles}}-->
-<!--    <div>{{this.id}} {{this.role_name}}</div>-->
-<!--{{/each}}-->
-
 
 
 
@@ -17,7 +9,7 @@
 
 <!--    {% if request.user.is_authenticated %}-->
     {{# each years}}
-        <div><h3> <a href="/{{this.year_name}}/docs">{{this.year_name}}</a></h3></div>
+        <div><h3> <a  href="/docs/{{this.id}}"> {{this.year_name}}</a></h3></div>
     {{/each}}
 <!--    {% else %}-->
 <!--    <div class="col-4">-->
@@ -48,7 +40,8 @@
                  </form>
                 </div>
             </div>
+    </div>
+    </main>
 </div>
 
-</main>
 

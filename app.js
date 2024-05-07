@@ -7,7 +7,7 @@ const parser =require('body-parser');
 const methodOverride = require('method-override');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-
+const crypto = require('crypto');
 require('dotenv').config()
 
 // Регистрация роутов для сайта
@@ -57,7 +57,7 @@ app.use(function(req, res, next){
 // Подключение роутов для проекта
 app.use("/", mainRoute);
 app.use('/', usersRouter);
-// app.use('/contact', contactRouter);
+app.use('/', contactRouter);
 app.use('/',docsRouter);
 app.use('/', yearsRouter);
 app.use('/',aboutRouter);
