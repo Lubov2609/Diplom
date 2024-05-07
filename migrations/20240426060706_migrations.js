@@ -57,6 +57,6 @@ exports.up = function(knex) {
 
 
 exports.down = function(knex) {
-    return knex.schema.dropTable("users").dropTable("roles").dropTable("students").dropTable("docs").dropTable("protocols").dropTable("years").dropTable("groups");
+    return knex.schema.dropTable("protocols").dropTable("users").dropTable("roles").dropTable("students").dropTable("groups").dropTable("docs").dropTable("years");
 
 };
