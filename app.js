@@ -12,13 +12,13 @@ require('dotenv').config()
 
 // Регистрация роутов для сайта
 const aboutRouter = require('./routes/about')
-const mainRoute = require('./routes/mainRoute');
 const contactRouter = require('./routes/contact');
 const yearsRouter = require('./routes/yearsRoute');
 const docsRouter = require('./routes/docsRoute');
 const usersRouter = require('./routes/usersRoute');
 const studentsRouter = require('./routes/studentsRoute');
 const groupsRouter = require('./routes/groupsRoute');
+const vkrRouter = require('./routes/vkrRoute');
 
 var app = express();
 
@@ -55,7 +55,6 @@ app.use(function(req, res, next){
   next();
 });
 // Подключение роутов для проекта
-app.use("/", mainRoute);
 app.use('/', usersRouter);
 app.use('/', contactRouter);
 app.use('/',docsRouter);
@@ -63,7 +62,7 @@ app.use('/', yearsRouter);
 app.use('/',aboutRouter);
 app.use('/', groupsRouter);
 app.use('/',studentsRouter);
-
+app.use('/', vkrRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404).send("Not Found"));

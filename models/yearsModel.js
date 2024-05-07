@@ -5,6 +5,10 @@ module.exports = yearsModel = {
         const years = await knex('years');
         return years;
     },
+    yearsAll: async () => {
+        const years = await knex('years');
+        return years;
+    },
     getById: async (id) => {
         const year = await knex("years").where("id", id);
         return year;

@@ -4,6 +4,17 @@ module.exports = yearsController = {
     getAll: async (req, res, next) => {
         try {
             const years = await yearsModel.getAll();
+            res.render('index', {
+                title: 'Years',
+                years
+            })
+        } catch (error){
+            next(error);
+        }
+    },
+    yearsAll: async (req, res, next) => {
+        try {
+            const years = await yearsModel.yearsAll();
             res.render('years', {
                 title: 'Год',
                 years
@@ -12,8 +23,6 @@ module.exports = yearsController = {
             next(error);
         }
     },
-
-
     getById: async (req, res, next) => {
         try {
             const year = await yearsModel.getById(req.params.id);

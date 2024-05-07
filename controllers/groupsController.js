@@ -1,9 +1,9 @@
 const groupsModel = require('../models/groupsModel');
 
 module.exports = groupsController = {
-    getAll: async (req, res, next) => {
+    groupsAll: async (req, res, next) => {
         try {
-            const groups = await groupsModel.getAll();
+            const groups = await groupsModel.groupsAll();
             res.render('groups', {
                 title: 'groups',
                 layout: 'layout2',

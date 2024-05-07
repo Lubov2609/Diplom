@@ -1,7 +1,7 @@
 const knex = require('../db/db');
 
 module.exports = groupsModel = {
-    getAll: async () => {
+    groupsAll: async () => {
         const groups = await knex('groups');
         return groups;
     }
