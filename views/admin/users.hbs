@@ -24,6 +24,7 @@
                         <th>Пароль</th>
                         <th>Email</th>
                         <th>Год</th>
+                        <th>Роль</th>
                         <th>Действие</th>
 
                     </tr>
@@ -31,7 +32,7 @@
 
                     <tbody>{{# each users}}
                         <tr>
-
+                            <td>{{this.id}}</td>
                             <td>{{this.user_fio}}</td>
                             <td>{{this.login}}</td>
                             <td>{{this.password}}</td>

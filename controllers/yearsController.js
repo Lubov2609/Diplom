@@ -15,7 +15,7 @@ module.exports = yearsController = {
     yearsAll: async (req, res, next) => {
         try {
             const years = await yearsModel.yearsAll();
-            res.render('years', {
+            res.render('admin/years', {
                 title: 'Год',
                 years
             })

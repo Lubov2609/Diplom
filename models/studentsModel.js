@@ -5,7 +5,10 @@ module.exports = studentsModel = {
         const students = await knex('students').where('group_id',group_id);
         return students;
     },
-
+    studentAll: async () => {
+        const students = await knex('students');
+        return students;
+    },
         vkrAll: async (group_id,id) => {
             const vkr = await knex('students').where('id',id);
             return  vkr;

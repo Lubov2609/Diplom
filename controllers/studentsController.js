@@ -1,13 +1,12 @@
 const studentsModel = require('../models/studentsModel');
-const groupsModel = require("../models/groupsModel");
 
 
 module.exports = studentsController = {
-    studentsAll: async (req, res, next) => {
+    studentAll: async (req, res, next) => {
         try {
-            const students = await studentsModel.studentsAll();
+            const students = await studentsModel.studentAll();
             res.render('admin/students', {
-                title: 'Студенты',
+                title: 'Cтуденты',
                 students
             })
         } catch (error){

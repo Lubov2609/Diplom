@@ -30,8 +30,9 @@ exports.up = function(knex) {
             table.increments("id").primary();
             table.string("student_fio",150).notNullable();
             table.decimal("student_gpa").notNullable();
-            table.text("student_pz",150).notNullable();
-            table.text("student_tz",150).notNullable();
+            table.text("student_pz",150);
+            table.text("student_tz",150);
+            table.integer("result_grade",1);
             table.timestamps(true, true);
             table.integer("group_id").references('id').inTable('groups');
         })

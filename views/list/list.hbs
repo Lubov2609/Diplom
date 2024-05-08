@@ -1,22 +1,19 @@
-{% extends 'main_page.html' %}
-{%block content%}
 
-<form id="add_form" method="post">
+<div class="card">
+    <div class="card-header">
+        <div class="row">
     <table class="table table-bordered">
-
         <thead>
         <tr>
-
             <th scope="col">Наименование</th>
             <th scope="col">Показатели освоения компетенции согласно ФГОС и ОПОП</th>
             <th scope="col">Максимальный балл</th>
             <th scope="col">Оцениваемый балл</th>
-
         </tr>
         </thead>
+        <form id="add_form" method="post">
         <tbody>
         <tr>
-
             <td rowspan="3">Постановка цели и задач исследования</td>
             <td>Актуальность и целевая направленность работы</td>
             <td rowspan="3">5</td>
@@ -35,10 +32,10 @@
 
         <tr>
 
-            <td rowspan="3">Исполнение</td>
+            <td rowspan="4">Исполнение</td>
             <td>1. Полнота и структурированность работы; умение научно аргументировать свою позицию, использовать основные законы естественнонаучных дисциплин в профессиональной деятельности</td>
-            <td rowspan="3">5</td>
-            <td rowspan="3"><div class="form-group">
+            <td rowspan="4">5</td>
+            <td rowspan="4"><div class="form-group">
                 <input type="number" value="" name="name" class="form-control" id="name" placeholder="балл">
             </div></td>
         </tr>
@@ -58,14 +55,18 @@
             <td rowspan="3">Результаты</td>
             <td>1. Наличие практических рекомендаций по решению поставленных в работе задач, наличие методик использования программного продукта для программиста и пользователя</td>
             <td >5</td>
-            <td >Х</td>
+            <td >
+                <div class="form-group">
+                <input type="number" value="" name="name" class="form-control" id="name" placeholder="балл">
+            </div>
+            </td>
         </tr>
         <tr>
             <td>2.Достоверность и обоснованность выводов по
                 проведенному исследованию, их соответствие
                 заявленной цели</td>
             <td>5</td>
-            <td"><div class="form-group">
+            <td><div class="form-group">
             <input type="number" value="" name="name" class="form-control" id="name" placeholder="балл">
         </div></td>    </tr>
         <tr>
@@ -82,7 +83,8 @@
             <td >5</td>
             <td ><div class="form-group">
                 <input type="number" value="" name="name" class="form-control" id="name" placeholder="балл">
-            </div></td>
+            </div>
+            </td>
         </tr>
 
         <tr>
@@ -139,11 +141,13 @@
             <td>Средний балл за защиту ВКР</td>
             <td >5</td>
             <td ><div class="form-group">
-                <input type="number" value="" name="name" class="form-control" id="name" placeholder="балл">
+                <input type="number" step=".01" value="" name="name" class="form-control" id="name" placeholder="балл">
             </div></td>
         </tr>
         </tbody>
     </table>
 </form>
 <button form="add_form" type="submit" class="btn btn-primary mt-4">Заполнить</button>
-
+        </div>
+    </div>
+</div>
