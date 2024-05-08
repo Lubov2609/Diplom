@@ -11,8 +11,7 @@
     <!-- BASIC INFO -->
     <title>{{title}}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
-    <link rel="stylesheet" href="/stylesheets/admin.css">
+<!--    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900' rel='stylesheet' type='text/css'>
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
@@ -39,21 +38,24 @@
     <script src="//code.jquery.com/jquery-2.0.2.min.js"></script>
 </head>
 <body>
-<div class="navbar navbar-inverse navbar-static-top" role="navigation">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <p class="navbar-brand-name">Панель администрирования: Автоматизированная система для работы ГЭК</p>
+
+<header class="site-header" style="background-color: #5ea9e3">
+    <nav class="navbar navbar-inverse navbar-expand-md navbar-dark fixed-top " >
+        <div class="container">
+<!--            <a class="navbar-brand mr-4" href="#"> Диплом ИТИС</a>-->
+            <div class="collapse navbar-collapse" id="navbarToggle">
+                <div class="navbar-nav mr-auto">
+                    <p class="navbar-brand-name">Панель администрирования: Автоматизированная система для работы ГЭК</p>
+                </div>
+            </div>
         </div>
-        <div class="pull-right">
-            <p class="navbar-brand">Дата </p>
-        </div>
-    </div>
-</div>
+    </nav>
+</header>
 
 <div class="container-fluid" style="margin-bottom: 100px">
     <div class="row">
         <div class="col-md-2">
-            <h2>  Меню</h2>
+            <h3>  Меню</h3>
             <table class="table table-bordered table-striped">
 
 
@@ -100,11 +102,11 @@
             {{{ body }}}
         </div>
     </div>
-    <footer>
-        <div class="navbar navbar-inverse navbar-fixed-bottom">
+    <footer class="page-footer" style="background-color: #5ea9e3">
+        <div class=" navbar  navbar-fixed-bottom">
             <div class="pull-right">
                 <h7 style="color: white">Диплом ИТИС </h7>
-                <a class="navbar-brand webstudio" href="contact.hbs">Разработка - © luba260902@gmail.com</a>
+                <a class=" text navbar-brand webstudio" href="/contact" >Разработка - © luba260902@gmail.com</a>
 
             </div>
         </div>
@@ -141,7 +143,11 @@
 {{/if}}
 </body>
 </html>
-
+<script>
+if( $(document).height() <= $(window).height() ){
+$(".page-footer").addClass("fixed-bottom");
+}
+</script>
 
 
 

@@ -33,6 +33,7 @@
 
     <title>Система автоматизации работы членов ГЭК/{{ title }}</title>
     <link rel='stylesheet' href='stylesheets/style.css'/>
+    <link rel="stylesheet" href="/stylesheets/admin.css">
     {{#if showTests}}
         <link rel="stylesheet" href='https://cdnjs.cloudflare.com/ajax/libs/mocha/2.1.0/mocha.css'>
     {{/if}}
@@ -59,7 +60,7 @@
 </header>
 
 {{{body}}}
-</body>
+
 <!-- Дополнительные скрипты JavaScript -->
 <!-- Сначала jQuery, затем Popper.js, последним Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -86,11 +87,20 @@
     <script>mocha.run();</script>
 {{/if}}
 
-<footer class="text-left " style=" background-color: #89c1ec;">
+<footer class="page-footer" style="background-color: #5ea9e3">
+    <div class=" navbar  navbar-fixed-bottom">
+        <div class="pull-right">
+            <h7 style="color: white">Диплом ИТИС </h7>
+            <a class="text navbar-brand webstudio " href="/contact" >Разработка - © luba260902@gmail.com</a>
 
-
-    <h7 style="color: white">Диплом ИТИС </h7>
-    <h7 style="margin-left: 15%;color: white">Почта:ййййй Номер телефона</h7>
+        </div>
+    </div>
 </footer>
 </body>
 </html>
+
+<script>
+    if( $(document).height() <= $(window).height() ){
+        $(".page-footer").addClass("fixed-bottom");
+    }
+</script>

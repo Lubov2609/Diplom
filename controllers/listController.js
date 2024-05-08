@@ -6,7 +6,7 @@ module.exports = vkrController = {
         try {
             const groups = await groupsModel.groupsAll();
             res.render("list/groups", {
-                title: 'groups',
+                title: 'Список групп',
                 layout: 'layout2',
                 groups
             })
@@ -19,7 +19,7 @@ module.exports = vkrController = {
             const group_id = parseInt(req.params.groupID); // Получаем id_year из параметра маршрута
             const students = await studentsModel.studentsAll(group_id);
             res.render('list/students', {
-                title: 'students',
+                title: 'Список студентов',
                 layout: 'layout2',
                 students
             })
@@ -32,7 +32,7 @@ module.exports = vkrController = {
             const id =parseInt(req.params.studentID); // Получаем id_year из параметра маршрута
             const list = await studentsModel.studentsAll(id);
             res.render('list/list', {
-                title: 'students',
+                title: 'Оценочный лист',
                 layout: 'layout2',
                 list
             })

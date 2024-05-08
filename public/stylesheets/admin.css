@@ -12,7 +12,7 @@ p{
     font-size: 16px;
 }
 .field {
-    margin-bottom: 20px;
+    margin-bottom: 2px;
 }
 
 .navbar-inverse {
@@ -28,7 +28,7 @@ p{
 .navbar-brand-name {
     font-size: 22px;
     color: #fff;
-    margin-top: 10px;
+
 }
 
 .pull-right {
