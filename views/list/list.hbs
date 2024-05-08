@@ -1,0 +1,149 @@
+{% extends 'main_page.html' %}
+{%block content%}
+
+<form id="add_form" method="post">
+    <table class="table table-bordered">
+
+        <thead>
+        <tr>
+
+            <th scope="col">Наименование</th>
+            <th scope="col">Показатели освоения компетенции согласно ФГОС и ОПОП</th>
+            <th scope="col">Максимальный балл</th>
+            <th scope="col">Оцениваемый балл</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+
+            <td rowspan="3">Постановка цели и задач исследования</td>
+            <td>Актуальность и целевая направленность работы</td>
+            <td rowspan="3">5</td>
+            <td rowspan="3"><div class="form-group">
+                <input type="number" value="" name="name" class="form-control" id="name" placeholder="балл">
+            </div></td>
+        </tr>
+        <tr>
+            <td>2. Обоснованность и полнота сформулированных задач в соответствии с утвержденной темой</td>
+        </tr>
+        <tr>
+            <td>3.Применение эффективных методик использования программных средств решения поставленных задач</td>
+        </tr>
+
+
+
+        <tr>
+
+            <td rowspan="3">Исполнение</td>
+            <td>1. Полнота и структурированность работы; умение научно аргументировать свою позицию, использовать основные законы естественнонаучных дисциплин в профессиональной деятельности</td>
+            <td rowspan="3">5</td>
+            <td rowspan="3"><div class="form-group">
+                <input type="number" value="" name="name" class="form-control" id="name" placeholder="балл">
+            </div></td>
+        </tr>
+        <tr>
+            <td>2. Умение логически верно и грамотно строить письменную речь</td>
+        </tr>
+        <tr>
+            <td>3.Использование современных инструментальных средств и технологий программирования</td>
+        </tr>
+        <tr>
+            <td>4.соответствие оформления работы действующему
+                стандарту организации СТО 1.701-2010, требованиям
+                проверки на предмет заимствования</td>
+        </tr>
+
+        <tr>
+            <td rowspan="3">Результаты</td>
+            <td>1. Наличие практических рекомендаций по решению поставленных в работе задач, наличие методик использования программного продукта для программиста и пользователя</td>
+            <td >5</td>
+            <td >Х</td>
+        </tr>
+        <tr>
+            <td>2.Достоверность и обоснованность выводов по
+                проведенному исследованию, их соответствие
+                заявленной цели</td>
+            <td>5</td>
+            <td"><div class="form-group">
+            <input type="number" value="" name="name" class="form-control" id="name" placeholder="балл">
+        </div></td>    </tr>
+        <tr>
+            <td>3.Апробация результатов исследования (доклады на
+                научном семинаре или конференции, публикации,
+                рекомендации к внедрению и др.)</td>
+            <td>5</td>
+            <td><div class="form-group">
+                <input type="number" value="" name="name" class="form-control" id="name" placeholder="балл">
+            </div></td>    </tr>
+        <tr>
+            <td>1</td>
+            <td>Средний балл за ВКР</td>
+            <td >5</td>
+            <td ><div class="form-group">
+                <input type="number" value="" name="name" class="form-control" id="name" placeholder="балл">
+            </div></td>
+        </tr>
+
+        <tr>
+            <td rowspan="6">Защита ВКР</td>
+            <td>1.Cтепень структурированности и логичности доклада</td>
+            <td >5</td>
+            <td ><div class="form-group">
+                <input type="number" value="" name="name" class="form-control" id="name" placeholder="балл">
+            </div></td>
+        </tr>
+        <tr>
+            <td>2.Использование демонстрационного материала, его
+                презентабельность (наличие презентации)</td>
+            <td >5</td>
+            <td >
+                <div class="form-group">
+                    <input type="number" value="" name="name" class="form-control" id="name" placeholder="балл">
+                </div></td>
+        </tr>
+        <tr>
+            <td>3.Научная аргументация и защита своей точки зрения,
+                навыки публичной речи</td>
+            <td >5</td>
+            <td ><div class="form-group">
+                <input type="number" value="" name="name" class="form-control" id="name" placeholder="балл">
+            </div></td>
+        </tr>
+        <tr>
+            <td>4.Четкость и аргументированность выводов по
+                результатам исследования</td>
+            <td >5</td>
+            <td ><div class="form-group">
+                <input type="number" value="" name="name" class="form-control" id="name" placeholder="балл">
+            </div></td>
+        </tr>
+        <tr>
+            <td>5.Четкость и аргументированность позиции студента при
+                ответе на вопросы членов ГЭК, на замечания
+                руководителя и рецензента</td>
+            <td >5</td>
+            <td ><div class="form-group">
+                <input type="number" value="" name="name" class="form-control" id="name" placeholder="балл">
+            </div></td>
+        </tr>
+        <tr>
+            <td>6.Общий уровень общения с аудиторией</td>
+            <td >5</td>
+            <td ><div class="form-group">
+                <input type="number" value="" name="name" class="form-control" id="name" placeholder="балл">
+            </div></td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>Средний балл за защиту ВКР</td>
+            <td >5</td>
+            <td ><div class="form-group">
+                <input type="number" value="" name="name" class="form-control" id="name" placeholder="балл">
+            </div></td>
+        </tr>
+        </tbody>
+    </table>
+</form>
+<button form="add_form" type="submit" class="btn btn-primary mt-4">Заполнить</button>
+

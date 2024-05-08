@@ -15,7 +15,7 @@ SELECT * FROM years ORDER BY id ASC;
 SELECT * FROM users ORDER BY id ASC;
 
 -- SQL Select students
-SELECT * FROM students ORDER BY id ASC;
+SELECT * FROM students ORDER BY id_student ASC;
 
 -- SQL Select protocols
 SELECT * FROM protocols ORDER BY id ASC;

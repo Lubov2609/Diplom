@@ -1,16 +1,10 @@
-
-
-
-<!--{% block content %}-->
 <h1> Уважаемые студенты и члены ГЭК ИТИС! </h1>
 
 <div class="container mt-4">
 
 
     {{# each groups}}
-        <div><h3> <a  href="group/students/{{this.id}}"> {{this.group_name}}</a></h3></div>
+        <div><h3> <a  href="list-group/{{this.id}}"> {{this.group_name}}</a></h3></div>
     {{/each}}
 
 </div>
-
-

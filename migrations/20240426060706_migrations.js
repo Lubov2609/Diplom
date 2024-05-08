@@ -1,7 +1,7 @@
 exports.up = function(knex) {
     return knex.schema
         .createTable("years", table => {
-            table.increments().primary();
+            table.increments("").primary();
             table.integer("year_name").notNullable();
             table.timestamps(true, true);
         })
@@ -27,7 +27,7 @@ exports.up = function(knex) {
             table.integer("year_id").references('id').inTable('years');
         })
         .createTable("students", table => {
-            table.increments().primary();
+            table.increments("id").primary();
             table.string("student_fio",150).notNullable();
             table.decimal("student_gpa").notNullable();
             table.text("student_pz",150).notNullable();

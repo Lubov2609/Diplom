@@ -4,7 +4,7 @@ const vkrController = require("../controllers/vkrController");
 
 
 router.route('/list-groups').get(vkrController.groupsAll);
-router.route('/list-groups/students/:groupID').get(vkrController.studentsAll);
-// router.route('/group/students/:groupID/vkr/studentsID').get(vkrController.studentsAll);
+router.route('/list-groups/:groupID').get(vkrController.studentsAll);
+router.route('/list-groups/:groupID/:studentID').get(vkrController.vkrAll);
 
 module.exports = router;

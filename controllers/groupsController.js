@@ -4,9 +4,8 @@ module.exports = groupsController = {
     groupsAll: async (req, res, next) => {
         try {
             const groups = await groupsModel.groupsAll();
-            res.render('groups', {
-                title: 'groups',
-                layout: 'layout2',
+            res.render('admin/groups', {
+                title: 'Группы',
                 groups
             })
         } catch (error){

@@ -4,8 +4,8 @@ module.exports = yearsController = {
     getAll: async (req, res, next) => {
         try {
             const years = await yearsModel.getAll();
-            res.render('index', {
-                title: 'Years',
+            res.render('admin/index', {
+                title: 'Года',
                 years
             })
         } catch (error){

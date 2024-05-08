@@ -5,7 +5,7 @@ module.exports = vkrController = {
     groupsAll: async (req, res, next) => {
         try {
             const groups = await groupsModel.groupsAll();
-            res.render("vkr/list-groups", {
+            res.render("list/groups", {
                 title: 'groups',
                 layout: 'layout2',
                 groups
@@ -18,7 +18,7 @@ module.exports = vkrController = {
         try {
             const group_id = parseInt(req.params.groupID); // Получаем id_year из параметра маршрута
             const students = await studentsModel.studentsAll(group_id);
-            res.render('vkr/students', {
+            res.render('list/students', {
                 title: 'students',
                 layout: 'layout2',
                 students
@@ -27,14 +27,14 @@ module.exports = vkrController = {
             next(error);
         }
     },
-    vkrAll: async (req, res, next) => {
+    listAll: async (req, res, next) => {
         try {
             const id =parseInt(req.params.studentID); // Получаем id_year из параметра маршрута
-            const vkr = await studentsModel.studentsAll(id);
-            res.render('vkr/vkr', {
+            const list = await studentsModel.studentsAll(id);
+            res.render('list/list', {
                 title: 'students',
                 layout: 'layout2',
-                vkr
+                list
             })
         } catch (error){
             next(error);

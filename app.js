@@ -19,6 +19,7 @@ const usersRouter = require('./routes/usersRoute');
 const studentsRouter = require('./routes/studentsRoute');
 const groupsRouter = require('./routes/groupsRoute');
 const vkrRouter = require('./routes/vkrRoute');
+const listRouter = require('./routes/listRoute');
 
 var app = express();
 
@@ -63,6 +64,7 @@ app.use('/',aboutRouter);
 app.use('/', groupsRouter);
 app.use('/',studentsRouter);
 app.use('/', vkrRouter);
+app.use('/', listRouter);
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404).send("Not Found"));

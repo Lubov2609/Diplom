@@ -1,0 +1,49 @@
+h1,
+h2 {
+    font-size: 24px;
+}
+h3{
+    font-size: 22px;
+}
+h4{
+    font-size: 20px;
+}
+p{
+    font-size: 16px;
+}
+.field {
+    margin-bottom: 20px;
+}
+
+.navbar-inverse {
+    background: #0477bf;
+}
+
+.navbar-brand {
+    font-size: 12px;
+    color: #fff !important;
+    height: 22px;
+}
+
+.navbar-brand-name {
+    font-size: 22px;
+    color: #fff;
+    margin-top: 10px;
+}
+
+.pull-right {
+    float: right;
+}
+
+br.clear {
+    clear: both;
+}
+
+#check1C-form {
+    display: inline;
+}
+
+.orders-repoorts th,
+.orders-repoorts td {
+    text-align: center;
+}
