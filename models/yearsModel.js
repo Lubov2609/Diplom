@@ -25,7 +25,7 @@ module.exports = yearsModel = {
         return years;
     },
     delete: async (id) => {
-        const years = await db("years").where("id", id).del();
+        const years = await knex("years").where("id", id).del();
         return years;
     },
 

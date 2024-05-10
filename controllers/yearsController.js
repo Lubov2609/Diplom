@@ -8,6 +8,7 @@ module.exports = yearsController = {
                 title: 'Года',
                 years
             })
+            // res.send(years);
         } catch (error){
             next(error);
         }
@@ -26,10 +27,11 @@ module.exports = yearsController = {
     getById: async (req, res, next) => {
         try {
             const year = await yearsModel.getById(req.params.id);
-            res.render('year', {
-                title: 'Год',
-                year
-            })
+            // res.render('year', {
+            //     title: 'Год',
+            //     year
+            // })
+            res.send(year);
         } catch (error) {
             next(error);
         }
@@ -37,10 +39,11 @@ module.exports = yearsController = {
     create: async (req, res, next) => {
         try {
             const year = await yearsModel.create(req.body);
-            res.render('years', {
-                title: 'Год',
-                year
-            })
+            // res.render('years', {
+            //     title: 'Год',
+            //     year
+            // })
+            res.send(year);
         } catch (error) {
             next(error);
         }
@@ -48,10 +51,11 @@ module.exports = yearsController = {
     update: async (req, res, next) => {
         try {
             const year = await yearsModel.update(req.params.id, req.body);
-            res.render('edit-year', {
-                title: 'Год',
-                year
-            })
+            // res.render('edit-year', {
+            //     title: 'Год',
+            //     year
+            // })
+            res.send(year);
         } catch (error) {
             next(error);
         }
@@ -59,10 +63,11 @@ module.exports = yearsController = {
     delete: async (req, res, next) => {
         try {
             const year = await yearsModel.delete(req.params.id);
-            res.render('years', {
-                title: 'Год',
-                year
-            })
+            // res.render('years', {
+            //     title: 'Год',
+            //     year
+            // })
+            res.send(year);
         } catch (error) {
             next(error);
         }

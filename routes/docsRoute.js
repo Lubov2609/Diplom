@@ -7,5 +7,6 @@ const docsController = require("../controllers/docsController");
 // module.exports = router;
 
 router.route('/docs/:yearID').get(docsController.getAll);
+router.route('/docs').get(docsController.docsAll);
 
 module.exports = router;

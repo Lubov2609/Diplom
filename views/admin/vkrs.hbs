@@ -9,7 +9,7 @@
     <div class="card">
         <div class="card-header">
             <div class="row">
-                <div class="col col-sm-9">Добавление группы</div>
+                <div class="col col-sm-9">Добавление ВКР</div>
                 <div class="col col-sm-3">
                     <button type="button" id="add_data" class="btn btn-primary btn-sm float-end">Добавить</button>
                 </div>
@@ -21,19 +21,22 @@
                     <thead>
                     <tr>
                         <th>id</th>
-                        <th>Группа</th>
-                        <th>Год</th>
-                        <th>Действие</th>
+                        <th>Студент</th>
+                        <th>Пояснительная записка</th>
+                        <th>Техническое задание</th>
+                        <th>Действие </th>
 
                     </tr>
                     </thead>
 
                     <tbody>
-                    {{# each groups}}
+                    {{# each vkrs}}
                         <tr>
                             <td>{{this.id}}</td>
-                            <td>{{this.group_name}}</td>
-                            <td>{{this.year_name}}</td>
+                            <td>{{this.student_fio}}</td>
+                            <td>{{this.vkr_pz}}</td>
+                            <td>{{this.vkr_tz}}</td>
+
                             <td><button type="button" class="btn btn-primary btn-sm edit" >Редактировать</button>
                                 <button type="button" class="btn btn-primary btn-sm edit" >Удалить</button></td>
 

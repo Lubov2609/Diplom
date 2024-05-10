@@ -29,9 +29,7 @@ exports.up = function(knex) {
         .createTable("students", table => {
             table.increments("id").primary();
             table.string("student_fio",150).notNullable();
-            table.decimal("student_gpa").notNullable();
-            table.text("student_pz",150);
-            table.text("student_tz",150);
+            table.decimal("student_gpa",).notNullable();
             table.integer("result_grade",1);
             table.timestamps(true, true);
             table.integer("group_id").references('id').inTable('groups');
@@ -49,7 +47,14 @@ exports.up = function(knex) {
             table.integer("student_id").references('id').inTable('students');
             table.integer("list_id").notNullable();
             table.timestamps(true, true);
-        });
+        })
+        .createTable("vkrs", table => {
+            table.increments().primary();
+            table.string("vkr_pz",150).notNullable();
+            table.string("vkr_tz",150).notNullable();
+            table.integer("student_id").references('id').inTable('students');
+            table.timestamps(true, true);
+        })
 
 
 };
@@ -58,6 +63,6 @@ exports.up = function(knex) {
 
 
 exports.down = function(knex) {
-    return knex.schema.dropTable("protocols").dropTable("users").dropTable("roles").dropTable("students").dropTable("groups").dropTable("docs").dropTable("years");
+    return knex.schema.dropTable("protocols").dropTable("users").dropTable("roles").dropTable("vkrs").dropTable("students").dropTable("groups").dropTable("docs").dropTable("years");
 
 };

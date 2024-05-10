@@ -1,18 +1,68 @@
+<div class="container">
+    <h1 class="mt-4 mb-4 text-center text-primary"><b>{{title}} </b></h1>
 
-<form>
-    <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Год</label>
-        <input type="name" class="form-control" id="exampleInputName1" aria-describedby="emailHelp">
-        <div id="emailHelp" class="form-text">Введите год</div>
+    <span id="message"></span>
+    <div class="card">
+        <div class="card-header">
+            <div class="row">
+                <div class="col col-sm-9">Добавление документов</div>
+                <div class="col col-sm-3">
+                    <button type="button" id="add_data" class="btn btn-primary btn-sm float-end">Добавить</button>
+                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>Название</th>
+                        <th>ССылка на файл</th>
+                        <th>Год</th>
+                        <th>Действие</th>
+
+                    </tr>
+                    </thead>
+
+                    <tbody>{{# each docs}}
+                        <tr>
+                            <td>{{this.id}}</td>
+                            <td>{{this.doc_name}}</td>
+                            <td>{{this.doc_link}}</td>
+                            <td>{{this.year_name}}</td>
+
+                            <td><button type="button" class="btn btn-primary btn-sm edit" >Редактировать</button>
+                                <button type="button" class="btn btn-primary btn-sm edit" >Удалить</button></td>
+
+
+                        </tr>
+                    {{/each}}
+                    </tbody>
+                </table>
+            </div>
+        </div>
     </div>
-    <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Название</label>
-        <input type="name" class="form-control" id="exampleInputName1" aria-describedby="emailHelp">
-        <div id="emailHelp" class="form-text">Введите название документа</div>
-    </div>
-    <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Файл</label>
-        <input type="file" class="form-control" id="exampleInputFile1">
-    </div>
-    <button type="submit" class="btn btn-primary">Добавить</button>
-</form>
+</div>
+
+
+
+
+
+<!--<form>-->
+<!--    <div class="mb-3">-->
+<!--        <label for="exampleInputEmail1" class="form-label">Год</label>-->
+<!--        <input type="name" class="form-control" id="exampleInputName1" aria-describedby="emailHelp">-->
+<!--        <div id="emailHelp" class="form-text">Введите год</div>-->
+<!--    </div>-->
+<!--    <div class="mb-3">-->
+<!--        <label for="exampleInputEmail1" class="form-label">Название</label>-->
+<!--        <input type="name" class="form-control" id="exampleInputName1" aria-describedby="emailHelp">-->
+<!--        <div id="emailHelp" class="form-text">Введите название документа</div>-->
+<!--    </div>-->
+<!--    <div class="mb-3">-->
+<!--        <label for="exampleInputPassword1" class="form-label">Файл</label>-->
+<!--        <input type="file" class="form-control" id="exampleInputFile1">-->
+<!--    </div>-->
+<!--    <button type="submit" class="btn btn-primary">Добавить</button>-->
+<!--</form>-->

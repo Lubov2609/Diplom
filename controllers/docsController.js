@@ -14,5 +14,17 @@ module.exports = docsController = {
         } catch (error) {
             next(error);
         }
-    }
+    },
+    docsAll: async (req, res, next) => {
+        try {
+            const docs = await docsModel.docsAll(); // Передаем id_year в модель для получения данных
+            res.render('admin/docs', {
+                title: 'Документация',
+                docs
+            });
+        } catch (error) {
+            next(error);
+        }
+    },
+
 };
