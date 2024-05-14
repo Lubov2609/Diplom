@@ -38,9 +38,9 @@ exports.seed = async function(knex) {
     ]);
     await knex('vkrs').del()
     await knex('vkrs').insert([
-        {id:1, student_id :1, vkr_pz: 'https://pz1', vkr_tz: 'https://tz1'},
-        {id:2, student_id :3, vkr_pz: 'https://pz3', vkr_tz: 'https://tz3'},
-        {id:3, student_id :2, vkr_pz: 'https://pz2', vkr_tz: 'https://tz2'}
+        {id:1, student_id :1, vkr_pz: 'Пояснительная записка_Складник', vkr_tz: 'Техническое задание_Складник '},
+        {id:2, student_id :3, vkr_pz: 'Пояснительная записка_Нечаев', vkr_tz: 'Техническое задание_Нечаев '},
+        {id:3, student_id :2, vkr_pz: 'Пояснительная записка_Соболева', vkr_tz: 'Техническое задание_Соболева '}
     ]);
 
 
