@@ -9,5 +9,27 @@ module.exports = usersModel = {
             .join("years","users.year_id","years.id");
 
         return users;
-    }
+    },create: async (user) => {
+        const users = await knex("users").insert(user);
+        return users;
+    },
+    getById: async (id) => {
+        const user = await knex('users').where('id', id);
+        return user;
+    },
+    update: async (id, user) => {
+        const users = await knex('users').where('id', id).update({
+            user_fio: user.user_fio,
+            email: user.email,
+            login: user.login,
+            password: user.password,
+            role_name: user.role_name,
+            year_name: user.year_name,
+        });
+        return users;
+    },
+    delete: async (id) => {
+        const users = await knex("users").where("id", id).delete();
+        return users;
+    },
 };

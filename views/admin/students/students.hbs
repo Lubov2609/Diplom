@@ -1,0 +1,42 @@
+
+<div class="pull-left">
+    <h1>Список Cтудентов</h1>
+</div>
+<div class="pull-right">
+    <a class="btn btn-primary btn-sm" href="students/new"> Добавить</a>
+</div>
+
+
+
+<table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th>id</th>
+        <th>ФИО</th>
+        <th>Группа</th>
+        <th>Средний балл</th>
+        <th>Действие</th>
+
+    </tr>
+    </thead>
+
+    {{# if students }}
+        {{# each students }}
+            <tr>
+                <td>{{this.id}}</td>
+                <td>{{this.student_fio}}</td>
+                <td>{{this.group_name}}</td>
+                <td>{{this.student_gpa}}</td>
+                <form action="/students/{{ id }}?_method=DELETE" method="post">
+                    <td style="text-align: center">
+                        <a class="btn btn-primary btn-sm" href="/students/{{ id }}/edit"> Редактировать</a>
+                        <button type="submit" class="btn btn-primary btn-sm edit">Удалить</button>
+                    </td>
+                </form>
+            </tr>
+        {{/ each }}
+    {{/ if }}
+</table>
+<button type="submit" class="btn btn-primary btn-sm edit" >Сформировать</button>
+
+

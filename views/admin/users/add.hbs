@@ -1,0 +1,32 @@
+<h1>{{title}}</h1>
+
+<form  class="form" action="/users" method="post">
+    <div class="form-group">
+        <label for="name">ФИО</label>
+        <input type="text"  name="user_fio" class="form-control" id="user_fio" placeholder="Введите ФИО">
+    </div>
+    <div class="form-group">
+        <label for="name">Логин</label>
+        <input type="text"  name="login" class="form-control" id="login" placeholder="Введите логин">
+    </div>
+    <div class="form-group">
+        <label for="name">Пароль</label>
+        <input type="text"  name="password" class="form-control" id="password" placeholder="Введите пароль">
+    </div>
+    <div class="form-group">
+        <label for="name">Email</label>
+        <input type="text"  name="email" class="form-control" id="email" placeholder="Введите email">
+    </div>
+    <div class="form-group">
+        <label for="name">Год</label>
+        <input type="number"  name="year_id" class="form-control" id="year_id" placeholder="Введите год">
+    </div>
+    <div class="form-group">
+        <label for="name">Роль</label>
+        <input type="text"  name="role_id" class="form-control" id="role_id" placeholder="Введите роль">
+    </div>
+
+
+    <a class="btn btn-danger btn-sm" href="/years">Назад</a>
+    <button type="submit" class="btn btn-primary btn-sm">Добавить</button>
+</form>

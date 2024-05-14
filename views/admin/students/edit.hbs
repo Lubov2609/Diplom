@@ -1,0 +1,22 @@
+<h1>{{title}}</h1>
+
+{{# each students}}
+    <form  class="form" action="students/{{this.id}}?_method=PUT" method="post">
+        <div class="form-group">
+        <label for="name">ФИО</label>
+        <input type="text" value="{{ this.student_fio }}" name="student_fio" class="form-control" id="student_fio" placeholder="Введите ФИО">
+    </div>
+    <div class="form-group">
+        <label for="name">Группа</label>
+        <input type="text" value="{{ this.group_name }}" name="group_name" class="form-control" id="group_name" placeholder="Введите группу">
+    </div>
+    <div class="form-group">
+        <label for="name">Средняя оценка</label>
+        <input type="text" value="{{ this.student_gpa }}"  name="student_gpa" class="form-control" id="student_gpa" placeholder="Введите ср.оценку">
+    </div>
+
+{{/each}}
+
+    <a class="btn btn-danger btn-sm" href="/years">Назад</a>
+    <button type="submit" class="btn btn-primary btn-sm">Добавить</button>
+</form>

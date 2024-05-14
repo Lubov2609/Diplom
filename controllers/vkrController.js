@@ -33,7 +33,7 @@ module.exports = vkrController = {
             const id =parseInt(req.params.studentID); // Получаем id_year из параметра маршрута
             const vkr = await studentsModel.studentsAll(id);
             res.render('vkr/vkr', {
-                title: 'Выпускная кваликафиционная работа',
+                title: 'Выпускная квалификационная работа',
                 layout: 'layout2',
                 vkr
             })
@@ -44,7 +44,7 @@ module.exports = vkrController = {
     vkrAll: async (req, res, next) => {
         try {
             const vkrs = await vkrsModel.vkrAll();
-            res.render('admin/vkrs', {
+            res.render('admin/vkrs/vkrs', {
                 title: 'Выпускная кваликафиционная работа',
                 vkrs
             })

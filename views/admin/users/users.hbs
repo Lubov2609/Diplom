@@ -1,0 +1,51 @@
+
+
+
+<div class="pull-left">
+    <h1>Список Пользователей</h1>
+</div>
+<div class="pull-right">
+    <a class="btn btn-primary btn-sm" href="users/new"> Добавить</a>
+</div>
+
+
+
+<table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th>id</th>
+        <th>ФИО</th>
+        <th>Логин</th>
+        <th>Пароль</th>
+        <th>Email</th>
+        <th>Год</th>
+        <th>Роль</th>
+        <th>Действие</th>
+
+    </tr>
+    </thead>
+
+    {{# if users }}
+        {{# each users }}
+            <tr>
+                <td>{{this.id}}</td>
+                <td>{{this.user_fio}}</td>
+                <td>{{this.login}}</td>
+                <td>{{this.password}}</td>
+                <td>{{this.email}}</td>
+                <td>{{this.year_name}}</td>
+                <td>{{this.role_name}}</td>
+                <form action="/users/{{ id }}?_method=DELETE" method="post">
+                    <td style="text-align: center">
+                        <a class="btn btn-primary btn-sm" href="/users/{{ id }}/edit"> Редактировать</a>
+                        <button type="submit" class="btn btn-primary btn-sm edit">Удалить</button>
+                    </td>
+                </form>
+            </tr>
+        {{/ each }}
+    {{/ if }}
+</table>
+
+
+
+

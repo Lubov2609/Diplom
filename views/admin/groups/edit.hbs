@@ -1,0 +1,12 @@
+<h1>{{title}}</h1>
+{{# each groups}}
+    <form  class="form" action="groups/{{this.id}}?_method=PUT" method="post">
+        <div class="form-group">
+            <label for="name">Год</label>
+            <input type="text" value="{{ this.group_name }}" name="group_name" class="form-control" id="group_name" placeholder="Введите год">
+        </div>
+{{/each}}
+
+    <a class="btn btn-danger btn-sm" href="/groups">Назад</a>
+    <button type="submit" class="btn btn-primary btn-sm">Редактировать</button>
+</form>

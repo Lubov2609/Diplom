@@ -1,0 +1,38 @@
+<div class="pull-left">
+    <h1>Список групп</h1>
+</div>
+<div class="pull-right">
+    <a class="btn btn-primary btn-sm" href="groups/new"> Добавить</a>
+
+<!--    <button type="submit" class="btn btn-primary btn-sm" ><a href="groups/new">Добавить</a></button>-->
+</div>
+
+
+
+<table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+        <th>id</th>
+        <th>Группа</th>
+        <th>Год</th>
+        <th>Действие</th>
+
+    </tr>
+    </thead>
+
+    {{# if groups }}
+        {{# each groups }}
+            <tr>
+                <td>{{ this.id }}</td>
+                <td>{{this.group_name}}</td>
+                <td>{{this.year_name}}</td>
+                <form action="/groups/{{ id }}?_method=DELETE" method="post">
+                    <td style="text-align: center">
+                        <a class="btn btn-primary btn-sm" href="/groups/{{ id }}/edit"> Редактировать</a>
+                        <button type="submit" class="btn btn-primary btn-sm edit">Удалить</button>
+                    </td>
+                </form>
+            </tr>
+        {{/ each }}
+    {{/ if }}
+</table>

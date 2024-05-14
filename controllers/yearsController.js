@@ -1,6 +1,7 @@
 const yearsModel = require('../models/yearsModel');
 
 module.exports = yearsController = {
+
     getAll: async (req, res, next) => {
         try {
             const years = await yearsModel.getAll();
@@ -16,7 +17,7 @@ module.exports = yearsController = {
     yearsAll: async (req, res, next) => {
         try {
             const years = await yearsModel.yearsAll();
-            res.render('admin/years', {
+            res.render('admin/years/years', {
                 title: 'Год',
                 years
             })
@@ -24,26 +25,34 @@ module.exports = yearsController = {
             next(error);
         }
     },
-    getById: async (req, res, next) => {
+    newYear: async (req, res, next) => {
         try {
-            const year = await yearsModel.getById(req.params.id);
-            // res.render('year', {
-            //     title: 'Год',
-            //     year
-            // })
-            res.send(year);
+            res.render('admin/years/add', {
+                title: 'add new'
+            })
         } catch (error) {
             next(error);
         }
     },
+
     create: async (req, res, next) => {
         try {
             const year = await yearsModel.create(req.body);
-            // res.render('years', {
-            //     title: 'Год',
-            //     year
-            // })
-            res.send(year);
+            res.render('admin/years/add', {
+                title: 'Добавить год',
+                year
+            })
+        } catch (error) {
+            next(error);
+        }
+    },
+    getById: async (req, res, next) => {
+        try {
+            const years = await yearsModel.getById(req.params.id);
+            res.render('admin/years/edit', {
+                title: 'Редактировать',
+                years
+            })
         } catch (error) {
             next(error);
         }
@@ -51,11 +60,11 @@ module.exports = yearsController = {
     update: async (req, res, next) => {
         try {
             const year = await yearsModel.update(req.params.id, req.body);
-            // res.render('edit-year', {
-            //     title: 'Год',
-            //     year
-            // })
-            res.send(year);
+            res.render('admin/years/edit', {
+                title: 'Редактировать',
+                year
+            })
+            // res.send(user);
         } catch (error) {
             next(error);
         }
@@ -63,11 +72,10 @@ module.exports = yearsController = {
     delete: async (req, res, next) => {
         try {
             const year = await yearsModel.delete(req.params.id);
-            // res.render('years', {
-            //     title: 'Год',
-            //     year
-            // })
-            res.send(year);
+            res.render('admin/years/years', {
+                title: 'Удаление',
+                year
+            })
         } catch (error) {
             next(error);
         }

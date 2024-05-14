@@ -9,23 +9,24 @@ module.exports = yearsModel = {
         const years = await knex('years');
         return years;
     },
-    getById: async (id) => {
-        const year = await knex("years").where("id", id);
-        return year;
-    },
+
     create: async (year) => {
         const years = await knex("years").insert(year);
         return years;
     },
+    getById: async (id) => {
+        const year = await knex('years').where('id', id);
+        return year;
+    },
     update: async (id, year) => {
-        const years = await knex("years").where("id", id).update({
-            name: year.year_name,
+        const years = await knex('years').where('id', id).update({
+            year_name: year.year_name,
 
         });
         return years;
     },
     delete: async (id) => {
-        const years = await knex("years").where("id", id).del();
+        const years = await knex("years").where("id", id).delete();
         return years;
     },
 
