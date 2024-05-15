@@ -18,7 +18,7 @@ module.exports = yearsController = {
         try {
             const years = await yearsModel.yearsAll();
             res.render('admin/years/years', {
-                title: 'Год',
+                title: 'Года',
                 years
             })
         } catch (error) {
@@ -28,7 +28,7 @@ module.exports = yearsController = {
     newYear: async (req, res, next) => {
         try {
             res.render('admin/years/add', {
-                title: 'add new'
+                title: 'Добавить год'
             })
         } catch (error) {
             next(error);
@@ -50,7 +50,7 @@ module.exports = yearsController = {
         try {
             const years = await yearsModel.getById(req.params.id);
             res.render('admin/years/edit', {
-                title: 'Редактировать',
+                title: 'Редактировать год',
                 years
             })
         } catch (error) {
@@ -61,7 +61,7 @@ module.exports = yearsController = {
         try {
             const year = await yearsModel.update(req.params.id, req.body);
             res.render('admin/years/edit', {
-                title: 'Редактировать',
+                title: 'Редактировать год',
                 year
             })
             // res.send(user);
@@ -73,7 +73,7 @@ module.exports = yearsController = {
         try {
             const year = await yearsModel.delete(req.params.id);
             res.render('admin/years/years', {
-                title: 'Удаление',
+                title: 'Удаление года',
                 year
             })
         } catch (error) {

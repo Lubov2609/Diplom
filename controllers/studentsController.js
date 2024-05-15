@@ -18,7 +18,7 @@ module.exports = studentsController = {
     newStudent: async (req, res, next) => {
         try {
             res.render('admin/students/add', {
-                title: 'Добавление'
+                title: 'Добавление студента'
             })
         } catch (error) {
             next(error);
@@ -28,7 +28,7 @@ module.exports = studentsController = {
         try {
             const student = await studentsModel.create(req.body);
             res.render('admin/students/edit', {
-                title: 'Добавление',
+                title: 'Добавление студента',
                 student
             })
         } catch (error) {
@@ -39,7 +39,7 @@ module.exports = studentsController = {
         try {
             const students = await studentsModel.getById(req.params.id);
             res.render('admin/students/edit', {
-                title: 'Редактировать',
+                title: 'Редактирование студента',
                 students
             })
         } catch (error) {
@@ -50,7 +50,7 @@ module.exports = studentsController = {
         try {
             const student = await studentsModel.update(req.params.id, req.body);
             res.render('admin/students/edit', {
-                title: 'Редактировать',
+                title: 'Редактирование студента',
                 student
             })
             // res.send(user);
@@ -62,7 +62,7 @@ module.exports = studentsController = {
         try {
             const student = await studentsModel.delete(req.params.id);
             res.render('admin/students/students', {
-                title: 'Удаление',
+                title: 'Удаление студента',
                 student
             })
         } catch (error) {

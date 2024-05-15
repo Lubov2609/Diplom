@@ -25,11 +25,11 @@ module.exports = groupsController = {
             next(error);
         }
     },
-    getById: async (req, res, next) => {
+    create: async (req, res, next) => {
         try {
-            const group = await groupsModel.getById(req.params.id);
+            const group = await groupsModel.create(req.body);
             res.render('admin/groups/edit', {
-                title: 'Год',
+                title: 'Добавление группы',
                 group,
                 layout: 'layout',
 
@@ -38,14 +38,12 @@ module.exports = groupsController = {
             next(error);
         }
     },
-    create: async (req, res, next) => {
+    getById: async (req, res, next) => {
         try {
-            const group = await groupsModel.create(req.body);
+            const groups = await groupsModel.getById(req.params.id);
             res.render('admin/groups/edit', {
-                title: 'create',
-                group,
-                layout: 'layout',
-
+                title: 'Редактирование группы',
+                groups
             })
         } catch (error) {
             next(error);
@@ -55,11 +53,10 @@ module.exports = groupsController = {
         try {
             const group = await groupsModel.update(req.params.id, req.body);
             res.render('admin/groups/edit', {
-                title: 'Год',
-                group,
-                layout: 'layout',
-
+                title: 'Редактирование группы',
+                group
             })
+            // res.send(user);
         } catch (error) {
             next(error);
         }

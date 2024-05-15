@@ -17,7 +17,7 @@ module.exports = usersController = {
     newUser: async (req, res, next) => {
         try {
             res.render('admin/users/add', {
-                title: 'Добавление'
+                title: 'Добавление пользователя'
             })
         } catch (error) {
             next(error);
@@ -27,7 +27,7 @@ module.exports = usersController = {
         try {
             const user = await usersModel.create(req.body);
             res.render('admin/users/edit', {
-                title: 'Добавление',
+                title: 'Добавление пользователя',
                 user
             })
         } catch (error) {
@@ -38,7 +38,7 @@ module.exports = usersController = {
         try {
             const users = await usersModel.getById(req.params.id);
             res.render('admin/users/edit', {
-                title: 'Редактировать',
+                title: 'Редактирование пользователя',
                 users
             })
         } catch (error) {
@@ -49,7 +49,7 @@ module.exports = usersController = {
         try {
             const user = await usersModel.update(req.params.id, req.body);
             res.render('admin/users/edit', {
-                title: 'Редактировать',
+                title: 'Редактирование пользователя',
                 user
             })
             // res.send(user);

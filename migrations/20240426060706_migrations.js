@@ -17,14 +17,14 @@ exports.up = function(knex) {
             table.text("password").notNullable();
             table.text("email").notNullable();
             table.timestamps(true, true);
-            table.integer("year_id").references('id').inTable('years');
-            table.integer("role_id").references('id').inTable('roles');
+            table.integer("year_id").references('id').inTable('years').onDelete("CASCADE");
+            table.integer("role_id").references('id').inTable('roles').onDelete("CASCADE");
         })
         .createTable("groups", table => {
             table.increments().primary();
             table.string("group_name",4).notNullable();
             table.timestamps(true, true);
-            table.integer("year_id").references('id').inTable('years');
+            table.integer("year_id").references('id').inTable('years').onDelete("CASCADE");
         })
         .createTable("students", table => {
             table.increments("id").primary();
@@ -32,19 +32,19 @@ exports.up = function(knex) {
             table.decimal("student_gpa",).notNullable();
             table.integer("result_grade",1);
             table.timestamps(true, true);
-            table.integer("group_id").references('id').inTable('groups');
+            table.integer("group_id").references('id').inTable('groups').onDelete("CASCADE");
         })
         .createTable("docs", table => {
             table.increments().primary();
             table.string("doc_name",50).notNullable();
             table.string("doc_link",255).notNullable();
             table.timestamp(true, true);
-            table.integer("year_id").references('id').inTable('years');
+            table.integer("year_id").references('id').inTable('years').onDelete("CASCADE");
         })
         .createTable("protocols", table => {
             table.increments().primary();
-            table.integer("user_id").references('id').inTable('users');
-            table.integer("student_id").references('id').inTable('students');
+            table.integer("user_id").references('id').inTable('users').onDelete("CASCADE");
+            table.integer("student_id").references('id').inTable('students').onDelete("CASCADE");
             table.integer("list_id").notNullable();
             table.timestamps(true, true);
         })
@@ -52,7 +52,7 @@ exports.up = function(knex) {
             table.increments().primary();
             table.string("vkr_pz",150).notNullable();
             table.string("vkr_tz",150).notNullable();
-            table.integer("student_id").references('id').inTable('students');
+            table.integer("student_id").references('id').inTable('students').onDelete("CASCADE");
             table.timestamps(true, true);
         })
 

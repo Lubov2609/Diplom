@@ -18,7 +18,7 @@ module.exports = docsController = {
     docsAll: async (req, res, next) => {
         try {
             const docs = await docsModel.docsAll(); // Передаем id_year в модель для получения данных
-            res.render('admin/docs', {
+            res.render('admin/docs/docs', {
                 title: 'Документация',
                 docs
             });

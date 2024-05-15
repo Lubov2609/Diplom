@@ -26,7 +26,8 @@ exports.seed = async function(knex) {
     await knex('groups').insert([
         {id: 1,year_id :5, group_name: '0091'},
         {id: 2,year_id :5, group_name: '0092'},
-        {id: 3,year_id :5, group_name: '0093'}
+        {id: 3,year_id :5, group_name: '0093'},
+        {id: 4,year_id :6, group_name: '0095'}
 
     ]);
 
