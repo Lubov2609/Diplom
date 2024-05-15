@@ -15,11 +15,12 @@ module.exports = groupsController = {
         }
     },
     newGroup: async (req, res, next) => {
+        const years= await groupsModel.yearsAll()
         try {
             res.render('admin/groups/add', {
                 title: 'add new',
                 layout: 'layout',
-
+                years,
             })
         } catch (error) {
             next(error);

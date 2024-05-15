@@ -7,7 +7,11 @@
     </div>
     <div class="form-group">
         <label for="name">Группа</label>
-        <input type="text"  name="group_name" class="form-control" id="group_name" placeholder="Введите группу">
+        <select name="group_id">
+            {{#each groups}}
+                <option value="{{this.id}}">{{this.group_name}}</option>
+            {{/each}}
+        </select>
     </div>
     <div class="form-group">
         <label for="name">Средняя оценка</label>

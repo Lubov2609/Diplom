@@ -9,7 +9,25 @@ module.exports = usersModel = {
             .join("years","users.year_id","years.id");
 
         return users;
-    },create: async (user) => {
+    },
+    rolesALL: async (req, res, next) => {
+        const roles = await knex('roles');
+        const years = await knex('years');
+        const users = await knex .select("users.id", "users.user_fio", "users.login","users.password", "users.email","users.role_id","users.year_id", "roles.role_name","years.year_name")
+            .from("users")
+            .join("roles","users.role_id","roles.id")
+            .join("years","users.year_id","years.id");
+        return roles;
+    },
+    yearsALL: async (req, res, next) => {
+        const years = await knex('years');
+        const users = await knex .select("users.id", "users.user_fio", "users.login","users.password", "users.email","users.year_id", "years.year_name")
+            .from("users")
+            .join("years","users.year_id","years.id");
+        return years;
+    },
+
+    create: async (user) => {
         const users = await knex("users").insert(user);
         return users;
     },

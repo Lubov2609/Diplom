@@ -1,6 +1,7 @@
 const studentsModel = require("../models/studentsModel");
 const groupsModel = require('../models/groupsModel');
 const vkrsModel = require("../models/vkrsModel");
+const yearsModel = require("../models/yearsModel");
 
 module.exports = vkrController = {
     groupsAll: async (req, res, next) => {
@@ -52,4 +53,38 @@ module.exports = vkrController = {
             next(error);
         }
     },
+    newVKR: async (req, res, next) => {
+        const students = await vkrsModel.studentsAll()
+        try {
+            res.render('admin/vkrs/add', {
+                title: 'Добавить ВКР',
+                students
+            })
+        } catch (error) {
+            next(error);
+        }
+    },
+
+    create: async (req, res, next) => {
+        try {
+            const vkr = await vkrsModel.create(req.body);
+            res.render('admin/vkrs/add', {
+                title: 'Добавить ВКР',
+                vkr
+            })
+        } catch (error) {
+            next(error);
+        }
+    },
+    delete: async (req, res, next) => {
+        try {
+            const vkr = await vkrsModel.delete(req.params.id);
+            res.render('admin/vkrs/vkrs', {
+                title: 'Удаление ВКР',
+                vkr
+            })
+        } catch (error) {
+            next(error);
+        }
+    }
 };

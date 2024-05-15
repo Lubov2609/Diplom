@@ -12,5 +12,21 @@ module.exports = vkrsModel = {
             .join("students","vkrs.student_id","students.id");
         return vkrs;
     },
+    studentsAll: async () => {
+        students = await knex("students");
+        const vkrs = await knex
+            .select("vkrs.id", "vkrs.vkr_pz", "vkrs.vkr_tz","vkrs.student_id","students.student_fio")
+            .from("vkrs")
+            .join("students","vkrs.student_id","students.id");
+        return students;
+    },
+    create: async (vkr) => {
+        const vkrs = await knex("vkrs").insert(vkr);
+        return vkrs;
+    },
+    delete: async (id) => {
+        const vkrs = await knex("vkrs").where("id", id).delete();
+        return vkrs;
+    },
 
 };

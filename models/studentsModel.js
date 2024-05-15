@@ -17,7 +17,16 @@ module.exports = studentsModel = {
             .from("students")
             .join("groups","students.group_id","groups.id");
         return students;
-    },create: async (student) => {
+    },
+    groupsAll: async () => {
+        const groups = await knex("groups");
+        const students = await knex
+            .select("students.id", "students.student_fio", "students.student_gpa", "groups.group_name")
+            .from("students")
+            .join("groups","students.group_id","groups.id");
+        return groups;
+    },
+    create: async (student) => {
         const students = await knex("students").insert(student);
         return students;
     },

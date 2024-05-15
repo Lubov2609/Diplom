@@ -8,6 +8,14 @@ module.exports = groupsModel = {
             .join("years","groups.year_id","years.id");
         return groups;
     },
+    yearsAll: async () => {
+        const years = await knex('years');
+        const groups = await knex
+            .select("groups.id", "groups.group_name", "groups.year_id", "years.year_name")
+            .from("groups")
+            .join("years", "groups.year_id", "years.id");
+        return years;
+    },
     getById: async (id) => {
         const group = await knex("groups").where("id", id);
         return group;

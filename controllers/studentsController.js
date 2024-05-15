@@ -16,9 +16,11 @@ module.exports = studentsController = {
         }
     },
     newStudent: async (req, res, next) => {
+        const groups = await studentsModel.groupsAll()
         try {
             res.render('admin/students/add', {
-                title: 'Добавление студента'
+                title: 'Добавление студента',
+                groups
             })
         } catch (error) {
             next(error);

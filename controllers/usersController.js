@@ -15,9 +15,14 @@ module.exports = usersController = {
         }
     },
     newUser: async (req, res, next) => {
+        const roles = await usersModel.rolesALL();
+        const years = await usersModel.yearsALL();
+
         try {
             res.render('admin/users/add', {
-                title: 'Добавление пользователя'
+                title: 'Добавление пользователя',
+                roles,
+                years
             })
         } catch (error) {
             next(error);

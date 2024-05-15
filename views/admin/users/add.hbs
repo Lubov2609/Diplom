@@ -19,11 +19,19 @@
     </div>
     <div class="form-group">
         <label for="name">Год</label>
-        <input type="number"  name="year_id" class="form-control" id="year_id" placeholder="Введите год">
+        <select name="year_id">
+            {{#each years}}
+                <option value="{{this.id}}">{{this.year_name}}</option>
+            {{/each}}
+        </select>
     </div>
     <div class="form-group">
         <label for="name">Роль</label>
-        <input type="text"  name="role_id" class="form-control" id="role_id" placeholder="Введите роль">
+        <select name="role_id">
+            {{#each roles}}
+                <option value="{{this.id}}">{{this.role_name}}</option>
+            {{/each}}
+        </select>
     </div>
 
 
