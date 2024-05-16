@@ -21,9 +21,7 @@ module.exports = groupsModel = {
         return group;
     },
     create: async (group) => {
-        const groups = await knex.select("groups.id", "groups.group_name", "groups.year_id", "years.year_name")
-            .from("groups")
-            .join("years","groups.year_id","years.id").insert(group);
+        const groups = await knex.insert(group);
         return groups;
     },
     update: async (id, group) => {

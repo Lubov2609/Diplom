@@ -1,4 +1,7 @@
 const docsModel = require('../models/docsModel');
+const yearsModel = require("../models/yearsModel");
+const groupsModel = require("../models/groupsModel");
+const vkrsModel = require("../models/vkrsModel");
 
 
 module.exports = docsController = {
@@ -27,4 +30,15 @@ module.exports = docsController = {
         }
     },
 
+    delete: async (req, res, next) => {
+        try {
+            const doc = await docsModel.delete(req.params.id);
+            res.render('admin/docs/docs', {
+                title: 'Удаление ВКР',
+                doc
+            })
+        } catch (error) {
+            next(error);
+        }
+    }
 };
