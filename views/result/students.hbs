@@ -19,7 +19,8 @@
                     <tbody>{{# each students}}
                         <tr>
                             <td>{{this.id}}</td>
-                            <td><a href="">{{this.student_fio}}</a></td>
+
+                            <td><a href="/group/{{this.group_id}}/{{this.id}}">{{this.student_fio}}</a></td>
                             <td>{{this.result_grade}}</td>
                         </tr>
                     {{/each}}

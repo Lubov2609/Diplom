@@ -1,5 +1,6 @@
 <h1> {{title}} </h1>
 
+
 <div class="card">
     <div class="card-header">
         <div class="row">
@@ -12,6 +13,7 @@
             <th scope="col">Оцениваемый балл</th>
         </tr>
         </thead>
+{{#each lists}}
         <form id="add_form" method="post">
         <tbody>
         <tr>
@@ -19,7 +21,7 @@
             <td>Актуальность и целевая направленность работы</td>
             <td rowspan="3">5</td>
             <td rowspan="3"><div class="form-group">
-                <input type="number" value="" name="name" class="form-control" id="name" placeholder="балл">
+                <input type="number" value="{{this.g1}}" name="g1" class="form-control" id="g1" placeholder="балл">
             </div></td>
         </tr>
         <tr>
@@ -37,7 +39,7 @@
             <td>1. Полнота и структурированность работы; умение научно аргументировать свою позицию, использовать основные законы естественнонаучных дисциплин в профессиональной деятельности</td>
             <td rowspan="4">5</td>
             <td rowspan="4"><div class="form-group">
-                <input type="number" value="" name="name" class="form-control" id="name" placeholder="балл">
+                <input type="number" value="{{this.g2}}" name="g2" class="form-control" id="g2" placeholder="балл">
             </div></td>
         </tr>
         <tr>
@@ -58,7 +60,7 @@
             <td >5</td>
             <td >
                 <div class="form-group">
-                <input type="number" value="" name="name" class="form-control" id="name" placeholder="балл">
+                <input type="number" value="{{this.g3_1}}" name="g3_1" class="form-control" id="g3_1" placeholder="балл">
             </div>
             </td>
         </tr>
@@ -68,7 +70,7 @@
                 заявленной цели</td>
             <td>5</td>
             <td><div class="form-group">
-            <input type="number" value="" name="name" class="form-control" id="name" placeholder="балл">
+                <input type="number" value="{{this.g3_2}}" name="g3_2" class="form-control" id="g3_2" placeholder="балл">
         </div></td>    </tr>
         <tr>
             <td>3.Апробация результатов исследования (доклады на
@@ -76,14 +78,14 @@
                 рекомендации к внедрению и др.)</td>
             <td>5</td>
             <td><div class="form-group">
-                <input type="number" value="" name="name" class="form-control" id="name" placeholder="балл">
+                <input type="number" value="{{this.g3_3}}" name="g3_3" class="form-control" id="g3_3" placeholder="балл">
             </div></td>    </tr>
         <tr>
             <td>1</td>
             <td>Средний балл за ВКР</td>
             <td >5</td>
             <td ><div class="form-group">
-                <input type="number" value="" name="name" class="form-control" id="name" placeholder="балл">
+                <input type="number" value="{{this.avg_vkr}}" name="avg_vkr" class="form-control" id="avg_vkr" placeholder="балл">
             </div>
             </td>
         </tr>
@@ -93,7 +95,7 @@
             <td>1.Cтепень структурированности и логичности доклада</td>
             <td >5</td>
             <td ><div class="form-group">
-                <input type="number" value="" name="name" class="form-control" id="name" placeholder="балл">
+                <input type="number" value="{{this.g4_1}}" name="g4_1" class="form-control" id="g4_1" placeholder="балл">
             </div></td>
         </tr>
         <tr>
@@ -102,7 +104,7 @@
             <td >5</td>
             <td >
                 <div class="form-group">
-                    <input type="number" value="" name="name" class="form-control" id="name" placeholder="балл">
+                    <input type="number" value="{{this.g4_2}}" name="g4_2" class="form-control" id="g4_2" placeholder="балл">
                 </div></td>
         </tr>
         <tr>
@@ -110,7 +112,7 @@
                 навыки публичной речи</td>
             <td >5</td>
             <td ><div class="form-group">
-                <input type="number" value="" name="name" class="form-control" id="name" placeholder="балл">
+                <input type="number" value="{{this.g4_3}}" name="g4_3" class="form-control" id="g4_3" placeholder="балл">
             </div></td>
         </tr>
         <tr>
@@ -118,7 +120,7 @@
                 результатам исследования</td>
             <td >5</td>
             <td ><div class="form-group">
-                <input type="number" value="" name="name" class="form-control" id="name" placeholder="балл">
+                <input type="number" value="{{this.g4_4}}" name="g4_4" class="form-control" id="g4_4" placeholder="балл">
             </div></td>
         </tr>
         <tr>
@@ -127,14 +129,14 @@
                 руководителя и рецензента</td>
             <td >5</td>
             <td ><div class="form-group">
-                <input type="number" value="" name="name" class="form-control" id="name" placeholder="балл">
+                <input type="number" value="{{this.g4_5}}" name="g4_5" class="form-control" id="g4_5" placeholder="балл">
             </div></td>
         </tr>
         <tr>
             <td>6.Общий уровень общения с аудиторией</td>
             <td >5</td>
             <td ><div class="form-group">
-                <input type="number" value="" name="name" class="form-control" id="name" placeholder="балл">
+                <input type="number" value="{{this.g4_6}}" name="g4_6" class="form-control" id="g4_6" placeholder="балл">
             </div></td>
         </tr>
         <tr>
@@ -142,12 +144,13 @@
             <td>Средний балл за защиту ВКР</td>
             <td >5</td>
             <td ><div class="form-group">
-                <input type="number" step=".01" value="" name="name" class="form-control" id="name" placeholder="балл">
+                <input type="number" step=".01" value="{{this.avg_protect}}" name="avg_protect" class="form-control" id="avg_protect" placeholder="балл">
             </div></td>
         </tr>
         </tbody>
     </table>
 </form>
+    {{/each}}
 <button form="add_form" type="submit" class="btn btn-primary mt-4">Заполнить</button>
         </div>
     </div>

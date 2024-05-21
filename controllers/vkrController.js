@@ -3,6 +3,7 @@ const groupsModel = require('../models/groupsModel');
 const vkrsModel = require("../models/vkrsModel");
 const yearsModel = require("../models/yearsModel");
 
+
 module.exports = vkrController = {
     groupsAll: async (req, res, next) => {
         try {

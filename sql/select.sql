@@ -21,14 +21,19 @@
 -- SELECT * FROM protocols ORDER BY id ASC;
 --
 -- -- SQL Select docs
-SELECT * FROM vkrs ORDER BY id ASC;
+-- SELECT * FROM lists ORDER BY id ASC;
+-- SELECT * FROM vkrs ORDER BY id ASC;
+--
+-- SELECT
+-- groups.id,
+-- groups.group_name,
+-- groups.year_id,
+-- years.year_name AS years
+-- FROM
+-- groups
+-- JOIN years
+-- ON groups.year_id = years.id
 
-SELECT
-groups.id,
-groups.group_name,
-groups.year_id,
-years.year_name AS years
-FROM
-groups
-JOIN years
-ON groups.year_id = years.id
+-- select avg(g1+g2+g3_1+g3_2+g3_3)/5 from lists
+
+select g1,g2,g3_1,g3_2,g3_3, g4_1, g4_2, g4_3, g4_4, g4_5, g4_6, round(((g1+g2+g3_1+g3_2+g3_3)/5),2) as avg_vkr, round(((g4_1+g4_2+g4_3+g4_4+g4_5+g4_6)/6),2) as avg_protect from lists

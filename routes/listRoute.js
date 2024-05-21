@@ -4,6 +4,6 @@ const listController = require("../controllers/listController");
 
 router.route('/list-group').get(listController.groupsAll);
 router.route('/list-group/:groupID').get(listController.studentsAll);
-router.route('/list-group/:groupID/:studentID').get(listController.listAll);
+router.route('/list-group/:groupID/:studentID').get(listController.getAll);
 
 module.exports = router;

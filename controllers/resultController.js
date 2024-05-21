@@ -1,5 +1,6 @@
 const studentsModel = require("../models/studentsModel");
 const groupsModel = require('../models/groupsModel');
+const usersModel = require("../models/usersModel");
 
 module.exports = vkrController = {
     groupsAll: async (req, res, next) => {
@@ -22,6 +23,20 @@ module.exports = vkrController = {
                 title: 'Результаты',
                 layout: 'layout2',
                 students
+            })
+        } catch (error){
+            next(error);
+        }
+    },
+    studentBy: async (req, res, next) => {
+        try {
+            const id =parseInt(req.params.studentID); // Получаем id_year из параметра маршрута
+            const result = await studentsModel.getAll(id);
+            const users =await usersModel.getAll();
+            res.render('result/student', {
+                title: 'Результаты',
+                layout: 'layout2',
+                result
             })
         } catch (error){
             next(error);
