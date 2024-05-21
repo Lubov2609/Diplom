@@ -55,6 +55,23 @@ exports.up = function(knex) {
             table.integer("student_id").references('id').inTable('students').onDelete("CASCADE");
             table.timestamps(true, true);
         })
+        .createTable("lists", table => {
+            table.increments().primary();
+            table.decimal("g1",5,1);
+            table.decimal("g2",5,1);
+            table.decimal("g3_1",5,1);
+            table.decimal("g3_2",5,1);
+            table.decimal("g3_3",5,1);
+            table.decimal("g4_1",5,1);
+            table.decimal("g4_2",5,1);
+            table.decimal("g4_3",5,1);
+            table.decimal("g4_4",5,1);
+            table.decimal("g4_5",5,1);
+            table.decimal("g4_6",5,1);
+            table.integer("user_id").references('id').inTable('users').onDelete("CASCADE");
+            table.integer("student_id").references('id').inTable('students').onDelete("CASCADE");
+            table.timestamps(true, true);
+        })
 
 
 };
@@ -63,6 +80,6 @@ exports.up = function(knex) {
 
 
 exports.down = function(knex) {
-    return knex.schema.dropTable("protocols").dropTable("users").dropTable("roles").dropTable("vkrs").dropTable("students").dropTable("groups").dropTable("docs").dropTable("years");
+    return knex.schema.dropTable("protocols").dropTable("lists").dropTable("users").dropTable("roles").dropTable("vkrs").dropTable("students").dropTable("groups").dropTable("docs").dropTable("years");
 
 };

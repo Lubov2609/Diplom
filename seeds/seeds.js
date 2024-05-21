@@ -59,4 +59,9 @@ exports.seed = async function(knex) {
         {id: 2, doc_name: 'Приказ2', doc_link: 'https://docs2',year_id :2},
         {id: 3, doc_name: 'Приказ3', doc_link: 'https://docs3',year_id :4}
     ]);
+    await knex('lists').del()
+    await knex('lists').insert([
+        {id: 1, user_id:1, student_id:1,g1:5,g2:4.5,g3_1:4.8,g3_2:4.7,g3_3:4.5,g4_1:5,g4_2:3.9,g4_3:5,g4_4:4.9,g4_5:4.7,g4_6:5},
+        {id: 2, user_id:1, student_id:2,g1:5,g2:3.5,g3_1:3.8,g3_2:3.7,g3_3:4.1,g4_1:3.4,g4_2:4.9,g4_3:4,g4_4:3.9,g4_5:5,g4_6:5},
+    ]);
 };

@@ -13,7 +13,10 @@ module.exports = docsModel = {
             .join("years","docs.year_id","years.id");
         return docs;
     },
-
+    create: async (doc) => {
+        const docs = await knex('docs').insert(doc);
+        return docs;
+    },
     delete: async (id) => {
         const docs = await knex("docs").where("id", id).delete();
         return docs;

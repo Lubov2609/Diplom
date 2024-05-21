@@ -9,6 +9,10 @@ const yearsController = require("../controllers/yearsController");
 
 router.route('/docs/:yearID').get(docsController.getAll);
 router.route('/docs').get(docsController.docsAll);
+router.route("/docs/new").get(docsController.newDoc);
+router.route("/docs").post(docsController.create);
+router.route("/docs/new").get(docsController.newDoc);
+router.route("/docs").post(docsController.create);
 router.route("/docs/:id").delete(docsController.delete);
 
 

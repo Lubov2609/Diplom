@@ -29,6 +29,30 @@ module.exports = docsController = {
             next(error);
         }
     },
+    newDoc: async (req, res, next) => {
+        try {
+            res.render('admin/docs/add', {
+                title: 'add new',
+
+            })
+        } catch (error) {
+            next(error);
+        }
+    },
+    create: async (req, res, next) => {
+        try {
+            const doc = await docsModel.create(req.body);
+            res.render('admin/docs/add', {
+                title: 'create',
+                doc
+
+            })
+            // res.json(user);
+        } catch (error) {
+            next(error);
+        }
+    },
+
 
     delete: async (req, res, next) => {
         try {
