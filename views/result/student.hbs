@@ -13,13 +13,16 @@
                         {{#each users}}
                         <th>{{this.user_fio}}</th>
                         {{/each}}
+                        <th>Итоговая оценка за ВКР</th>
                     </tr>
+
                     </thead>
 
                     <tbody>
                         <tr>
-                            <td></td>
-
+{{#each users}}
+                            <td> Тут будет оценка</td>
+{{/each}}
                         </tr>
                     </tbody>
                 </table>

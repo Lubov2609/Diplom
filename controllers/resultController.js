@@ -36,7 +36,8 @@ module.exports = vkrController = {
             res.render('result/student', {
                 title: 'Результаты',
                 layout: 'layout2',
-                result
+                result,
+                users
             })
         } catch (error){
             next(error);
