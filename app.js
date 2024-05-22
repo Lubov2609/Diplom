@@ -7,11 +7,10 @@ const parser =require('body-parser');
 const methodOverride = require('method-override');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
-const crypto = require('crypto');
 const config = require("config");
 
 
-require('dotenv').config()
+
 
 // Регистрация роутов для сайта
 const aboutRouter = require('./routes/about')
@@ -89,7 +88,7 @@ app.use(function(err, req, res, next) {
 });
 
 
-app.listen(80, () => {
+app.listen(process.env.PORT || config.port, () => {
   global.console.log(`Server is up and running on port ${config.port}`);
 });
 
