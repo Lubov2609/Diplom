@@ -89,7 +89,7 @@ app.use(function(err, req, res, next) {
 });
 
 
-app.listen(process.env.PORT || config.port, () => {
+app.listen(3000, () => {
   global.console.log(`Server is up and running on port ${config.port}`);
 });
 
