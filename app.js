@@ -8,6 +8,9 @@ const methodOverride = require('method-override');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const crypto = require('crypto');
+const config = require("config");
+
+
 require('dotenv').config()
 
 // Регистрация роутов для сайта
@@ -60,11 +63,11 @@ app.use(function(req, res, next){
 // Подключение роутов для проекта
 app.use('/', usersRouter);
 app.use('/', contactRouter);
-app.use('/',docsRouter);
+app.use('/', docsRouter);
 app.use('/', yearsRouter);
-app.use('/',aboutRouter);
+app.use('/', aboutRouter);
 app.use('/', groupsRouter);
-app.use('/',studentsRouter);
+app.use('/', studentsRouter);
 app.use('/', vkrRouter);
 app.use('/', listRouter);
 app.use('/', resultRouter);
@@ -84,5 +87,11 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+
+app.listen(process.env.PORT || config.port, () => {
+  global.console.log(`Server is up and running on port ${config.port}`);
+});
+
 
 module.exports = app;

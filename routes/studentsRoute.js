@@ -9,5 +9,6 @@ router.route("/students").post(studentsController.create);
 router.route("/students/:id/edit").get(studentsController.getById);
 router.route("/students/:id").put(studentsController.update);
 router.route("/students/:id").delete(studentsController.delete);
+router.route("/students/parser").get(studentsController.parserStudent);
 
 module.exports = router;

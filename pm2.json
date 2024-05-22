@@ -1,0 +1,15 @@
+{
+  "apps": [
+    {
+      "name": "skladnikluba.ru",
+      "script": "app.js",
+      "env": {
+        "NODE_ENV": "production"
+      },
+      "log_date_format": "MM-DD-YYYY HH:mm Z",
+      "error_file": "log/pm2_error.log",
+      "out_file": "log/pm2_out.log"
+    }
+  ]
+}
+
