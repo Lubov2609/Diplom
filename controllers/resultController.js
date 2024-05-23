@@ -33,6 +33,7 @@ module.exports = vkrController = {
         try {
             const id =parseInt(req.params.studentID); // Получаем id_year из параметра маршрута
             const student_id =parseInt(req.params.studentID);
+
             const result = await studentsModel.getAll(id);
             const users =await usersModel.getAll();
             const lists = await listsModel.getAll2(student_id);

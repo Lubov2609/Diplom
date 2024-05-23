@@ -18,7 +18,10 @@ module.exports = listsModel =
             .select( knex.raw(' round(((g1+g2+g3_1+g3_2+g3_3)/5),1) as avg_vkr'))
             .select( knex.raw('round(((g4_1+g4_2+g4_3+g4_4+g4_5+g4_6)/6),1) as avg_protect '))
             .select( knex.raw('round(((round(((g1+g2+g3_1+g3_2+g3_3)/5),1)+round(((g4_1+g4_2+g4_3+g4_4+g4_5+g4_6)/6),1))/2),1) as avg_user'))
-            .where('student_id', student_id);
+            .select(knex.raw('user_fio as users'))
+            .join("users","lists.user_id","users.id")
+
+    .where('student_id', student_id);
 
         return  lists;
     },

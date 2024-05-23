@@ -36,4 +36,4 @@
 
 -- select avg(g1+g2+g3_1+g3_2+g3_3)/5 from lists
 
-select g1,g2,g3_1,g3_2,g3_3, g4_1, g4_2, g4_3, g4_4, g4_5, g4_6, round(((g1+g2+g3_1+g3_2+g3_3)/5),2) as avg_vkr, round(((g4_1+g4_2+g4_3+g4_4+g4_5+g4_6)/6),2) as avg_protect, round(((round(((g1+g2+g3_1+g3_2+g3_3)/5),2)+round(((g4_1+g4_2+g4_3+g4_4+g4_5+g4_6)/6),2))/2),2) as avg_user from lists
+select user_id,g1,g2,g3_1,g3_2,g3_3, g4_1, g4_2, g4_3, g4_4, g4_5, g4_6, round(((g1+g2+g3_1+g3_2+g3_3)/5),2) as avg_vkr, round(((g4_1+g4_2+g4_3+g4_4+g4_5+g4_6)/6),2) as avg_protect, round(((round(((g1+g2+g3_1+g3_2+g3_3)/5),2)+round(((g4_1+g4_2+g4_3+g4_4+g4_5+g4_6)/6),2))/2),2) as avg_user, user_fio as users  from lists join users on lists.user_id = users.id
