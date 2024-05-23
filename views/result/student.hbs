@@ -20,10 +20,12 @@
 
                     <tbody>
                         <tr>
-{{#each users}}
-                            <td> Тут будет оценка</td>
-{{/each}}
-                        </tr>
+{{#each lists}}
+                            <td> {{this.avg_user}}</td>
+
+                        {{/each}}
+
+                    </tr>
                     </tbody>
                 </table>
             </div>
