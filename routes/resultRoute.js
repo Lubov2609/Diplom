@@ -7,5 +7,4 @@ router.route('/group').get(resultController.groupsAll);
 router.route('/group/:groupID').get(resultController.studentsAll);
 router.route('/group/:groupID/:studentID').get(resultController.studentBy);
 
-
 module.exports = router;

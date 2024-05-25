@@ -37,13 +37,14 @@ module.exports = vkrController = {
             const result = await studentsModel.getAll(id);
             const users =await usersModel.getAll();
             const lists = await listsModel.getAll2(student_id);
-
+            const resu = await listsModel.getAll3(student_id);
             res.render('result/student', {
                 title: 'Результаты',
                 layout: 'layout2',
                 result,
                 users,
-                lists
+                lists,
+                resu
             })
         } catch (error){
             next(error);
