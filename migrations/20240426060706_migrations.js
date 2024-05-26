@@ -45,8 +45,7 @@ exports.up = function(knex) {
             table.increments().primary();
             table.integer("user_id").references('id').inTable('users').onDelete("CASCADE");
             table.integer("student_id").references('id').inTable('students').onDelete("CASCADE");
-            table.integer("list_id").notNullable().references('id').inTable('lists').onDelete("CASCADE");
-           table.decimal('res',1);
+            table.integer("list_id");
             table.timestamps(true, true);
         })
         .createTable("vkrs", table => {

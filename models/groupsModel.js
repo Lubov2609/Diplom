@@ -1,6 +1,10 @@
 const knex = require('../db/db');
 
 module.exports = groupsModel = {
+    groupAll:async (year_id) => {
+        const groups = await knex('docs').where('year_id', year_id);
+        return groups;
+    },
     groupsAll: async () => {
         const groups = await knex
             .select("groups.id", "groups.group_name", "groups.year_id", "years.year_name")

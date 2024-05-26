@@ -45,6 +45,8 @@ module.exports = yearsController = {
         } catch (error) {
             next(error);
         }
+        res.redirect('/years');
+
     },
     getById: async (req, res, next) => {
         try {
@@ -68,6 +70,8 @@ module.exports = yearsController = {
         } catch (error) {
             next(error);
         }
+        res.redirect('/years');
+
     },
     delete: async (req, res, next) => {
         try {
@@ -79,5 +83,7 @@ module.exports = yearsController = {
         } catch (error) {
             next(error);
         }
+        res.redirect('/years');
     }
+
 };

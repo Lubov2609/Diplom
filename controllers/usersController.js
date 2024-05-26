@@ -38,6 +38,7 @@ module.exports = usersController = {
         } catch (error) {
             next(error);
         }
+        res.redirect('/users');
     },
     getById: async (req, res, next) => {
         try {
@@ -61,6 +62,7 @@ module.exports = usersController = {
         } catch (error) {
             next(error);
         }
+        res.redirect('/users');
     },
     delete: async (req, res, next) => {
         try {
@@ -72,5 +74,6 @@ module.exports = usersController = {
         } catch (error) {
             next(error);
         }
-    },
+        res.redirect('/users');
+    }
 };

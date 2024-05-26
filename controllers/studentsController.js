@@ -36,6 +36,7 @@ module.exports = studentsController = {
         } catch (error) {
             next(error);
         }
+        res.redirect('/students');
     },
     getById: async (req, res, next) => {
         try {
@@ -59,6 +60,7 @@ module.exports = studentsController = {
         } catch (error) {
             next(error);
         }
+        res.redirect('/students');
     },
     delete: async (req, res, next) => {
         try {
@@ -70,6 +72,7 @@ module.exports = studentsController = {
         } catch (error) {
             next(error);
         }
+        res.redirect('/students');
     },
     parserStudent: async (req, res, next) => {
         const groups = await studentsModel.groupsAll()

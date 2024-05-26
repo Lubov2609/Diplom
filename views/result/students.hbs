@@ -12,7 +12,9 @@
                     <tr>
                         <th>id</th>
                         <th>ФИО</th>
-                        <th> Итоговая оценка</th>
+                        <th> Итоговая оценка ГЭК</th>
+                        <th> Итоговая оценка обучение</th>
+
                     </tr>
                     </thead>
 
@@ -21,9 +23,13 @@
                             <td>{{this.id}}</td>
 
                             <td><a href="/group/{{this.group_id}}/{{this.id}}">{{this.student_fio}}</a></td>
-                            <td>{{this.result_grade}}</td>
+{{/each}}
+                    {{# each resul}}
+                            <td>{{this.res}}</td>
+                        {{/each}}
+                            <td></td>
                         </tr>
-                    {{/each}}
+
                     </tbody>
                 </table>
             </div>

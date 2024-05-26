@@ -51,6 +51,8 @@ module.exports = docsController = {
         } catch (error) {
             next(error);
         }
+        res.redirect('/docs');
+
     },
 
 
@@ -64,5 +66,6 @@ module.exports = docsController = {
         } catch (error) {
             next(error);
         }
+        res.redirect('/docs');
     }
 };

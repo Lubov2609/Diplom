@@ -2,6 +2,7 @@ const studentsModel = require("../models/studentsModel");
 const groupsModel = require('../models/groupsModel');
 const vkrsModel = require("../models/vkrsModel");
 const yearsModel = require("../models/yearsModel");
+const docsModel = require("../models/docsModel");
 
 
 module.exports = vkrController = {
@@ -76,6 +77,7 @@ module.exports = vkrController = {
         } catch (error) {
             next(error);
         }
+        res.redirect('/vkrs');
     },
     delete: async (req, res, next) => {
         try {
@@ -87,5 +89,6 @@ module.exports = vkrController = {
         } catch (error) {
             next(error);
         }
+        res.redirect('/vkrs');
     }
 };

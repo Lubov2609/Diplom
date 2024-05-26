@@ -36,18 +36,12 @@
 
 -- select avg(g1+g2+g3_1+g3_2+g3_3)/5 from lists
 
-select student_id, g1, g2, g3_1, g3_2, g3_3, g4_1, g4_2, g4_3, g4_4, g4_5, g4_6, round(((g1+g2+g3_1+g3_2+g3_3)/5),2) as avg_vkr, round(((g4_1+g4_2+g4_3+g4_4+g4_5+g4_6)/6),2) as avg_protect, round(((round(((g1+g2+g3_1+g3_2+g3_3)/5),2)+round(((g4_1+g4_2+g4_3+g4_4+g4_5+g4_6)/6),2))/2),2) as avg_user from lists;
+-- select student_id, g1, g2, g3_1, g3_2, g3_3, g4_1, g4_2, g4_3, g4_4, g4_5, g4_6, round(((g1+g2+g3_1+g3_2+g3_3)/5),2) as avg_vkr, round(((g4_1+g4_2+g4_3+g4_4+g4_5+g4_6)/6),2) as avg_protect, round(((round(((g1+g2+g3_1+g3_2+g3_3)/5),2)+round(((g4_1+g4_2+g4_3+g4_4+g4_5+g4_6)/6),2))/2),2) as avg_user from lists;
 
 
 -- select g1, g2, g3_1, g3_2, g3_3, g4_1, g4_2, g4_3, g4_4, g4_5, g4_6,  round(((round(((g1+g2+g3_1+g3_2+g3_3)/5),2)+round(((g4_1+g4_2+g4_3+g4_4+g4_5+g4_6)/6),2))/2),2) as avg_user,  from lists;
 
--- select avg_user, (avg(avg_user)) as res from (select g1, g2, g3_1, g3_2, g3_3, g4_1, g4_2, g4_3, g4_4, g4_5, g4_6,  round(((round(((g1+g2+g3_1+g3_2+g3_3)/5),2)+round(((g4_1+g4_2+g4_3+g4_4+g4_5+g4_6)/6),2))/2),2) as avg_user from lists);
 
--- select lists.*,sum(avg_user)/count(avg_user) as res from
--- (
--- select student_id,  round(((round(((g1+g2+g3_1+g3_2+g3_3)/5),2)+round(((g4_1+g4_2+g4_3+g4_4+g4_5+g4_6)/6),2))/2),2)  as avg_user from  lists) lists
--- group by  avg_user,student_id
--- where student_id= 1;
 
 
 
@@ -59,15 +53,24 @@ select student_id, g1, g2, g3_1, g3_2, g3_3, g4_1, g4_2, g4_3, g4_4, g4_5, g4_6,
 -- select *from lists
 
 
---ne rabotaet
--- select avg(avg_user) as res,
--- avg_user
--- from (
--- select g1, g2, g3_1, g3_2, g3_3, g4_1, g4_2, g4_3, g4_4, g4_5, g4_6, student_id, round(((round(((g1+g2+g3_1+g3_2+g3_3)/5),2)+round(((g4_1+g4_2+g4_3+g4_4+g4_5+g4_6)/6),2))/2),2)  as avg_user
--- from lists
--- group by  g1, g2, g3_1, g3_2, g3_3, g4_1, g4_2, g4_3, g4_4, g4_5, g4_6, avg_user, student_id) lists;
 
 
-select  avg(x.avg_user) as res from(select student_id,round(((g1+g2+g3_1+g3_2+g3_3)/5),2) as avg_vkr, round(((g4_1+g4_2+g4_3+g4_4+g4_5+g4_6)/6),2) as avg_protect, round(((round(((g1+g2+g3_1+g3_2+g3_3)/5),2)+round(((g4_1+g4_2+g4_3+g4_4+g4_5+g4_6)/6),2))/2),2) as avg_user  from lists ) x
- where student_id=2;
+-- работает и реализовано в модели
 
+ select  round(avg(x.avg_user),1) as res from
+ (select student_id as st,round(((round(((g1+g2+g3_1+g3_2+g3_3)/5),1)+round(((g4_1+g4_2+g4_3+g4_4+g4_5+g4_6)/6),1))/2),1)
+ as avg_user from lists ) x
+ where student_id=1;
+
+SELECT
+lists.user_id,
+students.id,
+students.student_fio,
+students.student_gpa,
+lists.g1,
+
+lists.g2
+FROM
+students
+JOIN lists
+ON  students.id= lists.student_id

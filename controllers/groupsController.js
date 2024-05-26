@@ -38,6 +38,7 @@ module.exports = groupsController = {
         } catch (error) {
             next(error);
         }
+        res.redirect('/groups');
     },
     getById: async (req, res, next) => {
         try {
@@ -61,6 +62,7 @@ module.exports = groupsController = {
         } catch (error) {
             next(error);
         }
+        res.redirect('/groups');
     },
     delete: async (req, res, next) => {
         try {
@@ -72,5 +74,6 @@ module.exports = groupsController = {
         } catch (error) {
             next(error);
         }
-    },
+        res.redirect('/groups');
+    }
 };

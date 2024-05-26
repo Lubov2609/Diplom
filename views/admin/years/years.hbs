@@ -22,10 +22,10 @@
             <tr>
                 <td>{{ this.id }}</td>
                 <td>{{this.year_name}}</td>
-                <form action="/years/{{ id }}?_method=DELETE" method="post">
+                <form action="/years/{{ id }}?_method=DELETE"  method="post">
                     <td style="text-align: center">
                         <a class="btn btn-primary btn-sm" href="/years/{{ id }}/edit"> Редактировать</a>
-                        <button type="submit" class="btn btn-primary btn-sm edit">Удалить</button>
+                        <button type="submit"  class="btn btn-primary btn-sm edit"><i class="fa fa-trash-o" aria-hidden="true"></i>Удалить</button>
                     </td>
                 </form>
             </tr>
