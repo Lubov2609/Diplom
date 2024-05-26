@@ -19,13 +19,11 @@ module.exports = vkrController = {
     studentsAll: async (req, res, next) => {
         try {
             const group_id = parseInt(req.params.groupID); // Получаем id_year из параметра маршрута
-            const students = await studentsModel.studentsAll(group_id);
-            const resul = await listsModel.getAll4();
+            const resul = await listsModel.getAll4(group_id);
 
             res.render('result/students', {
                 title: 'Результаты',
                 layout: 'layout2',
-                students,
                 resul
             })
         } catch (error){
