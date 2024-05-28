@@ -9,8 +9,8 @@ const yearsController = require("../controllers/yearsController");
 
 router.route('/:yearID/docs').get(docsController.getAll);
 router.route('/docs').get(docsController.docsAll);
-router.get('/docs/new',docsController.fileUploadForm);
-router.post('/docs/new',docsController.uploadFile);
+router.route('/docs/new').get(docsController.newDoc);
+router.route('/docs/new').post(docsController.uploadFile);
 router.route("/docs/:id").delete(docsController.delete);
 
 module.exports = router;

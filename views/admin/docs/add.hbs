@@ -1,28 +1,24 @@
 <h1>{{title}}</h1>
 
-<!--<form  class="form" action="/docs" method="post">-->
-<!--    <div class="form-group">-->
-<!--        <label for="name"> Год</label>-->
-<!--        <select name="years_id">-->
-<!--            {{#each years}}-->
-<!--                <option value="{{this.id}}">{{this.year_name}}</option>-->
-<!--            {{/each}}-->
-<!--        </select>-->
-<!--    </div>-->
-<!--    <div class="form-group">-->
-<!--        <label for="name"> Название файла</label>-->
-<!--        <input type="text"  name="doc_name" class="form-control" id="doc_name" placeholder="Введите название файла">-->
-<!--    </div>-->
-<!--    <div class="form-group">-->
 
 <h1>Документация</h1>
-<form action="/docs/new" method="POST" enctype="multipart/form-data">
-    <label>Avatar</label>
-    <input type="file"  name="file">
-    <button type="submit">Upload</button>
-</form>
+<form  class="form" action="/docs/new" method="post"  enctype="multipart/form-data" >
+<!--  enctype="multipart/form-data"  -->
 
-<!--    </div>-->
-<!--    <a class="btn btn-danger btn-sm" href="/docs">Назад</a>-->
-<!--    <button type="submit" class="btn btn-primary btn-sm">Добавить</button>-->
-<!--</form>-->
+    <div class="form-group">
+    <label for="name"> Год</label>
+    <select name="year_id" id="year_id">
+        {{#each years}}
+            <option value="{{this.id}}">{{this.year_name}}</option>
+        {{/each}}
+    </select>
+</div>
+
+    <div class="form-group">
+        <label>File</label>
+        <input type="file" name="file" id="file">
+    </div>
+
+        <button type="submit" > Добавить в БД</button>
+
+</form>

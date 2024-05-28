@@ -15,7 +15,6 @@
     <tr>
         <th>id</th>
         <th>Название</th>
-        <th>ССылка на файл</th>
         <th>Год</th>
         <th>Удаление</th>
 
@@ -26,8 +25,7 @@
         {{# each docs }}
             <tr>
                 <td>{{this.id}}</td>
-                <td>{{this.doc_name}}</td>
-                <td>{{this.doc_link}}</td>
+                <td>{{this.file}}</td>
                 <td>{{this.year_name}}</td>
 
                 <form action="/docs/{{ id }}?_method=DELETE" method="post">

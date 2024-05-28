@@ -5,13 +5,27 @@ module.exports = docsModel = {
         const docs = await knex('docs').where('year_id', year_id);
         return docs;
     },
-
     docsAll: async () => {
         const docs = await knex
-            .select("docs.id", "docs.doc_name", "docs.doc_link","docs.year_id", "years.year_name")
+            .select("docs.id", "docs.file", "docs.year_id", "years.year_name")
             .from("docs")
-            .join("years","docs.year_id","years.id");
+            .join("years", "docs.year_id", "years.id");
         return docs;
+    },
+    yearId:async(year_id)=>{
+      const years = await knex
+          .select("years.id", "docs.year_id", "years.year_name")
+          .from("years")
+          .join("docs", "docs.year_id", "years.id");
+      return years;
+    },
+    yearsAll: async () => {
+        const years = await knex('years');
+        const docs = await knex
+            .select("docs.id", "docs.file", "docs.year_id", "years.year_name")
+            .from("docs")
+            .join("years", "docs.year_id", "years.id");
+        return years;
     },
     create: async (doc) => {
         const docs = await knex('docs').insert(doc);

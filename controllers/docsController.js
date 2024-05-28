@@ -32,15 +32,37 @@ module.exports = docsController = {
             next(error);
         }
     },
-    fileUploadForm:function(req,res){
-        res.render('admin/docs/add');
+    newDoc: async (req, res, next) => {
+        const years= await docsModel.yearsAll()
+        try {
+            res.render('admin/docs/add', {
+                title: 'add new',
+                layout: 'layout',
+                years
+            })
+        } catch (error) {
+            next(error);
+        }
     },
+
+
     uploadFile:function(req,res){
-        var upload = multer({
+        const upload = multer({
             storage: fileUpload.files.storage(),
             allowedFile:fileUpload.files.allowedFile
         }).single('file');
+
         upload(req, res, function (err) {
+            console.log(req.file.filename);
+
+           const file=req.file.filename;
+
+           docsModel.create({file}, (err, uploadeddata)=>
+            {
+                if(err) return res.send(err);
+                console.log(uploadeddata);
+            })
+
             if (err instanceof multer.MulterError) {
                 res.send(err);
             } else if (err) {
@@ -48,50 +70,23 @@ module.exports = docsController = {
             }else{
                 res.render('admin/docs/add');
             }
-
+            res.redirect('/docs');
         })
-
     },
 
+    // create: async (req, res,next) => {
+    //     try {
+    //         const doc = await docsModel.create(req.body);
+    //
+    //                 res.render('admin/docs/add', {
+    //                     title: 'create',
+    //                     doc
+    //                 })
+    //     } catch (error){
+    //         next(error);
+    //     }
+    // },
 
-    newDoc: async (req, res, next) => {
-        try {
-           // const  years = await docsModel.docsAll()
-            res.render('admin/docs/add', {
-                title: 'add new',
-                // years
-            })
-        } catch (error) {
-            next(error);
-        }
-    },
-    create: async (req, res, next) => {
-        try {
-            // const doc = await docsModel.create(req.body);
-            if (req.files) {
-                console.log(req.files)
-                const file = req.files.file
-                const fileName = file.name
-                // console.log(fileName)
-
-                await file.mv('./public/uploads/' + fileName, function (err) {
-                    if (err) {
-                        res.send(err)
-                    } else {
-                        res.send("file uploaded")
-                    }
-                })
-            }
-            //         res.render('admin/docs/add', {
-            //             title: 'create',
-            //             // doc
-            //         })
-            //         // res.json(user);
-            //     } catch (error) {
-            //         next(error);
-            //     }
-        } catch (error) {}
-    },
 
 
     delete: async (req, res, next) => {
