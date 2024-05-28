@@ -2,6 +2,9 @@ const docsModel = require('../models/docsModel');
 const yearsModel = require("../models/yearsModel");
 const groupsModel = require("../models/groupsModel");
 const vkrsModel = require("../models/vkrsModel");
+const studentsModel = require("../models/studentsModel");
+const multer = require('multer');
+const fileUpload= require('../middleware/upload_docs');
 
 
 module.exports = docsController = {
@@ -29,11 +32,34 @@ module.exports = docsController = {
             next(error);
         }
     },
+    fileUploadForm:function(req,res){
+        res.render('admin/docs/add');
+    },
+    uploadFile:function(req,res){
+        var upload = multer({
+            storage: fileUpload.files.storage(),
+            allowedFile:fileUpload.files.allowedFile
+        }).single('file');
+        upload(req, res, function (err) {
+            if (err instanceof multer.MulterError) {
+                res.send(err);
+            } else if (err) {
+                res.send(err);
+            }else{
+                res.render('admin/docs/add');
+            }
+
+        })
+
+    },
+
+
     newDoc: async (req, res, next) => {
         try {
+           // const  years = await docsModel.docsAll()
             res.render('admin/docs/add', {
                 title: 'add new',
-
+                // years
             })
         } catch (error) {
             next(error);
@@ -41,18 +67,30 @@ module.exports = docsController = {
     },
     create: async (req, res, next) => {
         try {
-            const doc = await docsModel.create(req.body);
-            res.render('admin/docs/add', {
-                title: 'create',
-                doc
+            // const doc = await docsModel.create(req.body);
+            if (req.files) {
+                console.log(req.files)
+                const file = req.files.file
+                const fileName = file.name
+                // console.log(fileName)
 
-            })
-            // res.json(user);
-        } catch (error) {
-            next(error);
-        }
-        res.redirect('/docs');
-
+                await file.mv('./public/uploads/' + fileName, function (err) {
+                    if (err) {
+                        res.send(err)
+                    } else {
+                        res.send("file uploaded")
+                    }
+                })
+            }
+            //         res.render('admin/docs/add', {
+            //             title: 'create',
+            //             // doc
+            //         })
+            //         // res.json(user);
+            //     } catch (error) {
+            //         next(error);
+            //     }
+        } catch (error) {}
     },
 
 

@@ -10,7 +10,7 @@
 
 <!--    {% if request.user.is_authenticated %}-->
     {{# each years}}
-        <div><h3> <a class="text" href="/docs/{{this.id}}"> {{this.year_name}}</a></h3></div>
+        <div><h3> <a class="text" href="/{{this.id}}/docs/"> {{this.year_name}}</a></h3></div>
     {{/each}}
 <!--    {% else %}-->
 <!--    <div class="col-4">-->

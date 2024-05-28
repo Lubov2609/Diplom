@@ -38,6 +38,7 @@ exports.up = function(knex) {
             table.increments().primary();
             table.string("doc_name",50).notNullable();
             table.string("doc_link",255).notNullable();
+
             table.timestamp(true, true);
             table.integer("year_id").references('id').inTable('years').onDelete("CASCADE");
         })

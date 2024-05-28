@@ -1,16 +1,28 @@
 <h1>{{title}}</h1>
 
-<form  class="form" action="/docs" method="post">
-    <div class="form-group">
-        <label for="name">ФИО</label>
-        <input type="text" value="" name="doc_name" class="form-control" id="doc_name" placeholder="Введите ФИО">
-    </div>
-    <div class="form-group">
-        <label for="name">Логин</label>
-        <input type="text" value="" name="doc_link" class="form-control" id="doc_link" placeholder="Введите  логин">
-    </div>
+<!--<form  class="form" action="/docs" method="post">-->
+<!--    <div class="form-group">-->
+<!--        <label for="name"> Год</label>-->
+<!--        <select name="years_id">-->
+<!--            {{#each years}}-->
+<!--                <option value="{{this.id}}">{{this.year_name}}</option>-->
+<!--            {{/each}}-->
+<!--        </select>-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--        <label for="name"> Название файла</label>-->
+<!--        <input type="text"  name="doc_name" class="form-control" id="doc_name" placeholder="Введите название файла">-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
 
-
-    <a class="btn btn-danger btn-sm" href="/docs">Назад</a>
-    <button type="submit" class="btn btn-primary btn-sm">Добавить</button>
+<h1>Документация</h1>
+<form action="/docs/new" method="POST" enctype="multipart/form-data">
+    <label>Avatar</label>
+    <input type="file"  name="file">
+    <button type="submit">Upload</button>
 </form>
+
+<!--    </div>-->
+<!--    <a class="btn btn-danger btn-sm" href="/docs">Назад</a>-->
+<!--    <button type="submit" class="btn btn-primary btn-sm">Добавить</button>-->
+<!--</form>-->

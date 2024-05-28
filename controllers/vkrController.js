@@ -3,6 +3,8 @@ const groupsModel = require('../models/groupsModel');
 const vkrsModel = require("../models/vkrsModel");
 const yearsModel = require("../models/yearsModel");
 const docsModel = require("../models/docsModel");
+const fileUpload= require('../middleware/upload_vkrs');
+const multer = require("multer");
 
 
 module.exports = vkrController = {
@@ -55,6 +57,30 @@ module.exports = vkrController = {
             next(error);
         }
     },
+
+    fileUploadForm:function(req,res){
+        res.render('admin/vkrs/add');
+    },
+    uploadFile:function(req,res){
+        var upload = multer({
+            storage: fileUpload.files.storage(),
+            allowedFile:fileUpload.files.allowedFile
+        }).single('file');
+
+        upload(req, res, function (err) {
+            if (err instanceof multer.MulterError) {
+                res.send(err);
+            } else if (err) {
+                res.send(err);
+            }else{
+                res.render('admin/vkrs/add');
+            }
+
+        })
+
+    },
+
+
     newVKR: async (req, res, next) => {
         const students = await vkrsModel.studentsAll()
         try {

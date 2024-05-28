@@ -1,24 +1,32 @@
-<h1>{{title}}</h1>
+<!--<h1>{{title}}</h1>-->
 
-<form  class="form" action="/vkrs" method="post">
-    <div class="form-group">
-    <label for="name">студент</label>
-        <select name="student_id">
-            {{#each students}}
-                <option value="{{this.id}}">{{this.student_fio}}</option>
-            {{/each}}
-        </select>
-</div>
-    <div class="form-group">
-        <label for="name">ПЗ</label>
-        <input type="number" value="" name="vkr_pz" class="form-control" id="vkr_pz" placeholder="Добавьте файл">
-    </div>
-    <div class="form-group">
-        <label for="name">ТЗ</label>
-        <input type="number" value="" name="vkr_tz" class="form-control" id="vkr_tz" placeholder="Добавьте файл">
-    </div>
+<!--<form  class="form" action="/vkrs" method="post">-->
+<!--    <div class="form-group">-->
+<!--    <label for="name">студент</label>-->
+<!--        <select name="student_id">-->
+<!--            {{#each students}}-->
+<!--                <option value="{{this.id}}">{{this.student_fio}}</option>-->
+<!--            {{/each}}-->
+<!--        </select>-->
+<!--</div>-->
+<!--    <div class="form-group">-->
+<!--        <label for="name">ПЗ</label>-->
+<!--        <input type="number" value="" name="vkr_pz" class="form-control" id="vkr_pz" placeholder="Добавьте файл">-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--        <label for="name">ТЗ</label>-->
+<!--        <input type="number" value="" name="vkr_tz" class="form-control" id="vkr_tz" placeholder="Добавьте файл">-->
+<!--    </div>-->
 
+<h1>Вырускная кваликафиционная работа</h1>
+<form action="/vkr/new" method="POST" enctype="multipart/form-data">
+    <label>Avatar</label>
+    <input type="file"  name="file">
 
-    <a class="btn btn-danger btn-sm" href="/vkrs">Назад</a>
-    <button type="submit" class="btn btn-primary btn-sm">Добавить</button>
+    <button type="submit">Upload</button>
 </form>
+
+
+<!--    <a class="btn btn-danger btn-sm" href="/vkrs">Назад</a>-->
+<!--    <button type="submit" class="btn btn-primary btn-sm">Добавить</button>-->
+<!--</form>-->

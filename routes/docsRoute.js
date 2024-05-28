@@ -7,13 +7,10 @@ const yearsController = require("../controllers/yearsController");
 //
 // module.exports = router;
 
-router.route('/docs/:yearID').get(docsController.getAll);
+router.route('/:yearID/docs').get(docsController.getAll);
 router.route('/docs').get(docsController.docsAll);
-router.route("/docs/new").get(docsController.newDoc);
-router.route("/docs").post(docsController.create);
-router.route("/docs/new").get(docsController.newDoc);
-router.route("/docs").post(docsController.create);
+router.get('/docs/new',docsController.fileUploadForm);
+router.post('/docs/new',docsController.uploadFile);
 router.route("/docs/:id").delete(docsController.delete);
-
 
 module.exports = router;
