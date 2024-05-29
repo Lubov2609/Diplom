@@ -12,13 +12,7 @@ module.exports = docsModel = {
             .join("years", "docs.year_id", "years.id");
         return docs;
     },
-    yearId:async(year_id)=>{
-      const years = await knex
-          .select("years.id", "docs.year_id", "years.year_name")
-          .from("years")
-          .join("docs", "docs.year_id", "years.id");
-      return years;
-    },
+
     yearsAll: async () => {
         const years = await knex('years');
         const docs = await knex

@@ -1,5 +1,8 @@
 <h1>Hello Luba</h1>
 
 {{# each docs}}
-    <div><h3> <a href="">{{this.file}}</a> </h3></div>
+    <div><h3> <a href="/uploads/docs/{{this.file}}" >открыть файл в браузере</a> </h3></div>
+{{/each}}
+{{# each docs}}
+    <div><h3> <a download="{{this.file}}" href="#" >{{this.file}} скачать файл </a> </h3></div>
 {{/each}}

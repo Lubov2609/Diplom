@@ -24,9 +24,9 @@
             <tr>
                 <td>{{ this.id }}</td>
                 <td>{{this.student_fio}}</td>
-                <td>{{this.vkr_pz}}</td>
+                <td>{{this.file}}</td>
+                <td>{{this.file_pz}}</td>
 
-                <td>{{this.vkr_tz}}</td>
                 <form action="/vkr/{{ id }}?_method=DELETE" method="post">
                     <td style="text-align: center">
                         <button type="submit" class="btn btn-primary btn-sm edit">Удалить</button>

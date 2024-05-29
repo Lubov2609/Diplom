@@ -20,13 +20,25 @@
 
 <h1>Вырускная кваликафиционная работа</h1>
 <form action="/vkr/new" method="POST" enctype="multipart/form-data">
-    <label>Avatar</label>
-    <input type="file"  name="file">
+    <div class="form-group">
+        <label for="name"> Cтудент</label>
+        <select name="student_id" id="student_id">
+            {{#each students}}
+                <option value="{{this.id}}">{{this.student_fio}}</option>
+            {{/each}}
+        </select>
+    </div>
 
-    <button type="submit">Upload</button>
+    <div class="form-group">
+        <label>File</label>
+        <input type="file" name="file" id="file">
+    </div>
+
+<!--    <div class="form-group">-->
+<!--        <label>File_pz</label>-->
+<!--        <input type="file" name="file_pz" id="file_pz">-->
+<!--    </div>-->
+
+    <button type="submit" > Добавить</button>
+
 </form>
-
-
-<!--    <a class="btn btn-danger btn-sm" href="/vkrs">Назад</a>-->
-<!--    <button type="submit" class="btn btn-primary btn-sm">Добавить</button>-->
-<!--</form>-->

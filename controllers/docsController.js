@@ -5,7 +5,7 @@ const vkrsModel = require("../models/vkrsModel");
 const studentsModel = require("../models/studentsModel");
 const multer = require('multer');
 const fileUpload= require('../middleware/upload_docs');
-
+ // import {Translate} from "translate";
 
 module.exports = docsController = {
     getAll: async (req, res, next) => {
@@ -52,12 +52,16 @@ module.exports = docsController = {
             allowedFile:fileUpload.files.allowedFile
         }).single('file');
 
-        upload(req, res, function (err) {
+         upload(req, res, function (err) {
             console.log(req.file.filename);
+             console.log(req.body.year_id);
+             const translate = Translate({ engine: 'deepl', from: 'es',  });
 
-           const file=req.file.filename;
+             // const file =   translate(req.file.filename, 'en');
 
-           docsModel.create({file}, (err, uploadeddata)=>
+             const file =  Buffer.from(req.file.filename, 'latin1').toString('utf8');
+           const year_id=req.body.year_id;
+           docsModel.create({file,year_id},(err, uploadeddata)=>
             {
                 if(err) return res.send(err);
                 console.log(uploadeddata);

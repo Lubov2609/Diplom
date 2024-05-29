@@ -39,9 +39,9 @@ exports.seed = async function(knex) {
     ]);
     await knex('vkrs').del()
     await knex('vkrs').insert([
-        {id:1, student_id :1, vkr_pz: 'Пояснительная записка_Складник', vkr_tz: 'Техническое задание_Складник '},
-        {id:2, student_id :3, vkr_pz: 'Пояснительная записка_Нечаев', vkr_tz: 'Техническое задание_Нечаев '},
-        {id:3, student_id :2, vkr_pz: 'Пояснительная записка_Соболева', vkr_tz: 'Техническое задание_Соболева '}
+        {id:1, student_id :1, file: 'Пояснительная записка_Складник', file_pz: ' записка_Скик'},
+        {id:2, student_id :3, file: 'Пояснительная записка_Нечаев', file_pz: ' записка_С'},
+        {id:3, student_id :2, file: 'Пояснительная записка_Соболева', file_pz: ' записка_ик'}
     ]);
 
 
@@ -57,7 +57,9 @@ exports.seed = async function(knex) {
     await knex('docs').insert([
         {id: 1, file: 'Приказ',  year_id :3},
         {id: 2, file: 'Приказ2', year_id :2},
-        {id: 3, file: 'Приказ3', year_id :4}
+        {id: 3, file: 'Приказ3', year_id :4},
+        {id: 4, file: 'СentOS.txt', year_id :4}
+
     ]);
     await knex('lists').del()
     await knex('lists').insert([

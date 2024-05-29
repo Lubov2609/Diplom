@@ -31,7 +31,8 @@
     "pg": "^8.11.5",
     "puppeteer": "^22.9.0",
     "puppeteer-core": "^22.9.0",
-    "slug": "^9.0.0"
+    "slug": "^9.0.0",
+    "translate": "^3.0.0"
   },
   "engines": {
     "node": "20.13.1",

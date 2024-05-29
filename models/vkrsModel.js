@@ -7,15 +7,16 @@ module.exports = vkrsModel = {
     },
     vkrAll: async () => {
         const vkrs = await knex
-            .select("vkrs.id", "vkrs.vkr_pz", "vkrs.vkr_tz","vkrs.student_id","students.student_fio")
+            .select("vkrs.id", "vkrs.file","vkrs.file_pz","vkrs.student_id","students.student_fio")
             .from("vkrs")
             .join("students","vkrs.student_id","students.id");
         return vkrs;
     },
     studentsAll: async () => {
-        students = await knex("students");
+
+        const students = await knex('students');
         const vkrs = await knex
-            .select("vkrs.id", "vkrs.vkr_pz", "vkrs.vkr_tz","vkrs.student_id","students.student_fio")
+            .select("vkrs.id", "vkrs.file","vkrs.file_pz", "vkrs.student_id","students.student_fio")
             .from("vkrs")
             .join("students","vkrs.student_id","students.id");
         return students;

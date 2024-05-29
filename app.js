@@ -1,5 +1,6 @@
 
 // Подключение библиотек для сайта
+
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
@@ -9,7 +10,6 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const config = require("config");
 const upload = require('express-fileupload')
-
 
 
 
@@ -33,8 +33,6 @@ app.set('view engine', 'hbs');
 
 
 
-
-// 
 // app.set("trust proxy", true);
 
 

@@ -50,8 +50,8 @@ exports.up = function(knex) {
         })
         .createTable("vkrs", table => {
             table.increments().primary();
-            table.string("vkr_pz",150).notNullable();
-            table.string("vkr_tz",150).notNullable();
+            table.string("file",150).notNullable();
+            table.string("file_pz",150);
             table.integer("student_id").references('id').inTable('students').onDelete("CASCADE");
             table.timestamps(true, true);
         })

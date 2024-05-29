@@ -2,8 +2,10 @@
 <h1> {{title}} </h1>
 
 {{# each vkrs}}
-    <h3><a href=" ">  {{this.vkr_tz}}</a></h3>
-    <h3> <a href=""> {{this.vkr_pz}}</a></h3>
+    <h3><a href="/uploads/vkrs/{{this.file}}"> открыть {{this.file}}</a></h3>
+    <h3><a href="#" download="{{this.file}}"> скачать {{this.file}}</a></h3>
+
+    <!--    <h3> <a href=""> {{this.vkr_pz}}</a></h3>-->
 {{/each}}
 
 <!--<form>-->
