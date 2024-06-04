@@ -1,6 +1,7 @@
 const studentsModel = require('../models/studentsModel');
 const yearsModel = require("../models/yearsModel");
 const usersModel = require("../models/usersModel");
+const groupsModel = require("../models/groupsModel");
 
 
 module.exports = studentsController = {
@@ -41,9 +42,11 @@ module.exports = studentsController = {
     getById: async (req, res, next) => {
         try {
             const students = await studentsModel.getById(req.params.id);
+            const groups= await studentsModel.groupsAll()
             res.render('admin/students/edit', {
                 title: 'Редактирование студента',
-                students
+                students,
+                groups
             })
         } catch (error) {
             next(error);
@@ -75,11 +78,13 @@ module.exports = studentsController = {
         res.redirect('/students');
     },
     parserStudent: async (req, res, next) => {
-        const groups = await studentsModel.groupsAll()
+        const groups = await studentsModel.groupsAll();
+        const educations = await studentsModel.educationsAll();
         try {
             res.render('admin/students/parser', {
                 title: 'Добавление группы студентов',
-                groups
+                groups,
+                educations
             })
         } catch (error) {
             next(error);

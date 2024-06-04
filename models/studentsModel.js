@@ -26,6 +26,7 @@ module.exports = studentsModel = {
             .join("groups","students.group_id","groups.id");
         return groups;
     },
+
     create: async (student) => {
         const students = await knex("students").insert(student);
         return students;
@@ -36,10 +37,14 @@ module.exports = studentsModel = {
     },
 
     update: async (id, student) => {
-        const students = await knex("students").where("id", id).update({
+        const students = await knex
+            .select("students.id", "students.student_fio", "students.student_gpa", "groups.group_name")
+            .from("students")
+            .join("groups","students.group_id","groups.id")
+            .where("id", id).update({
             student_fio: student.student_fio,
             student_gpa: student.student_gpa,
-            group_name: student.group_name,
+            group_id: student.group_id,
 
         });
         return students;

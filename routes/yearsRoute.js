@@ -8,7 +8,6 @@ router.route("/years/new").get(yearsController.newYear);
 router.route("/years").post(yearsController.create);
 
 router.route("/years/:id/edit").get(yearsController.getById);
-// router.route("/users/:id/edit").get(usersController.editUser);
 router.route("/years/:id").put(yearsController.update);
 router.route("/years/:id").delete(yearsController.delete);
 

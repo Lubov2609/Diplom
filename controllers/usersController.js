@@ -41,11 +41,15 @@ module.exports = usersController = {
         res.redirect('/users');
     },
     getById: async (req, res, next) => {
+        const roles = await usersModel.rolesALL();
+        const years = await usersModel.yearsALL();
         try {
             const users = await usersModel.getById(req.params.id);
             res.render('admin/users/edit', {
                 title: 'Редактирование пользователя',
-                users
+                users,
+                roles,
+                years
             })
         } catch (error) {
             next(error);

@@ -1,9 +1,8 @@
 
 <div class="pull-left">
     <h1>Список Cтудентов</h1>
-</div>
-<div class="pull-right">
     <a class="btn btn-primary btn-sm" href="students/new"> Добавить</a>
+
 </div>
 
 
@@ -20,23 +19,56 @@
     </tr>
     </thead>
 
-    {{# if students }}
         {{# each students }}
             <tr>
                 <td>{{this.id}}</td>
                 <td>{{this.student_fio}}</td>
                 <td>{{this.group_name}}</td>
                 <td>{{this.student_gpa}}</td>
-                <form action="/students/{{ id }}?_method=DELETE" method="post">
                     <td style="text-align: center">
                         <a class="btn btn-primary btn-sm" href="/students/{{ id }}/edit"> Редактировать</a>
-                        <button type="submit" class="btn btn-primary btn-sm edit">Удалить</button>
+                        <button class="btn btn-primary btn-sm" type="submit" name="remove_levels{{this.id}}" value="delete"><span class="fa fa-times"></span> Удалить</button>
                     </td>
+
+                <form action="/students/{{ id }}?_method=DELETE" method="post">
+                    <div id="confirm{{this.id}}" class="modal" tabindex="-1">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Удаление</h5>
+                                </div>
+                                <div class="modal-body">
+                                    <p>Вы точно хотите удалить?</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="submit"  class="btn btn-primary btn-sm edit"><i class="fa fa-trash-o" aria-hidden="true"></i>Удалить</button>
+                                    <button type="button" data-dismiss="modal" class="btn">Отмена</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </form>
             </tr>
         {{/ each }}
-    {{/ if }}
 </table>
-<a class="btn btn-primary btn-sm" href="/students/parser">Сформировать</a>
+{{#each students}}
+    <script>
+        $('button[name="remove_levels{{this.id}}"]').on('click', function(e) {
+            var $form = $(this).closest('form');
+            e.preventDefault();
+            $('#confirm{{this.id}}').modal({
+                backdrop: 'static',
+                keyboard: false
+            })
+                    .on('click', '#delete', function(e) {
+                        $form.trigger('submit');
+                    })
+                    .on('click','#cancel', function(e){
+                        e.preventDefault();
+                        $('#confirm{{this.id}}').modal.model('hide');
+                    });
+        });
+    </script>
+{{/each}}
 
 

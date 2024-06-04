@@ -36,13 +36,17 @@ module.exports = usersModel = {
         return user;
     },
     update: async (id, user) => {
-        const users = await knex('users').where('id', id).update({
+        const users = await knex.select("users.id", "users.user_fio", "users.login","users.password", "users.email","users.role_id","users.year_id", "roles.role_name","years.year_name")
+            .from("users")
+            .join("roles","users.role_id","roles.id")
+            .join("years","users.year_id","years.id")
+            .where('id', id).update({
             user_fio: user.user_fio,
             email: user.email,
             login: user.login,
             password: user.password,
-            role_name: user.role_name,
-            year_name: user.year_name,
+            role_id: user.role_id,
+            year_id: user.year_id,
         });
         return users;
     },

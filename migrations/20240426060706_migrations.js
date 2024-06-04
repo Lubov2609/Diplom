@@ -26,18 +26,19 @@ exports.up = function(knex) {
             table.timestamps(true, true);
             table.integer("year_id").references('id').inTable('years').onDelete("CASCADE");
         })
+
+
         .createTable("students", table => {
             table.increments("id").primary();
             table.string("student_fio",150).notNullable();
             table.decimal("student_gpa",).notNullable();
-            table.integer("result_grade",1);
             table.timestamps(true, true);
             table.integer("group_id").references('id').inTable('groups').onDelete("CASCADE");
         })
+
         .createTable("docs", table => {
             table.increments().primary();
             table.string("file",50);
-
             table.timestamp(true, true);
             table.integer("year_id").references('id').inTable('years').onDelete("CASCADE");
         })

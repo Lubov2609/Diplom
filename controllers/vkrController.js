@@ -4,6 +4,8 @@ const vkrsModel = require("../models/vkrsModel");
 const yearsModel = require("../models/yearsModel");
 const docsModel = require("../models/docsModel");
 const fileUpload= require('../middleware/upload_vkrs');
+const fileUpload1= require('../middleware/upload_vkrs1');
+
 const multer = require("multer");
 // const translate = require('translate');
 // import translate from "translate";
@@ -74,7 +76,7 @@ module.exports = vkrController = {
     uploadFile:function(req,res){
         const upload = multer({
             storage: fileUpload.files.storage(),
-            allowedFile:fileUpload.files.allowedFile
+            allowedFile:fileUpload.files.allowedFile,
         }).single('file');
 
 
@@ -82,7 +84,7 @@ module.exports = vkrController = {
             console.log(req.file.filename);
             console.log(req.body.student_id);
 
-            const file =  req.file.filename;
+            const file =  Buffer.from(req.file.filename, 'latin1').toString('utf8');
             const student_id=req.body.student_id;
             vkrsModel.create({file,student_id},(err, uploadeddata)=>
             {
@@ -99,6 +101,7 @@ module.exports = vkrController = {
             }
             res.redirect('/vkr');
         })
+
     },
 
 
