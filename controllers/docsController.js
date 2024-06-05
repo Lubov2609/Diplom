@@ -55,7 +55,6 @@ module.exports = docsController = {
          upload(req, res, function (err) {
             console.log(req.file.filename);
              console.log(req.body.year_id);
-             const translate = Translate({ engine: 'deepl', from: 'es',  });
 
              // const file =   translate(req.file.filename, 'en');
 
