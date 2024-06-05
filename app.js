@@ -10,8 +10,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const config = require("config");
 const upload = require('express-fileupload')
-
-
+const hbs = require('hbs');
 
 // Регистрация роутов для сайта
 const aboutRouter = require('./routes/about')
@@ -30,29 +29,18 @@ var app = express();
 // Насстройка шаблонов view
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
-
-
-
+hbs.registerPartials(__dirname + '/views/partials');
 // app.set("trust proxy", true);
-
-
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-
 app.use(methodOverride('_method'));
 // app.use(parser.urlencoded({extended: true}))
 // app.use(parser.json())
 
-
-
-
-
-
 //создание пути тестирования
-
 app.use(function(req, res, next){
   res.locals.showTests = app.get('env') !== 'production' &&
       req.query.test === '1';
@@ -86,10 +74,8 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-
 app.listen(process.env.PORT || config.port, () => {
   global.console.log(`Server is up and running on port ${config.port}`);
 });
-
 
 module.exports = app;

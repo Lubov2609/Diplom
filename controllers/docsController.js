@@ -78,19 +78,6 @@ module.exports = docsController = {
         })
     },
 
-    // create: async (req, res,next) => {
-    //     try {
-    //         const doc = await docsModel.create(req.body);
-    //
-    //                 res.render('admin/docs/add', {
-    //                     title: 'create',
-    //                     doc
-    //                 })
-    //     } catch (error){
-    //         next(error);
-    //     }
-    // },
-
 
 
     delete: async (req, res, next) => {

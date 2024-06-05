@@ -1,5 +1,4 @@
 <h1>{{title}}</h1>
-
 {{# each users}}
     <form  class="form" action="/users/{{this.id}}?_method=PUT" method="post">
         <div class="form-group">
@@ -35,8 +34,6 @@
             {{/each}}
         </select>
     </div>
-
-
     <a class="btn btn-danger btn-sm" href="/users">Назад</a>
     <button type="submit" class="btn btn-primary btn-sm">Добавить</button>
 </form>

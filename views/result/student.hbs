@@ -1,25 +1,23 @@
 
-<h1> {{title}} </h1>
-
+<!--<h1> {{title}} </h1>-->
 <div class="container">
     <span id="message"></span>
     <div class="card">
         <div class="card-body">
             <h1 class="mt-4 mb-4 text-center text-primary"><b>{{title}} </b></h1>
             <div class="table-responsive">
+                {{#each result}}
+                    {{this.student_fio}}
+                    {{/each}}
                 <table class="table table-striped table-bordered" id="sample_data">
                     <thead>
                     <tr>
-
                         <th>ФИО проверяющего</th>
                         <th>Средний балл</th>
                     </tr>
-
                     </thead>
-
                     <tbody> {{#each lists}}
                         <tr>
-
                                 <td>{{this.users}}</td>
                             <td> {{this.avg_user}}</td>
 
@@ -32,7 +30,6 @@
                         </tr>
                     {{/each}}
                     </tbody>
-
                 </table>
             </div>
         </div>

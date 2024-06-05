@@ -1,12 +1,7 @@
 <div class="pull-left">
     <h1>Список ВКР</h1>
     <a class="btn btn-primary btn-sm" href="vkr/new"> Добавить</a>
-
 </div>
-
-
-
-
 <table class="table table-bordered table-striped">
     <thead>
     <tr>
@@ -15,10 +10,8 @@
         <th>Пояснительная записка</th>
         <th>Техническое задание</th>
         <th>Удаление</th>
-
     </tr>
     </thead>
-
     {{# if vkrs }}
         {{# each vkrs }}
             <tr>
@@ -26,7 +19,6 @@
                 <td>{{this.student_fio}}</td>
                 <td>{{this.file}}</td>
                 <td>{{this.file_pz}}</td>
-
                     <td style="text-align: center">
                         <button class="btn btn-primary btn-sm" type="submit" name="remove_levels{{this.id}}" value="delete"><span class="fa fa-times"></span> Удалить</button>
                     </td>

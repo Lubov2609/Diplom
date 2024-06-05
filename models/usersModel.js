@@ -7,7 +7,6 @@ module.exports = usersModel = {
             .from("users")
             .join("roles","users.role_id","roles.id")
             .join("years","users.year_id","years.id");
-
         return users;
     },
     rolesALL: async (req, res, next) => {

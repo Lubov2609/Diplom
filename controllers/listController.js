@@ -2,11 +2,29 @@ const studentsModel = require("../models/studentsModel");
 const groupsModel = require('../models/groupsModel');
 const listsModel = require('../models/listsModel');
 const usersModel = require("../models/usersModel");
+const docsModel = require("../models/docsModel");
+const vkrsModel=require("../models/vkrsModel");
+const yearsModel=require("../models/yearsModel");
 
-module.exports = vkrController = {
+
+
+module.exports = listController = {
+    // partial: async (req, res, next) => {
+    //     try {
+    //         const year_id = parseInt(req.params.yearID); // Получаем id_year из параметра маршрута
+    //         const groups = await docsModel.getAll(year_id);
+    //         res.render('partial/menu', {
+    //             title: 'Документация',
+    //             groups,
+    //         });
+    //     } catch (error) {
+    //         next(error);
+    //     }
+    // },
     groupsAll: async (req, res, next) => {
         try {
-            const groups = await groupsModel.groupsAll();
+            const year_id = parseInt(req.params.yearID); // Получаем id_year из параметра маршрута
+            const groups = await listsModel.groupsAll(year_id);
             res.render("list/groups", {
                 title: 'Список групп',
                 layout: 'layout2',
@@ -18,8 +36,9 @@ module.exports = vkrController = {
     },
     studentsAll: async (req, res, next) => {
         try {
-            const group_id = parseInt(req.params.groupID); // Получаем id_year из параметра маршрута
-            const students = await studentsModel.studentsAll(group_id);
+            const  year_id = parseInt(req.params.yearID);
+            const group_id = parseInt(req.params.groupID);
+            const students = await listsModel.studentAll(group_id,year_id);
             res.render('list/students', {
                 title: 'Список студентов',
                 layout: 'layout2',
@@ -31,7 +50,8 @@ module.exports = vkrController = {
     },
     getAll: async (req, res, next) => {
         try {
-            const student_id =parseInt(req.params.studentID); // Получаем id_year из параметра маршрута
+
+            const student_id =parseInt(req.params.studentID);
             const lists = await listsModel.getAll(student_id);
             res.render('list/list', {
                 title: 'Оценочный лист',

@@ -1,22 +1,15 @@
-
 <div class="pull-left">
     <h1>Список годов</h1>
     <a class="btn btn-primary btn-sm" href="years/new"> Добавить</a>
-
 </div>
-
-
-
 <table class="table table-bordered table-striped">
     <thead>
     <tr>
         <th>id</th>
         <th>Год</th>
         <th>Действие</th>
-
     </tr>
     </thead>
-
     {{# if years }}
         {{# each years }}
             <tr>
@@ -50,7 +43,6 @@
 </table>
 
 {{#each years}}
-
     <script>
         $('button[name="remove_levels{{this.id}}"]').on('click', function(e) {
             var $form = $(this).closest('form');

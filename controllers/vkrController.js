@@ -14,7 +14,8 @@ const multer = require("multer");
 module.exports = vkrController = {
     groupsAll: async (req, res, next) => {
         try {
-            const groups = await groupsModel.groupsAll();
+            const year_id = parseInt(req.params.yearID); // Получаем id_year из параметра маршрута
+            const groups = await vkrsModel.groupsAll(year_id);
             res.render("vkr/list-groups", {
                 title: 'Список групп',
                 layout: 'layout2',
@@ -26,8 +27,9 @@ module.exports = vkrController = {
     },
     studentsAll: async (req, res, next) => {
         try {
-            const group_id = parseInt(req.params.groupID); // Получаем id_year из параметра маршрута
-            const students = await studentsModel.studentsAll(group_id);
+            const  year_id = parseInt(req.params.yearID);
+            const group_id = parseInt(req.params.groupID);
+            const students = await vkrsModel.studentAll(group_id,year_id);
             res.render('vkr/students', {
                 title: 'Список студентов',
                 layout: 'layout2',
@@ -39,8 +41,10 @@ module.exports = vkrController = {
     },
     getAll: async (req, res, next) => {
         try {
+            const  year_id = parseInt(req.params.yearID);
+            const group_id = parseInt(req.params.groupID);
             const student_id =parseInt(req.params.studentID); // Получаем id_year из параметра маршрута
-            const vkrs = await vkrsModel.getAll(student_id);
+            const vkrs = await vkrsModel.getAll2(student_id,year_id,group_id);
             res.render('vkr/vkr', {
                 title: 'Выпускная квалификационная работа',
                 layout: 'layout2',
@@ -103,10 +107,6 @@ module.exports = vkrController = {
         })
 
     },
-
-
-
-
     create: async (req, res, next) => {
         try {
             const vkr = await vkrsModel.create(req.body);

@@ -3,11 +3,6 @@
     <a class="btn btn-primary btn-sm" href="groups/new"> Добавить</a>
 
 </div>
-
-
-
-
-
 <table class="table table-bordered table-striped">
     <thead>
     <tr>
@@ -15,23 +10,19 @@
         <th>Группа</th>
         <th>Год</th>
         <th>Действие</th>
-
     </tr>
     </thead>
-
     {{# if groups }}
         {{# each groups }}
             <tr>
                 <td>{{ this.id }}</td>
                 <td>{{this.group_name}}</td>
-                <td>{{this.year_name}}</td>
-
+                <td>{{this.year_name}}</td
                     <td style="text-align: center">
                         <a class="btn btn-primary btn-sm" href="/groups/{{ id }}/edit"> Редактировать</a>
                         <button class="btn btn-primary btn-sm" type="submit" name="remove_levels{{this.id}}" value="delete"><span class="fa fa-times"></span> Удалить</button>
                     </td>
                 <form action="/groups/{{ id }}?_method=DELETE" method="post">
-
                     <div id="confirm{{this.id}}" class="modal" tabindex="-1">
                         <div class="modal-dialog">
                             <div class="modal-content">

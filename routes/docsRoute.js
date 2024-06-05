@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const docsController = require("../controllers/docsController");
 const yearsController = require("../controllers/yearsController");
+const listsController = require("../controllers/listController");
 
 // router.route("/docs").get(docsController.getAll)
 //

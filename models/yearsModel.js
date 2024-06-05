@@ -9,7 +9,6 @@ module.exports = yearsModel = {
         const years = await knex('years');
         return years;
     },
-
     create: async (year) => {
         const years = await knex("years").insert(year);
         return years;

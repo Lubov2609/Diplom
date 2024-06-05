@@ -9,8 +9,6 @@ module.exports = studentsModel = {
         const student = await knex('students').where('id', id);
         return student;
     },
-
-
     studentAll: async () => {
         const students = await knex
             .select("students.id", "students.student_fio", "students.student_gpa", "groups.group_name")

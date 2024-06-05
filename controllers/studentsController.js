@@ -77,17 +77,5 @@ module.exports = studentsController = {
         }
         res.redirect('/students');
     },
-    parserStudent: async (req, res, next) => {
-        const groups = await studentsModel.groupsAll();
-        const educations = await studentsModel.educationsAll();
-        try {
-            res.render('admin/students/parser', {
-                title: 'Добавление группы студентов',
-                groups,
-                educations
-            })
-        } catch (error) {
-            next(error);
-        }
-    },
+
     };

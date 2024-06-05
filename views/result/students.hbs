@@ -1,6 +1,5 @@
 
-<h1> {{title}} </h1>
-
+<!--<h1> {{title}} </h1>-->
 <div class="container">
     <span id="message"></span>
     <div class="card">
@@ -13,19 +12,15 @@
                         <th>id</th>
                         <th>ФИО</th>
                         <th> Итоговая оценка</th>
-
                     </tr>
                     </thead>
-
                     <tbody>{{# each resul}}
                         <tr>
                             <td>{{this.id}}</td>
-
-                            <td><a href="/group/{{this.group_id}}/{{this.id}}">{{this.fio}}</a></td>
+                            <td><a href="{{this.group_id}}/{{this.id}}">{{this.fio}}</a></td>
                             <td>{{this.result}}</td>
                         {{/each}}
                         </tr>
-
                     </tbody>
                 </table>
             </div>

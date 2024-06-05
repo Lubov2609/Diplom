@@ -1,14 +1,7 @@
-
-
-
 <div class="pull-left">
     <h1>Список Пользователей</h1>
     <a class="btn btn-primary btn-sm" href="users/new"> Добавить</a>
-
 </div>
-
-
-
 <table class="table table-bordered table-striped">
     <thead>
     <tr>
@@ -20,10 +13,8 @@
         <th>Год</th>
         <th>Роль</th>
         <th>Действие</th>
-
     </tr>
     </thead>
-
     {{# if users }}
         {{# each users }}
             <tr>
@@ -34,7 +25,6 @@
                 <td>{{this.email}}</td>
                 <td>{{this.year_name}}</td>
                 <td>{{this.role_name}}</td>
-
                     <td style="text-align: center">
                         <a class="btn btn-primary btn-sm" href="/users/{{ id }}/edit"> Редактировать</a>
                         <button class="btn btn-primary btn-sm" type="submit" name="remove_levels{{this.id}}" value="delete"><span class="fa fa-times"></span> Удалить</button>

@@ -1,10 +1,6 @@
 <h1> {{title}} </h1>
-
 <div class="container mt-4">
-
-
     {{# each groups}}
-        <div><h3> <a  href="list-group/{{this.id}}"> {{this.group_name}}</a></h3></div>
+        <div><h3> <a  href="{{this.id}}"> {{this.group_name}}</a></h3></div>
     {{/each}}
-
 </div>
