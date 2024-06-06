@@ -4,10 +4,12 @@
             <a class="navbar-brand mr-4" href="#"> Диплом ИТИС</a>
             <div class="collapse navbar-collapse" id="navbarToggle">
                 <div class="navbar-nav mr-auto">
-                    <a class="nav-item nav-link " href="/docs/">Приказы</a>
-                    <a class="nav-item nav-link " href="/list-groups/">ВКР</a>
-                    <a class="nav-item nav-link" href="/list-group/">Оценочные листы</a>
-                    <a class="nav-item nav-link" href="/group/">Результаты</a>
+                    {{#each years}}
+                    <a class="nav-item nav-link " href="/{{this.id}}/docs/">Приказы</a>
+                    <a class="nav-item nav-link " href="/{{this.id}}/list-groups/">ВКР</a>
+                    <a class="nav-item nav-link" href="/{{this.id}}/list-group/">Оценочные листы</a>
+                    <a class="nav-item nav-link" href="/{{this.id}}/group/">Результаты</a>
+                    {{/each}}
                 </div>
             </div>
         </div>

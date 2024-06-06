@@ -9,26 +9,33 @@ const yearsModel=require("../models/yearsModel");
 
 
 module.exports = listController = {
-    // partial: async (req, res, next) => {
-    //     try {
-    //         const year_id = parseInt(req.params.yearID); // Получаем id_year из параметра маршрута
-    //         const groups = await docsModel.getAll(year_id);
-    //         res.render('partial/menu', {
-    //             title: 'Документация',
-    //             groups,
-    //         });
-    //     } catch (error) {
-    //         next(error);
-    //     }
-    // },
+    partial: async (req, res, next) => {
+        try {
+            const year_id = parseInt(req.params.yearID);
+            const docs = await listsModel.groupsAll(year_id);
+
+            // const docs = await docsModel.getAll1(year_id);
+            res.render('partial/menu', {
+                title: 'Документация',
+                docs,
+                // docs
+
+            });
+        } catch (error) {
+            next(error);
+        }
+    },
     groupsAll: async (req, res, next) => {
         try {
             const year_id = parseInt(req.params.yearID); // Получаем id_year из параметра маршрута
             const groups = await listsModel.groupsAll(year_id);
+            const years = await yearsModel.getById(year_id)
+
             res.render("list/groups", {
                 title: 'Список групп',
                 layout: 'layout2',
-                groups
+                groups,
+                years
             })
         } catch (error){
             next(error);
@@ -39,10 +46,13 @@ module.exports = listController = {
             const  year_id = parseInt(req.params.yearID);
             const group_id = parseInt(req.params.groupID);
             const students = await listsModel.studentAll(group_id,year_id);
+            const years = await yearsModel.getById(year_id)
+
             res.render('list/students', {
                 title: 'Список студентов',
                 layout: 'layout2',
-                students
+                students,
+                years
             })
         } catch (error){
             next(error);
@@ -50,13 +60,15 @@ module.exports = listController = {
     },
     getAll: async (req, res, next) => {
         try {
-
+            const  year_id = parseInt(req.params.yearID);
             const student_id =parseInt(req.params.studentID);
             const lists = await listsModel.getAll(student_id);
+            const years = await yearsModel.getById(year_id)
             res.render('list/list', {
                 title: 'Оценочный лист',
                 layout: 'layout2',
-                lists
+                lists,
+                years
             })
         } catch (error){
             next(error);

@@ -15,11 +15,13 @@ module.exports = vkrController = {
     groupsAll: async (req, res, next) => {
         try {
             const year_id = parseInt(req.params.yearID); // Получаем id_year из параметра маршрута
+            const years = await yearsModel.getById(year_id)
             const groups = await vkrsModel.groupsAll(year_id);
             res.render("vkr/list-groups", {
                 title: 'Список групп',
                 layout: 'layout2',
-                groups
+                groups,
+                years
             })
         } catch (error){
             next(error);
@@ -30,10 +32,12 @@ module.exports = vkrController = {
             const  year_id = parseInt(req.params.yearID);
             const group_id = parseInt(req.params.groupID);
             const students = await vkrsModel.studentAll(group_id,year_id);
+            const years = await yearsModel.getById(year_id)
             res.render('vkr/students', {
                 title: 'Список студентов',
                 layout: 'layout2',
-                students
+                students,
+                years
             })
         } catch (error){
             next(error);
@@ -45,10 +49,13 @@ module.exports = vkrController = {
             const group_id = parseInt(req.params.groupID);
             const student_id =parseInt(req.params.studentID); // Получаем id_year из параметра маршрута
             const vkrs = await vkrsModel.getAll2(student_id,year_id,group_id);
+            const years = await yearsModel.getById(year_id)
+
             res.render('vkr/vkr', {
                 title: 'Выпускная квалификационная работа',
                 layout: 'layout2',
-                vkrs
+                vkrs,
+                years
             })
         } catch (error){
             next(error);

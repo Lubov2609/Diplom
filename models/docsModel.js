@@ -5,6 +5,12 @@ module.exports = docsModel = {
         const docs = await knex('docs').where('year_id', year_id);
         return docs;
     },
+    getAll1: async (year_id) => {
+        const docs = await knex
+            .select("docs.year_id")
+            .where('year_id', year_id);
+        return docs;
+    },
     docsAll: async () => {
         const docs = await knex
             .select("docs.id", "docs.file", "docs.year_id", "years.year_name")

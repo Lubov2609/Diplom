@@ -11,11 +11,13 @@ module.exports = docsController = {
     getAll: async (req, res, next) => {
         try {
             const year_id = parseInt(req.params.yearID); // Получаем id_year из параметра маршрута
-            const docs = await docsModel.getAll(year_id); // Передаем id_year в модель для получения данных
+            const docs = await docsModel.getAll(year_id);
+            const years = await yearsModel.getById(year_id)
             res.render('docs', {
                 title: 'Документация',
                 layout: 'layout2',
-                docs
+                docs,
+                years
             });
         } catch (error) {
             next(error);
