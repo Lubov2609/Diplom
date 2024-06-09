@@ -63,11 +63,13 @@ module.exports = listController = {
             const  year_id = parseInt(req.params.yearID);
             const student_id =parseInt(req.params.studentID);
             const lists = await listsModel.getAll(student_id);
+            const students= await studentsModel.getById(student_id)
             const years = await yearsModel.getById(year_id)
             res.render('list/list', {
                 title: 'Оценочный лист',
                 layout: 'layout2',
                 lists,
+                students,
                 years
             })
         } catch (error){
@@ -75,10 +77,17 @@ module.exports = listController = {
         }
     },
     newList: async (req, res, next) => {
-        try {
-            res.render('list/list', {
-                title: 'Заполнение оценочного листа',
 
+        const users= await listsModel.usersAll();
+        const student_id =parseInt(req.params.studentID);
+        const students= await listsModel.getAll(student_id);
+        const groups = await listsModel.groupAll();
+        try {
+            res.render('list/new', {
+                title: 'Заполнение оценочного листа',
+                students,
+                users,
+                groups
             })
         } catch (error) {
             next(error);
@@ -86,39 +95,49 @@ module.exports = listController = {
     },
     create: async (req, res, next) => {
         try {
-            const user = await usersModel.create(req.body);
-            res.render('admin/users/edit', {
-                title: 'Добавление пользователя',
-                user
+            const list = await listsModel.create(req.body);
+            res.render('list/new', {
+                title: 'Заполнение оценочного листа',
+                list
             })
         } catch (error) {
             next(error);
         }
+        res.redirect('../');
+
     },
-    // getById: async (req, res, next) => {
-    //     try {
-    //         const groups = await listsModel.getById(req.params.id);
-    //         const years= await listsModel.()
-    //         res.render('admin/groups/edit', {
-    //             title: 'Редактирование группy',
-    //             groups,
-    //             years,
-    //         })
-    //     } catch (error) {
-    //         next(error);
-    //     }
-    // },
-    // update: async (req, res, next) => {
-    //     try {
-    //         const group = await groupsModel.update(req.params.id, req.body);
-    //         res.render('admin/groups/edit', {
-    //             title: 'Редактирование группы',
-    //             group
-    //         })
-    //         // res.send(user);
-    //     } catch (error) {
-    //         next(error);
-    //     }
-    //     res.redirect('/groups');
-    // },
+    getById: async (req, res, next) => {
+        try {
+            const  year_id = parseInt(req.params.yearID);
+            const student_id =parseInt(req.params.studentID);
+            const group_id = parseInt(req.params.groupID);
+            const student= await listsModel.studentAll(group_id,year_id);
+            const years = await yearsModel.getById(year_id)
+            const list = await listsModel.getById(req.params.id);
+            const students= await listsModel.studentsAll()
+            console.log();
+            res.render('list/edit', {
+                title: 'Редактирование листа',
+                layout:"layout2",
+                list,
+                students,
+            })
+        } catch (error) {
+            next(error);
+        }
+
+    },
+    update: async (req, res, next) => {
+        try {
+            const list = await listsModel.update(req.params.id, req.body);
+            res.render('admin/groups/edit', {
+                title: 'Редактирование группы',
+                list
+            })
+            // res.send(user);
+        } catch (error) {
+            next(error);
+        }
+        res.redirect('../../');
+    },
 };

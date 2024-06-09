@@ -18,7 +18,7 @@ module.exports = listsModel =
     },
     getAll: async (student_id) => {
         const lists = await knex('lists')
-           .select ('user_id','student_id','g1','g2','g3_1','g3_2','g3_3', 'g4_1', 'g4_2', 'g4_3', 'g4_4', 'g4_5', 'g4_6')
+           .select ('id','user_id','student_id','g1','g2','g3_1','g3_2','g3_3', 'g4_1', 'g4_2', 'g4_3', 'g4_4', 'g4_5', 'g4_6')
             .select( knex.raw(' round(((g1+g2+g3_1+g3_2+g3_3)/5),1) as avg_vkr'))
             .select( knex.raw('round(((g4_1+g4_2+g4_3+g4_4+g4_5+g4_6)/6),1) as avg_protect '))
             .select( knex.raw('round(((round(((g1+g2+g3_1+g3_2+g3_3)/5),1)+round(((g4_1+g4_2+g4_3+g4_4+g4_5+g4_6)/6),1))/2),1) as avg_user'))
@@ -55,8 +55,66 @@ module.exports = listsModel =
         return  lists;
     },
 
+
+
     create: async (list) => {
         const lists = await knex("lists").insert(list);
         return lists;
     },
+    groupAll: async () => {
+        const groups = await knex
+            .select("groups.id", "groups.group_name", "groups.year_id","students.student_fio", "students.id")
+            .from("groups")
+            .join("students","students.group_id","groups.id");
+        return groups;
+    },
+    getById: async (id) => {
+        const list = await knex("lists")
+            .where('id', id);
+
+        return list;
+    },
+    update: async (id, list) => {
+        const lists = await knex("lists")
+            .select("lists.id", "lists.g1",'list.student_id','lists.g2','lists.g3_1','lists.g3_2','lists.g3_3', 'lists.g4_1', 'lists.g4_2', 'lists.g4_3', 'lists.g4_4', 'lists.g4_5', 'lists.g4_6' , "students.student_fio")
+            .from("lists")
+            .join("students","lists.student_id","lists.id")
+            .where("lists.id", id).update(
+                {
+                    g1:list.g1,
+                    g2: list.g2,
+                    g3_1:list.g3_1,
+                    g3_2: list.g3_2,
+                    g3_3:list.g3_3,
+                    g4_1: list.g4_1,
+                    g4_2:list.g4_2,
+                    g4_3: list.g4_3,
+                    g4_4:list.g4_4,
+                    g4_5: list.g4_5,
+                    g4_6: list.g4_6,
+
+                    student_id:list.student_id,
+                }
+            );
+        return lists;
+    },
+    studentsAll: async () => {
+        const students = await knex('students');
+
+        const lists = await knex("lists")
+            .select("lists.id", "lists.g1",'lists.student_id','lists.g2','lists.g3_1','lists.g3_2','lists.g3_3', 'lists.g4_1', 'lists.g4_2', 'lists.g4_3', 'lists.g4_4', 'lists.g4_5', 'lists.g4_6' , "students.student_fio")
+            .from("lists")
+            .join("students","lists.student_id","lists.id")
+        return students;
+    },
+    usersAll: async () => {
+        const users = await knex('users');
+
+        const lists = await knex("lists")
+            .select("lists.id", "lists.g1",'lists.user_id','lists.g2','lists.g3_1','lists.g3_2','lists.g3_3', 'lists.g4_1', 'lists.g4_2', 'lists.g4_3', 'lists.g4_4', 'lists.g4_5', 'lists.g4_6' , "users.user_fio")
+            .from("lists")
+            .join("users","lists.user_id","users.id")
+        return users;
+    },
+
 };
