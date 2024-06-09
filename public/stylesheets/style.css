@@ -9,7 +9,15 @@ a.text {
   color: #0a6bea;
   font-size: 22px;
 }
-
+.outer-div
+{
+  padding: 30px;
+}
+.inner-div
+{
+  margin: 0 auto;
+  width: 100px;
+}
 tr.tr-list{
   background: #0b97c4;
 }

@@ -1,7 +1,7 @@
 # Build project
 $ npm install
-$ npm start
-
+$ nCREATE DATABASE pm start
+скс
 # PSQL commands
 `\q` - выход
 `\l` - просмотр баз

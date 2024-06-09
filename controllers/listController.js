@@ -95,4 +95,30 @@ module.exports = listController = {
             next(error);
         }
     },
+    // getById: async (req, res, next) => {
+    //     try {
+    //         const groups = await listsModel.getById(req.params.id);
+    //         const years= await listsModel.()
+    //         res.render('admin/groups/edit', {
+    //             title: 'Редактирование группy',
+    //             groups,
+    //             years,
+    //         })
+    //     } catch (error) {
+    //         next(error);
+    //     }
+    // },
+    // update: async (req, res, next) => {
+    //     try {
+    //         const group = await groupsModel.update(req.params.id, req.body);
+    //         res.render('admin/groups/edit', {
+    //             title: 'Редактирование группы',
+    //             group
+    //         })
+    //         // res.send(user);
+    //     } catch (error) {
+    //         next(error);
+    //     }
+    //     res.redirect('/groups');
+    // },
 };

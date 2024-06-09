@@ -1,0 +1,9 @@
+
+
+
+<div class="container mt-4">
+    <h1> Уважаемый секретарь ГЭК ИТИС! </h1>
+    <h3>Выберите нужный вам год для работы</h3>
+    {{# each years}}
+        <div><h3> <a class="text" href="/{{this.id}}/docs"> {{this.year_name}}</a></h3></div>
+    {{/each}}

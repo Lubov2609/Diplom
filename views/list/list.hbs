@@ -3,7 +3,9 @@
 </div>
 <div class="pull-left">
     <a class="btn btn-primary btn-sm" href=""> <h6>Добавить</h6></a>
-    <a class="btn btn-primary btn-sm" href=""> <h6>Редактировать</h6></a>
+    {{# each lists}}
+    <a class="btn btn-primary btn-sm" href="{{this.student_id}}/edit"> <h6>Редактировать</h6></a>
+    {{/each}}
 </div>
 <div class="card">
     <div class="card-header">

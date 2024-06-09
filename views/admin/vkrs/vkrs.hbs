@@ -8,8 +8,7 @@
     <tr>
         <th>id</th>
         <th>ФИО студента</th>
-        <th>Пояснительная записка</th>
-        <th>Техническое задание</th>
+        <th>Документация</th>
         <th>Удаление</th>
     </tr>
     </thead>
@@ -19,7 +18,6 @@
                 <td>{{ this.id }}</td>
                 <td>{{this.student_fio}}</td>
                 <td>{{this.file}}</td>
-                <td>{{this.file_pz}}</td>
                     <td style="text-align: center">
                         <button class="btn btn-primary btn-sm" type="submit" name="remove_levels{{this.id}}" value="delete"><span class="fa fa-times"></span> Удалить</button>
                     </td>

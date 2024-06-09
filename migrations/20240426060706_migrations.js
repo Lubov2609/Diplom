@@ -13,7 +13,7 @@ exports.up = function(knex) {
         .createTable("users", table => {
             table.increments().primary();
             table.string("user_fio",255).notNullable();
-            table.text("login").notNullable();
+            // table.text("login");
             table.text("password").notNullable();
             table.text("email").notNullable();
             table.timestamps(true, true);
