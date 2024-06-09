@@ -2,21 +2,26 @@
 <div class="card">
     <div class="card-header">
         <div class="row">
-            {{#each students}}
             <form  class="form" action="../" method="post">
-{{/each}}
+<!--                <div class="form-group">-->
+<!--                    <label for="name">Студент</label>-->
+<!--                    <select name="student_id">-->
+<!--                        {{#each students}}-->
+<!--                            <option value="{{this.id}}">{{this.student_fio}}</option>-->
+<!--                        {{/each}}-->
+<!--                    </select>-->
+<!--                </div>-->
+            {{#each student}}
+                {{this.student_fio}}
                 <div class="form-group">
                     <label for="name">Студент</label>
-                    <select name="student_id">
-                        {{#each students}}
-                            <option value="{{this.id}}">{{this.student_fio}}</option>
-                        {{/each}}
-                    </select>
+                    <input type="text" value="{{ this.id }}" name="student_id" class="form-control" id="student_id" placeholder="Введите ФИО">
                 </div>
+            {{/each}}
 
 
                 <div class="form-group">
-                    <label for="name">Студент</label>
+                    <label for="name">Проверяющий</label>
                     <select name="user_id">
                         {{#each users}}
                             <option value="{{this.id}}">{{this.user_fio}}</option>
@@ -40,7 +45,7 @@
             <td>Актуальность и целевая направленность работы</td>
             <td rowspan="3">5</td>
             <td rowspan="3"><div class="form-group">
-                <input type="number"  name="g1" class="form-control" id="g1" placeholder="балл">
+                <input type="number"  name="g1" class="form-control" id="g1" min="0" max="5" step="0.01" value="0" placeholder="балл">
             </div></td>
         </tr>
         <tr>
@@ -54,7 +59,7 @@
             <td>1. Полнота и структурированность работы; умение научно аргументировать свою позицию, использовать основные законы естественнонаучных дисциплин в профессиональной деятельности</td>
             <td rowspan="4">5</td>
             <td rowspan="4"><div class="form-group">
-                <input type="number"  name="g2" class="form-control" id="g2" placeholder="балл">
+                <input type="number"  name="g2" class="form-control" min="0" max="5"  id="g2" step="0.01" value="0" placeholder="балл">
             </div></td>
         </tr>
         <tr>
@@ -74,7 +79,7 @@
             <td >5</td>
             <td >
                 <div class="form-group">
-                <input type="number"  name="g3_1" class="form-control" id="g3_1" placeholder="балл">
+                <input type="number"  name="g3_1" class="form-control" id="g3_1" min="0"  max="5"  step="0.01" value="0" placeholder="балл">
             </div>
             </td>
         </tr>
@@ -84,7 +89,7 @@
                 заявленной цели</td>
             <td>5</td>
             <td><div class="form-group">
-                <input type="number"  name="g3_2" class="form-control" id="g3_2" placeholder="балл">
+                <input type="number"  name="g3_2" class="form-control" id="g3_2" min="0" max="5" step="0.01" value="0" placeholder="балл">
         </div></td>    </tr>
         <tr>
             <td>3.Апробация результатов исследования (доклады на
@@ -92,7 +97,7 @@
                 рекомендации к внедрению и др.)</td>
             <td>5</td>
             <td><div class="form-group">
-                <input type="number"  name="g3_3" class="form-control" id="g3_3" placeholder="балл">
+                <input type="number"  name="g3_3" class="form-control" id="g3_3" min="0" max="5" step="0.01" value="0" placeholder="балл">
             </div></td>    </tr>
         <tr>
             <td>1</td>
@@ -108,7 +113,7 @@
             <td>1.Cтепень структурированности и логичности доклада</td>
             <td >5</td>
             <td ><div class="form-group">
-                <input type="number"  name="g4_1" class="form-control" id="g4_1" placeholder="балл">
+                <input type="number"  name="g4_1" class="form-control" id="g4_1" min="0" max="5" step="0.01" value="0" placeholder="балл">
             </div></td>
         </tr>
         <tr>
@@ -117,7 +122,7 @@
             <td >5</td>
             <td >
                 <div class="form-group">
-                    <input type="number"  name="g4_2" class="form-control" id="g4_2" placeholder="балл">
+                    <input type="number"  name="g4_2" class="form-control" id="g4_2" min="0" max="5" step="0.01" value="0" placeholder="балл">
                 </div></td>
         </tr>
         <tr>
@@ -125,7 +130,7 @@
                 навыки публичной речи</td>
             <td >5</td>
             <td ><div class="form-group">
-                <input type="number"  name="g4_3" class="form-control" id="g4_3" placeholder="балл">
+                <input type="number"  name="g4_3" class="form-control" id="g4_3"  min="0" max="5" step="0.01" value="0" placeholder="балл">
             </div></td>
         </tr>
         <tr>
@@ -133,7 +138,7 @@
                 результатам исследования</td>
             <td >5</td>
             <td ><div class="form-group">
-                <input type="number"  name="g4_4" class="form-control" id="g4_4" placeholder="балл">
+                <input type="number"  name="g4_4" class="form-control" id="g4_4"  min="0" max="5" step="0.01" value="0" placeholder="балл">
             </div></td>
         </tr>
         <tr>
@@ -142,14 +147,14 @@
                 руководителя и рецензента</td>
             <td >5</td>
             <td ><div class="form-group">
-                <input type="number"  name="g4_5" class="form-control" id="g4_5" placeholder="балл">
+                <input type="number"  name="g4_5" class="form-control" id="g4_5" min="0" max="5" step="0.01" value="0" placeholder="балл">
             </div></td>
         </tr>
         <tr>
             <td>6.Общий уровень общения с аудиторией</td>
             <td >5</td>
             <td ><div class="form-group">
-                <input type="number"  name="g4_6" class="form-control" id="g4_6" placeholder="балл">
+                <input type="number"  name="g4_6" class="form-control" id="g4_6" min="0" max="5" step="0.01" value="0" placeholder="балл">
             </div></td>
         </tr>
         <tr>

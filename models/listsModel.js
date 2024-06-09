@@ -116,5 +116,12 @@ module.exports = listsModel =
             .join("users","lists.user_id","users.id")
         return users;
     },
-
+    getStudent: async (id) => {
+        const student = await knex("students")
+            // .select("students.student_fio","lists.student_id","students.id")
+            // .from("students")
+            // .join("lists","lists.student_id","students.id")
+            .where('id', id);
+        return student;
+    },
 };

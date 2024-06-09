@@ -79,15 +79,20 @@ module.exports = listController = {
     newList: async (req, res, next) => {
 
         const users= await listsModel.usersAll();
+        const id =parseInt(req.params.studentID); // Получаем id_year из параметра маршрута
         const student_id =parseInt(req.params.studentID);
         const students= await listsModel.getAll(student_id);
+        const student = await listsModel.getStudent(id);
         const groups = await listsModel.groupAll();
         try {
             res.render('list/new', {
                 title: 'Заполнение оценочного листа',
                 students,
+                student,
                 users,
-                groups
+                groups,
+                layout:"layout2",
+
             })
         } catch (error) {
             next(error);
@@ -98,12 +103,14 @@ module.exports = listController = {
             const list = await listsModel.create(req.body);
             res.render('list/new', {
                 title: 'Заполнение оценочного листа',
-                list
+                list,
+                layout:"layout2",
+
             })
         } catch (error) {
             next(error);
         }
-        res.redirect('../');
+        res.redirect('../../');
 
     },
     getById: async (req, res, next) => {
@@ -132,7 +139,9 @@ module.exports = listController = {
             const list = await listsModel.update(req.params.id, req.body);
             res.render('admin/groups/edit', {
                 title: 'Редактирование группы',
-                list
+                list,
+                layout:"layout2",
+
             })
             // res.send(user);
         } catch (error) {

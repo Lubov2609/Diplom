@@ -2,9 +2,12 @@
     <h1>{{title}}</h1>
 </div>
 <div class="pull-left">
+    {{#if lists}}
+        {{else}}
 {{#each students}}
     <a class="btn btn-primary btn-sm" href="{{this.id}}/new/"> <h6>Добавить</h6></a>
     {{/each}}
+    {{/if}}
     {{#each lists}}
     <a class="btn btn-primary btn-sm" href="{{this.student_id}}/{{this.id}}/edit/"> <h6>Редактировать</h6></a>
 {{/each}}
