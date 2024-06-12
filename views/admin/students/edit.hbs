@@ -1,25 +1,67 @@
-<h1>{{title}}</h1>
+<!--<h1>{{title}}</h1>-->
 
-{{# each students}}
-    <form  class="form" action="/students/{{this.id}}?_method=PUT" method="post">
-        <div class="form-group">
-        <label for="name">ФИО</label>
-        <input type="text" value="{{ this.student_fio }}" name="student_fio" class="form-control" id="student_fio" placeholder="Введите ФИО">
-    </div>
+<!--{{# each students}}-->
+<!--    <form  class="form" action="/students/{{this.id}}?_method=PUT" method="post">-->
+<!--        <div class="form-group">-->
+<!--        <label for="name">ФИО</label>-->
+<!--        <input type="text" value="{{ this.student_fio }}" name="student_fio" class="form-control" id="student_fio" placeholder="Введите ФИО">-->
+<!--    </div>-->
 
-    <div class="form-group">
-        <label for="name">Средняя оценка</label>
-        <input type="text" value="{{ this.student_gpa }}"  name="student_gpa" class="form-control" id="student_gpa" placeholder="Введите ср.оценку">
+<!--    <div class="form-group">-->
+<!--        <label for="name">Средняя оценка</label>-->
+<!--        <input type="text" value="{{ this.student_gpa }}"  name="student_gpa" class="form-control" id="student_gpa" placeholder="Введите ср.оценку">-->
+<!--    </div>-->
+<!--{{/each}}-->
+<!--    <div class="form-group">-->
+<!--        <label for="name">Год</label>-->
+<!--        <select name="group_id">-->
+<!--            {{#each groups}}-->
+<!--                <option value="{{this.id}}" id="group_id">{{this.group_name}}</option>-->
+<!--            {{/each}}-->
+<!--        </select>-->
+<!--    </div>-->
+<!--    <a class="btn btn-danger btn-sm" href="/students">Назад</a>-->
+<!--    <button type="submit" class="btn btn-primary btn-sm">Редактировать</button>-->
+<!--</form>-->
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+
+<link rel='stylesheet' href='/stylesheets/form.css'/>
+
+<div class="main-block">
+    <div class="left-part">
+        <i class="fas fa-envelope"></i>
+        <i class="fas fa-at"></i>
+        <i class="fas fa-mail-bulk"></i>
     </div>
-{{/each}}
-    <div class="form-group">
-        <label for="name">Год</label>
-        <select name="group_id">
-            {{#each groups}}
-                <option value="{{this.id}}" id="group_id">{{this.group_name}}</option>
-            {{/each}}
-        </select>
-    </div>
+        {{# each students}}
+        <form  class="form" action="/students/{{this.id}}?_method=PUT" method="post">
+        <h1>{{title}}</h1>
+        <div class="info">
+            <label for="name">ФИО</label>
+            <input type="text" value="{{ this.student_fio }}" name="student_fio" class="form-control" id="student_fio" placeholder="Введите ФИО">
+        </div>
+            <div class="info">
+                <label for="name">Средняя оценка за обучение</label>
+                <input type="text" value="{{ this.student_gpa }}"  name="student_gpa" class="form-control" id="student_gpa" placeholder="Введите ср.оценку">
+            </div>
+            <div class="info">
+                <label for="name">Оценка отзыва</label>
+                <input type="text" value="{{ this.student_otz }}"  name="student_otz" class="form-control" id="student_otz" placeholder="Введите ср.оценку">
+            </div>
+        {{/each}}
+            <div class="info">
+                <label for="name">Год</label>
+                <select name="group_id">
+                    {{#each groups}}
+                        <option value="{{this.id}}" id="group_id">{{this.group_name}}</option>
+                    {{/each}}
+                </select>
+            </div>
+
+
+    <button type="submit" >Редактировать</button>
     <a class="btn btn-danger btn-sm" href="/students">Назад</a>
-    <button type="submit" class="btn btn-primary btn-sm">Редактировать</button>
 </form>
+    </div>

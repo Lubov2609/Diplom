@@ -167,7 +167,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-// app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride('_method'));
 // app.use(parser.urlencoded({extended: true}))
 // app.use(parser.json())
@@ -178,6 +178,21 @@ app.use(methodOverride('_method'));
 //       req.query.test === '1';
 //   next();
 // });
+
+
+function checkAuthenticated(req, res, next){
+    if (req.isAuthenticated()) {
+        return res.redirect("/menu");
+    }
+    next();
+}
+
+function checkNotAuthenticated(req, res, next){
+    if (req.isAuthenticated()) {
+        return next();
+    }
+    res.redirect("/menu");
+}
 // Подключение роутов для проекта
 app.use('/', usersRouter);
 app.use('/', contactRouter);
@@ -246,24 +261,29 @@ app.get("/users/logout", (req, res, next) => {
 app.post(
     "/",
     passport.authenticate("local", {
+
         successRedirect: "/menu",
         failureMessage: "/",
         failureFlash: true
+
     })
 );
 
-function checkAuthenticated(req, res, next){
-    if (req.isAuthenticated()) {
-        return res.redirect("/menu");
-    }
-    next();
+
+
+function isLoggedIn(req, res, next) {
+    if (req.isAuthenticated())
+        return next();
+    res.redirect('/login');
 }
 
-function checkNotAuthenticated(req, res, next){
+function isAdmin(req, res, next) {
     if (req.isAuthenticated()) {
-        return next();
+        if (req.user.role == "1") {
+            return next();
+        }
     }
-    res.redirect("/menu");
+    res.redirect('/login');
 }
 
 app.listen(process.env.PORT || config.port, () => {

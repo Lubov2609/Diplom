@@ -24,39 +24,39 @@
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,400italic,500,500italic,700,700italic,900italic,900' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="{% static 'app/main.css' %}">
     <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
-    <title>Система автоматизации работы членов ГЭК/{{ title }}</title>
-<!--    <link rel='stylesheet' href='stylesheets/style.css'/>-->
-<!--    <link rel="stylesheet" href="/stylesheets/admin.css">-->
-    {{#if showTests}}
-        <link rel="stylesheet" href='https://cdnjs.cloudflare.com/ajax/libs/mocha/2.1.0/mocha.css'>
-    {{/if}}
+    <title>Система автоматизации работы членов ГЭК/Выпускная квалификационная работа</title>
+    <link rel='stylesheet' href='stylesheets/style.css'/>
+    <link rel="stylesheet" href="/stylesheets/admin.css">
     <script src="//code.jquery.com/jquery-2.0.2.min.js"></script>
 </head>
 <body>
-{{> menu }}
+<header class="site-header">
+    <nav class="navbar navbar-expand-md navbar-dark  " style="background-color: #89c1ec;">
+        <div class="container">
+            <a class="navbar-brand mr-4" href="#"> Диплом ИТИС</a>
+            <div class="collapse navbar-collapse" id="navbarToggle">
+                <div class="navbar-nav mr-auto">
+                    <a class="nav-item nav-link " href="/docs/">Приказы</a>
+                    <a class="nav-item nav-link " href="/list-groups/">ВКР</a>
+                    <a class="nav-item nav-link" href="/list-group/">Оценочные листы</a>
+                    <a class="nav-item nav-link" href="/group/">Результаты</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
 
-{{{body}}}
+<h1> Выпускная квалификационная работа </h1>
+<!--    <h3><a href="/uploads/vkrs/vedomost.pdf"> открыть vedomost.pdf</a></h3>-->
+<h3><a href="#" download="vedomost.pdf">  vedomost.pdf <p>скачать</p></a></h3>
+<h3><a href="#" download="">   <p>скачать</p></a></h3>
+    <!--    <h3> <a href=""> </a></h3>-->
+
 <!-- Дополнительные скрипты JavaScript -->
 <!-- Сначала jQuery, затем Popper.js, последним Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-{{#if showTests}}
-    <div id="mocha"></div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/2.1.0/mocha.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/2.0.0/chai.js"></script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/0.10.0/lodash.min.js"></script>
-    <!-- настраиваем Mocha: предстоит TDD-тестирование -->
-    <script>
-        mocha.ui('tdd');
-        const assert = chai.assert;
-    </script>
-    <script src='/qa/global-tests.js'></script>
-    {{#if pageTestScript}}
-        <script src='{{pageTestScript}}'></script>
-    {{/if}}
-    <script>mocha.run();</script>
-{{/if}}
 <footer class="page-footer" style="background-color: #5ea9e3">
     <div class=" navbar  navbar-fixed-bottom">
         <div class="pull-right">

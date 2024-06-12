@@ -6,20 +6,20 @@
 <table class="table table-bordered table-striped">
     <thead>
     <tr>
-        <th>id</th>
         <th>ФИО</th>
         <th>Группа</th>
-        <th>Средний балл</th>
+        <th>Средний балл за обучение</th>
+        <th>Отзыв руководителя</th>
         <th>Действие</th>
     </tr>
     </thead>
         {{# each students }}
             <tr>
-                <td>{{this.id}}</td>
                 <td>{{this.student_fio}}</td>
                 <td>{{this.group_name}}</td>
                 <td>{{this.student_gpa}}</td>
-                    <td style="text-align: center">
+                <td>{{this.student_otz}}</td>
+                <td style="text-align: center">
                         <a class="btn btn-primary btn-sm" href="/students/{{ id }}/edit"> Редактировать</a>
                         <button class="btn btn-primary btn-sm" type="submit" name="remove_levels{{this.id}}" value="delete"><span class="fa fa-times"></span> Удалить</button>
                     </td>

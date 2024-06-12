@@ -78,10 +78,13 @@ module.exports = listController = {
     },
     newList: async (req, res, next) => {
 
+        const  year_id = parseInt(req.params.yearID);
         const users= await listsModel.usersAll();
         const id =parseInt(req.params.studentID); // Получаем id_year из параметра маршрута
         const student_id =parseInt(req.params.studentID);
         const students= await listsModel.getAll(student_id);
+        const years = await yearsModel.getById(year_id)
+
         const student = await listsModel.getStudent(id);
         const groups = await listsModel.groupAll();
         try {
@@ -91,6 +94,7 @@ module.exports = listController = {
                 student,
                 users,
                 groups,
+                years,
                 layout:"layout2",
 
             })
@@ -100,10 +104,13 @@ module.exports = listController = {
     },
     create: async (req, res, next) => {
         try {
+            const  year_id = parseInt(req.params.yearID);
+            const years = await yearsModel.getById(year_id)
             const list = await listsModel.create(req.body);
             res.render('list/new', {
                 title: 'Заполнение оценочного листа',
                 list,
+                years,
                 layout:"layout2",
 
             })

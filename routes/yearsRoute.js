@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const yearsController = require("../controllers/yearsController");
 
-router.route("/menu").get(yearsController.getAll)
+router.route("/menu").get( yearsController.getAll)
 router.route("/years").get(yearsController.yearsAll);
 router.route("/years/new").get(yearsController.newYear);
 router.route("/years").post(yearsController.create);

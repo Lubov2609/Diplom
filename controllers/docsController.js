@@ -38,7 +38,7 @@ module.exports = docsController = {
         const years= await docsModel.yearsAll()
         try {
             res.render('admin/docs/add', {
-                title: 'add new',
+                title: 'Добавление документов',
                 layout: 'layout',
                 years
             })
@@ -85,7 +85,7 @@ module.exports = docsController = {
         try {
             const doc = await docsModel.delete(req.params.id);
             res.render('admin/docs/docs', {
-                title: 'Удаление ВКР',
+                title: 'Удаление Документаций',
                 doc
             })
         } catch (error) {

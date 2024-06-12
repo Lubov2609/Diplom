@@ -1,21 +1,69 @@
-<h1>{{title}}</h1>
-{{# each users}}
-    <form  class="form" action="/users/{{this.id}}?_method=PUT" method="post">
-        <div class="form-group">
-        <label for="name">ФИО</label>
-        <input type="text" value="{{ this.user_fio }}"  name="user_fio" class="form-control" id="user_fio" placeholder="Введите ФИО">
-    </div>
+<!--<h1>{{title}}</h1>-->
+<!--{{# each users}}-->
+<!--    <form  class="form" action="/users/{{this.id}}?_method=PUT" method="post">-->
+<!--        <div class="form-group">-->
+<!--        <label for="name">ФИО</label>-->
+<!--        <input type="text" value="{{ this.user_fio }}"  name="user_fio" class="form-control" id="user_fio" placeholder="Введите ФИО">-->
+<!--    </div>-->
 
-    <div class="form-group">
-        <label for="name">Пароль</label>
-        <input type="text" value="{{ this.password }}" name="password" class="form-control" id="password" placeholder="Введите пароль">
+<!--    <div class="form-group">-->
+<!--        <label for="name">Пароль</label>-->
+<!--        <input type="text" value="{{ this.password }}" name="password" class="form-control" id="password" placeholder="Введите пароль">-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--        <label for="name">Email</label>-->
+<!--        <input type="text" value="{{ this.email }}" name="email" class="form-control" id="email" placeholder="Введите email">-->
+<!--    </div>-->
+<!--{{/each}}-->
+<!--    <div class="form-group">-->
+<!--        <label for="name">Год</label>-->
+<!--        <select name="year_id">-->
+<!--            {{#each years}}-->
+<!--                <option value="{{this.id}}" id="year_id">{{this.year_name}}</option>-->
+<!--            {{/each}}-->
+<!--        </select>-->
+<!--    </div>-->
+<!--    <div class="form-group">-->
+<!--        <label for="name">Роль</label>-->
+<!--        <select name="role_id">-->
+<!--            {{#each roles}}-->
+<!--                <option value="{{this.id}}" id="role_id">{{this.role_name}}</option>-->
+<!--            {{/each}}-->
+<!--        </select>-->
+<!--    </div>-->
+<!--    <a class="btn btn-danger btn-sm" href="/users">Назад</a>-->
+<!--    <button type="submit" class="btn btn-primary btn-sm">Редактировать</button>-->
+<!--</form>-->
+
+
+<link rel='stylesheet' href='/stylesheets/form.css'/>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+
+<div class="main-block">
+    <div class="left-part">
+        <i class="fas fa-envelope"></i>
+        <i class="fas fa-at"></i>
+        <i class="fas fa-mail-bulk"></i>
     </div>
-    <div class="form-group">
-        <label for="name">Email</label>
-        <input type="text" value="{{ this.email }}" name="email" class="form-control" id="email" placeholder="Введите email">
-    </div>
-{{/each}}
-    <div class="form-group">
+    {{# each users}}
+    <form  class="form" action="/users/{{this.id}}?_method=PUT" method="post">
+        <h1>{{title}}</h1>
+        <div class="info">
+            <label for="name">ФИО</label>
+            <input type="text" value="{{ this.user_fio }}"  name="user_fio" class="form-control" id="user_fio" placeholder="Введите ФИО">
+        </div>
+        <div class="info">
+            <label for="name">Пароль</label>
+            <input type="text" value="{{ this.password }}" name="password" class="form-control" id="password" placeholder="Введите пароль">
+        </div>
+
+        <div class="info">
+            <label for="name">Email</label>
+            <input type="text" value="{{ this.email }}" name="email" class="form-control" id="email" placeholder="Введите email">
+        </div>
+    {{/each}}
+    <div class="info">
         <label for="name">Год</label>
         <select name="year_id">
             {{#each years}}
@@ -23,7 +71,7 @@
             {{/each}}
         </select>
     </div>
-    <div class="form-group">
+    <div class="info">
         <label for="name">Роль</label>
         <select name="role_id">
             {{#each roles}}
@@ -31,6 +79,9 @@
             {{/each}}
         </select>
     </div>
+
+
+    <button type="submit" >Редактировать</button>
     <a class="btn btn-danger btn-sm" href="/users">Назад</a>
-    <button type="submit" class="btn btn-primary btn-sm">Редактировать</button>
 </form>
+</div>

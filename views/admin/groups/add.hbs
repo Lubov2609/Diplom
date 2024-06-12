@@ -1,18 +1,33 @@
-<h1>{{title}}</h1>
 
-<form  class="form" action="/groups" method="post">
-    <div class="form-group">
-        <label for="name">Группа</label>
-        <input type="text"  name="group_name" class="form-control" id="group_name" placeholder="Введите группу">
+
+<link rel='stylesheet' href='/stylesheets/form.css'/>
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+
+
+<div class="main-block">
+    <div class="left-part">
+        <i class="fas fa-envelope"></i>
+        <i class="fas fa-at"></i>
+        <i class="fas fa-mail-bulk"></i>
     </div>
-    <div class="form-group">
+    <form  class="form" action="/groups" method="post">
+        <h1>{{title}}</h1>
+        <div class="info">
+            <label for="name">Группа</label>
+            <input type="text"  name="group_name" class="form-control" id="group_name" placeholder="Введите группу">
+        </div>
+        <div class="info">
         <label for="name">Год</label>
-        <select name="year_id">
-            {{#each years}}
-                <option value="{{this.id}}">{{this.year_name}}</option>
-            {{/each}}
-        </select>
-    </div>
-    <a class="btn btn-danger btn-sm" href="/groups">Назад</a>
-    <button type="submit" class="btn btn-primary btn-sm">Добавить</button>
-</form>
+            <select name="year_id">
+                {{#each years}}
+                    <option value="{{this.id}}">{{this.year_name}}</option>
+                {{/each}}
+            </select>
+        </div>
+        <button type="submit" >Добавить</button>
+        <a  href="/groups"><p>Назад</p></a>
+    </form>
+
+</div>

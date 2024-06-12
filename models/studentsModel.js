@@ -11,7 +11,7 @@ module.exports = studentsModel = {
     },
     studentAll: async () => {
         const students = await knex
-            .select("students.id", "students.student_fio", "students.student_gpa", "groups.group_name")
+            .select("students.id", "students.student_fio", "students.student_otz","students.student_gpa", "groups.group_name")
             .from("students")
             .join("groups","students.group_id","groups.id");
         return students;

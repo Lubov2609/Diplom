@@ -17,9 +17,12 @@ exports.seed = async function(knex) {
 
     await knex('users').del()
     await knex('users').insert([
-        {id: 1,year_id :2,role_id :2, user_fio: 'Цымбалюк Лариса Николаевна',  password: '1234xa', email: 'q1213@novsu.ru'},
-        {id: 2,year_id :1,role_id :1, user_fio: 'Максимов Виктор Андреевич', password: '1343qa', email: 'q1343@novsu.ru'},
-        {id: 3,year_id :4,role_id :2, user_fio: 'Макаров Николай Антонович', password: '1364da', email: 'q1364@novsu.ru'},
+        {id: 1,year_id :5,role_id :2, user_fio: 'Цымбалюк Лариса Николаевна',  password: '1234xa', email: 'q8723@novsu.ru'},
+        {id: 2,year_id :5,role_id :1, user_fio: 'Спириков Алексей Анатольевич', password: '1343qa', email: 'q1143@novsu.ru'},
+        {id: 3,year_id :5,role_id :2, user_fio: 'Макаров Владимир Алексеевич', password: '1364da', email: 'q67564@novsu.ru'},
+        {id: 4,year_id :5,role_id :2, user_fio: 'Федоров Андрей Вадимович', password: '1364da', email: 'q2364@novsu.ru'},
+        {id: 5,year_id :5,role_id :2, user_fio: 'Гавриков Анатолий Леонидович', password: '1364da', email: 'q1321@novsu.ru'},
+
     ]);
 
     await knex('groups').del()
@@ -33,16 +36,16 @@ exports.seed = async function(knex) {
 
     await knex('students').del()
     await knex('students').insert([
-        {id:1, group_id :1, student_fio: 'Cкладник Любовь Сергеевна', student_gpa: '4.5'},
-        {id:2, group_id :1, student_fio: 'Соболева Дарья Романовна', student_gpa: '4.2'},
-        {id:3, group_id :1, student_fio: 'Нечаев Михаил Сергеевич', student_gpa: '4.0'},
-        {id:4, group_id :1, student_fio: 'Васильев Даниил Сергеевич', student_gpa: '4.5'},
-        {id:5, group_id :1, student_fio: 'Курилов Роман Анатольевич', student_gpa: '4.2'},
-        {id:6, group_id :1, student_fio: 'Радаев Кирилл Владимирович', student_gpa: '4.0'},
-        {id:7, group_id :1, student_fio: 'Шапкина Алена Валерьевна', student_gpa: '4.5'},
-        {id:8, group_id :1, student_fio: 'Шиков Кирилл Викторович', student_gpa: '4.2'},
-        {id:9, group_id :1, student_fio: 'Васильев Дмитрий Александрович', student_gpa: '4.0'},
-        {id:10, group_id :1, student_fio: 'Кунец Никита Александрович', student_gpa: '4.0'}
+        {id:1, group_id :1, student_fio: 'Cкладник Любовь Сергеевна', student_gpa: '4.5',student_otz:'4.0'},
+        {id:2, group_id :1, student_fio: 'Соболева Дарья Романовна', student_gpa: '4.2',student_otz:'4.2'},
+        {id:3, group_id :1, student_fio: 'Нечаев Михаил Сергеевич', student_gpa: '4.0',student_otz:'4.5'},
+        {id:4, group_id :1, student_fio: 'Васильев Даниил Сергеевич', student_gpa: '4.5',student_otz:'4.7'},
+        {id:5, group_id :1, student_fio: 'Курилов Роман Анатольевич', student_gpa: '4.2',student_otz:'4.1'},
+        {id:6, group_id :1, student_fio: 'Радаев Кирилл Владимирович', student_gpa: '4.0',student_otz:'3.9'},
+        {id:7, group_id :1, student_fio: 'Шапкина Алена Валерьевна', student_gpa: '4.5',student_otz:'3.9'},
+        {id:8, group_id :1, student_fio: 'Шиков Кирилл Викторович', student_gpa: '4.2',student_otz:'4.5'},
+        {id:9, group_id :1, student_fio: 'Васильев Дмитрий Александрович', student_gpa: '4.0',student_otz:'5.0'},
+        {id:10, group_id :1, student_fio: 'Кунец Никита Александрович', student_gpa: '4.0',student_otz:'4.2'}
 
 
     ]);

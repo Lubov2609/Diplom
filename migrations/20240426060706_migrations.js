@@ -31,7 +31,9 @@ exports.up = function(knex) {
         .createTable("students", table => {
             table.increments("id").primary();
             table.string("student_fio",150).notNullable();
-            table.decimal("student_gpa",).notNullable();
+            table.decimal("student_gpa",2,1);
+            table.decimal("student_otz",2,1);
+
             table.timestamps(true, true);
             table.integer("group_id").references('id').inTable('groups').onDelete("CASCADE");
         })
